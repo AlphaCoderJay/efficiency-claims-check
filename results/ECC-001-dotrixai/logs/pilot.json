@@ -1,0 +1,105 @@
+{
+ "utc": "2026-10-17T09:25:20Z",
+ "runs": [
+  {
+   "name": "baseline",
+   "status": "done",
+   "params": 726336,
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "flops_per_update": 6492782592,
+   "train_cpu_s": 22.016,
+   "points": [
+    {
+     "update": 10,
+     "cpu_s": 5.469,
+     "flops": 64927825920,
+     "bits_per_token": 10.03086
+    },
+    {
+     "update": 20,
+     "cpu_s": 10.938,
+     "flops": 129855651840,
+     "bits_per_token": 9.2201
+    },
+    {
+     "update": 30,
+     "cpu_s": 16.359,
+     "flops": 194783477760,
+     "bits_per_token": 9.16112
+    },
+    {
+     "update": 40,
+     "cpu_s": 22.016,
+     "flops": 259711303680,
+     "bits_per_token": 9.1354
+    }
+   ],
+   "wall_s": 28.3
+  },
+  {
+   "name": "ngpt",
+   "status": "done",
+   "params": 729224,
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "flops_per_update": 6492782592,
+   "train_cpu_s": 28.359,
+   "points": [
+    {
+     "update": 10,
+     "cpu_s": 7.297,
+     "flops": 64927825920,
+     "bits_per_token": 10.8427
+    },
+    {
+     "update": 20,
+     "cpu_s": 14.156,
+     "flops": 129855651840,
+     "bits_per_token": 10.59102
+    },
+    {
+     "update": 30,
+     "cpu_s": 21.266,
+     "flops": 194783477760,
+     "bits_per_token": 10.39924
+    },
+    {
+     "update": 40,
+     "cpu_s": 28.359,
+     "flops": 259711303680,
+     "bits_per_token": 10.31533
+    }
+   ],
+   "wall_s": 32.1
+  }
+ ]
+}
