@@ -41,7 +41,7 @@ We maintain the list and review submissions. Credit for every check goes to the 
 
 ## Status
 
-Draft. The claim list is a first reading of the literature and will have errors. Corrections are welcome as issues.
+Early. The claim list is a first reading of the literature and will have errors. Corrections are welcome as issues. The first check, run by DotrixAI in public, is being prepared.
 
 ## License
 
