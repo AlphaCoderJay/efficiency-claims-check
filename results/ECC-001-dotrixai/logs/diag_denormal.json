@@ -1,0 +1,268 @@
+{
+ "utc": "2026-10-17T11:32:08Z",
+ "note": "diagnostic only; not part of the frozen ECC-001 protocol",
+ "runs": [
+  {
+   "name": "ngpt",
+   "lr": 0.016,
+   "blocks": [
+    {
+     "to": 20,
+     "cpu_s": 3.47,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 40,
+     "cpu_s": 3.11,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 60,
+     "cpu_s": 3.23,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": true
+    },
+    {
+     "to": 80,
+     "cpu_s": 3.38,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    }
+   ]
+  },
+  {
+   "name": "baseline",
+   "lr": 0.016,
+   "blocks": [
+    {
+     "to": 50,
+     "cpu_s": 6.02,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 100,
+     "cpu_s": 7.14,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 150,
+     "cpu_s": 10.67,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 200,
+     "cpu_s": 11.39,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 250,
+     "cpu_s": 10.84,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 300,
+     "cpu_s": 10.64,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 350,
+     "cpu_s": 10.61,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 400,
+     "cpu_s": 10.5,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 450,
+     "cpu_s": 11.17,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 500,
+     "cpu_s": 10.86,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 550,
+     "cpu_s": 10.92,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 600,
+     "cpu_s": 10.94,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 650,
+     "cpu_s": 11.23,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 700,
+     "cpu_s": 11.39,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": false
+    },
+    {
+     "to": 750,
+     "cpu_s": 11.28,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 5
+     },
+     "flush": false
+    },
+    {
+     "to": 800,
+     "cpu_s": 11.52,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 96
+     },
+     "flush": false
+    },
+    {
+     "to": 850,
+     "cpu_s": 11.36,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 219
+     },
+     "flush": false
+    },
+    {
+     "to": 900,
+     "cpu_s": 11.27,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 426
+     },
+     "flush": false
+    },
+    {
+     "to": 950,
+     "cpu_s": 11.53,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 576
+     },
+     "flush": false
+    },
+    {
+     "to": 1000,
+     "cpu_s": 6.5,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 0
+     },
+     "flush": true
+    },
+    {
+     "to": 1050,
+     "cpu_s": 11.53,
+     "subnormal": {
+      "params": 0,
+      "grads": 0,
+      "state": 119
+     },
+     "flush": false
+    }
+   ]
+  }
+ ]
+}

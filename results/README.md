@@ -4,4 +4,4 @@ One folder per check, named `C07-<handle>` for contributed checks, holding `PRER
 
 | check | claim | by | status |
 |---|---|---|---|
-| [ECC-001](ECC-001-dotrixai/) | C12 nGPT, 4x to 20x fewer training steps | DotrixAI | pre-registered 2026-10-17, runs pending |
+| [ECC-001](ECC-001-dotrixai/) | C12 nGPT, 4x to 20x fewer training steps | DotrixAI | **PARTIAL** at 0.73M params, laptop CPU: 1.47x fewer steps against the claimed 4x to 20x (2026-10-17) |

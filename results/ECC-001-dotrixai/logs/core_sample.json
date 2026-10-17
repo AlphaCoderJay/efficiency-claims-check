@@ -1,0 +1,2 @@
+{"utc": "2026-10-17T12:54Z", "note": "psutil.cpu_percent(interval=2, percpu=True), three samples during final run baseline seed 22 or ngpt seed 22; i5-13420H: logical CPUs 0-7 = 4 performance cores x 2 threads, 8-11 = 4 efficiency cores; runner pid 27024, priority NORMAL (32), affinity all 12, 14 threads",
+ "samples": [[6, 2, 2, 16, 8, 2, 6, 2, 40, 20, 12, 70], [5, 2, 1, 13, 9, 2, 12, 1, 54, 26, 12, 62], [8, 0, 9, 12, 4, 0, 2, 0, 74, 58, 43, 14]]}

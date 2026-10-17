@@ -1,0 +1,1875 @@
+{
+ "runs": [
+  {
+   "submission": "baseline.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 726336,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.002,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 6.016,
+     "flops": 324639129600,
+     "bits_per_token": 9.2247
+    },
+    {
+     "update": 100,
+     "cpu_s": 12.172,
+     "flops": 649278259200,
+     "bits_per_token": 9.1806
+    },
+    {
+     "update": 150,
+     "cpu_s": 18.328,
+     "flops": 973917388800,
+     "bits_per_token": 8.5066
+    },
+    {
+     "update": 200,
+     "cpu_s": 24.438,
+     "flops": 1298556518400,
+     "bits_per_token": 7.97266
+    },
+    {
+     "update": 250,
+     "cpu_s": 30.875,
+     "flops": 1623195648000,
+     "bits_per_token": 7.65251
+    },
+    {
+     "update": 300,
+     "cpu_s": 37.125,
+     "flops": 1947834777600,
+     "bits_per_token": 7.37163
+    },
+    {
+     "update": 350,
+     "cpu_s": 43.641,
+     "flops": 2272473907200,
+     "bits_per_token": 7.12608
+    },
+    {
+     "update": 400,
+     "cpu_s": 50.234,
+     "flops": 2597113036800,
+     "bits_per_token": 6.94646
+    },
+    {
+     "update": 450,
+     "cpu_s": 57.047,
+     "flops": 2921752166400,
+     "bits_per_token": 6.79006
+    },
+    {
+     "update": 500,
+     "cpu_s": 63.703,
+     "flops": 3246391296000,
+     "bits_per_token": 6.6899
+    },
+    {
+     "update": 550,
+     "cpu_s": 70.344,
+     "flops": 3571030425600,
+     "bits_per_token": 6.58208
+    },
+    {
+     "update": 600,
+     "cpu_s": 77.156,
+     "flops": 3895669555200,
+     "bits_per_token": 6.50175
+    },
+    {
+     "update": 650,
+     "cpu_s": 83.953,
+     "flops": 4220308684800,
+     "bits_per_token": 6.43837
+    },
+    {
+     "update": 700,
+     "cpu_s": 90.281,
+     "flops": 4544947814400,
+     "bits_per_token": 6.37189
+    },
+    {
+     "update": 750,
+     "cpu_s": 97.031,
+     "flops": 4869586944000,
+     "bits_per_token": 6.31885
+    },
+    {
+     "update": 800,
+     "cpu_s": 104.141,
+     "flops": 5194226073600,
+     "bits_per_token": 6.27926
+    },
+    {
+     "update": 850,
+     "cpu_s": 110.891,
+     "flops": 5518865203200,
+     "bits_per_token": 6.2304
+    },
+    {
+     "update": 900,
+     "cpu_s": 117.906,
+     "flops": 5843504332800,
+     "bits_per_token": 6.20325
+    },
+    {
+     "update": 950,
+     "cpu_s": 124.562,
+     "flops": 6168143462400,
+     "bits_per_token": 6.16818
+    },
+    {
+     "update": 1000,
+     "cpu_s": 131.328,
+     "flops": 6492782592000,
+     "bits_per_token": 6.14742
+    },
+    {
+     "update": 1050,
+     "cpu_s": 138.297,
+     "flops": 6817421721600,
+     "bits_per_token": 6.12054
+    },
+    {
+     "update": 1100,
+     "cpu_s": 145.125,
+     "flops": 7142060851200,
+     "bits_per_token": 6.1051
+    },
+    {
+     "update": 1150,
+     "cpu_s": 151.844,
+     "flops": 7466699980800,
+     "bits_per_token": 6.08993
+    },
+    {
+     "update": 1200,
+     "cpu_s": 158.5,
+     "flops": 7791339110400,
+     "bits_per_token": 6.07759
+    }
+   ],
+   "train_cpu_s": 158.5,
+   "total_cpu_s": 158.5,
+   "name": "baseline",
+   "lr": 0.002,
+   "seed": 11,
+   "wall_s": 105.8
+  },
+  {
+   "submission": "baseline.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 726336,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 6.719,
+     "flops": 324639129600,
+     "bits_per_token": 9.23666
+    },
+    {
+     "update": 100,
+     "cpu_s": 13.266,
+     "flops": 649278259200,
+     "bits_per_token": 8.97732
+    },
+    {
+     "update": 150,
+     "cpu_s": 19.969,
+     "flops": 973917388800,
+     "bits_per_token": 8.22868
+    },
+    {
+     "update": 200,
+     "cpu_s": 26.672,
+     "flops": 1298556518400,
+     "bits_per_token": 7.87095
+    },
+    {
+     "update": 250,
+     "cpu_s": 33.328,
+     "flops": 1623195648000,
+     "bits_per_token": 7.60566
+    },
+    {
+     "update": 300,
+     "cpu_s": 40.25,
+     "flops": 1947834777600,
+     "bits_per_token": 7.38484
+    },
+    {
+     "update": 350,
+     "cpu_s": 47.016,
+     "flops": 2272473907200,
+     "bits_per_token": 7.19787
+    },
+    {
+     "update": 400,
+     "cpu_s": 54.062,
+     "flops": 2597113036800,
+     "bits_per_token": 7.05094
+    },
+    {
+     "update": 450,
+     "cpu_s": 61.141,
+     "flops": 2921752166400,
+     "bits_per_token": 6.92387
+    },
+    {
+     "update": 500,
+     "cpu_s": 68.125,
+     "flops": 3246391296000,
+     "bits_per_token": 6.81479
+    },
+    {
+     "update": 550,
+     "cpu_s": 74.672,
+     "flops": 3571030425600,
+     "bits_per_token": 6.70257
+    },
+    {
+     "update": 600,
+     "cpu_s": 81.281,
+     "flops": 3895669555200,
+     "bits_per_token": 6.63244
+    },
+    {
+     "update": 650,
+     "cpu_s": 87.984,
+     "flops": 4220308684800,
+     "bits_per_token": 6.54925
+    },
+    {
+     "update": 700,
+     "cpu_s": 94.797,
+     "flops": 4544947814400,
+     "bits_per_token": 6.48598
+    },
+    {
+     "update": 750,
+     "cpu_s": 101.516,
+     "flops": 4869586944000,
+     "bits_per_token": 6.41794
+    },
+    {
+     "update": 800,
+     "cpu_s": 108.406,
+     "flops": 5194226073600,
+     "bits_per_token": 6.39025
+    },
+    {
+     "update": 850,
+     "cpu_s": 115.297,
+     "flops": 5518865203200,
+     "bits_per_token": 6.32573
+    },
+    {
+     "update": 900,
+     "cpu_s": 122.312,
+     "flops": 5843504332800,
+     "bits_per_token": 6.28489
+    },
+    {
+     "update": 950,
+     "cpu_s": 129.297,
+     "flops": 6168143462400,
+     "bits_per_token": 6.24729
+    },
+    {
+     "update": 1000,
+     "cpu_s": 136.109,
+     "flops": 6492782592000,
+     "bits_per_token": 6.21829
+    },
+    {
+     "update": 1050,
+     "cpu_s": 143.062,
+     "flops": 6817421721600,
+     "bits_per_token": 6.19291
+    },
+    {
+     "update": 1100,
+     "cpu_s": 150.203,
+     "flops": 7142060851200,
+     "bits_per_token": 6.17755
+    },
+    {
+     "update": 1150,
+     "cpu_s": 157.188,
+     "flops": 7466699980800,
+     "bits_per_token": 6.157
+    },
+    {
+     "update": 1200,
+     "cpu_s": 164.297,
+     "flops": 7791339110400,
+     "bits_per_token": 6.14774
+    }
+   ],
+   "train_cpu_s": 164.297,
+   "total_cpu_s": 164.297,
+   "name": "baseline",
+   "lr": 0.004,
+   "seed": 11,
+   "wall_s": 106.0
+  },
+  {
+   "submission": "baseline.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 726336,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.008,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 7.031,
+     "flops": 324639129600,
+     "bits_per_token": 9.25679
+    },
+    {
+     "update": 100,
+     "cpu_s": 14.219,
+     "flops": 649278259200,
+     "bits_per_token": 8.9965
+    },
+    {
+     "update": 150,
+     "cpu_s": 21.906,
+     "flops": 973917388800,
+     "bits_per_token": 8.53834
+    },
+    {
+     "update": 200,
+     "cpu_s": 29.953,
+     "flops": 1298556518400,
+     "bits_per_token": 8.03475
+    },
+    {
+     "update": 250,
+     "cpu_s": 37.734,
+     "flops": 1623195648000,
+     "bits_per_token": 7.79666
+    },
+    {
+     "update": 300,
+     "cpu_s": 45.547,
+     "flops": 1947834777600,
+     "bits_per_token": 7.61519
+    },
+    {
+     "update": 350,
+     "cpu_s": 54.172,
+     "flops": 2272473907200,
+     "bits_per_token": 7.48267
+    },
+    {
+     "update": 400,
+     "cpu_s": 62.438,
+     "flops": 2597113036800,
+     "bits_per_token": 7.3708
+    },
+    {
+     "update": 450,
+     "cpu_s": 71.281,
+     "flops": 2921752166400,
+     "bits_per_token": 7.23983
+    },
+    {
+     "update": 500,
+     "cpu_s": 79.656,
+     "flops": 3246391296000,
+     "bits_per_token": 7.13954
+    },
+    {
+     "update": 550,
+     "cpu_s": 87.75,
+     "flops": 3571030425600,
+     "bits_per_token": 7.02817
+    },
+    {
+     "update": 600,
+     "cpu_s": 95.625,
+     "flops": 3895669555200,
+     "bits_per_token": 6.93319
+    },
+    {
+     "update": 650,
+     "cpu_s": 103.219,
+     "flops": 4220308684800,
+     "bits_per_token": 6.8677
+    },
+    {
+     "update": 700,
+     "cpu_s": 110.906,
+     "flops": 4544947814400,
+     "bits_per_token": 6.78672
+    },
+    {
+     "update": 750,
+     "cpu_s": 118.562,
+     "flops": 4869586944000,
+     "bits_per_token": 6.73378
+    },
+    {
+     "update": 800,
+     "cpu_s": 126.594,
+     "flops": 5194226073600,
+     "bits_per_token": 6.66592
+    },
+    {
+     "update": 850,
+     "cpu_s": 134.391,
+     "flops": 5518865203200,
+     "bits_per_token": 6.61086
+    },
+    {
+     "update": 900,
+     "cpu_s": 141.641,
+     "flops": 5843504332800,
+     "bits_per_token": 6.55624
+    },
+    {
+     "update": 950,
+     "cpu_s": 149.031,
+     "flops": 6168143462400,
+     "bits_per_token": 6.51738
+    },
+    {
+     "update": 1000,
+     "cpu_s": 156.516,
+     "flops": 6492782592000,
+     "bits_per_token": 6.48997
+    },
+    {
+     "update": 1050,
+     "cpu_s": 163.969,
+     "flops": 6817421721600,
+     "bits_per_token": 6.46565
+    },
+    {
+     "update": 1100,
+     "cpu_s": 171.312,
+     "flops": 7142060851200,
+     "bits_per_token": 6.43391
+    },
+    {
+     "update": 1150,
+     "cpu_s": 178.891,
+     "flops": 7466699980800,
+     "bits_per_token": 6.4136
+    },
+    {
+     "update": 1200,
+     "cpu_s": 186.016,
+     "flops": 7791339110400,
+     "bits_per_token": 6.39804
+    }
+   ],
+   "train_cpu_s": 186.016,
+   "total_cpu_s": 186.016,
+   "name": "baseline",
+   "lr": 0.008,
+   "seed": 11,
+   "wall_s": 119.5
+  },
+  {
+   "submission": "baseline.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 726336,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.016,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 7.203,
+     "flops": 324639129600,
+     "bits_per_token": 9.23827
+    },
+    {
+     "update": 100,
+     "cpu_s": 15.266,
+     "flops": 649278259200,
+     "bits_per_token": 8.88438
+    },
+    {
+     "update": 150,
+     "cpu_s": 26.516,
+     "flops": 973917388800,
+     "bits_per_token": 8.444
+    },
+    {
+     "update": 200,
+     "cpu_s": 38.609,
+     "flops": 1298556518400,
+     "bits_per_token": 8.1227
+    },
+    {
+     "update": 250,
+     "cpu_s": 49.703,
+     "flops": 1623195648000,
+     "bits_per_token": 7.92879
+    },
+    {
+     "update": 300,
+     "cpu_s": 61.031,
+     "flops": 1947834777600,
+     "bits_per_token": 7.77158
+    },
+    {
+     "update": 350,
+     "cpu_s": 72.203,
+     "flops": 2272473907200,
+     "bits_per_token": 7.6597
+    },
+    {
+     "update": 400,
+     "cpu_s": 83.625,
+     "flops": 2597113036800,
+     "bits_per_token": 7.54444
+    },
+    {
+     "update": 450,
+     "cpu_s": 94.828,
+     "flops": 2921752166400,
+     "bits_per_token": 7.37247
+    },
+    {
+     "update": 500,
+     "cpu_s": 106.047,
+     "flops": 3246391296000,
+     "bits_per_token": 7.27136
+    },
+    {
+     "update": 550,
+     "cpu_s": 117.031,
+     "flops": 3571030425600,
+     "bits_per_token": 7.14734
+    },
+    {
+     "update": 600,
+     "cpu_s": 128.453,
+     "flops": 3895669555200,
+     "bits_per_token": 7.05867
+    },
+    {
+     "update": 650,
+     "cpu_s": 140.062,
+     "flops": 4220308684800,
+     "bits_per_token": 7.00079
+    },
+    {
+     "update": 700,
+     "cpu_s": 151.656,
+     "flops": 4544947814400,
+     "bits_per_token": 6.9293
+    },
+    {
+     "update": 750,
+     "cpu_s": 163.344,
+     "flops": 4869586944000,
+     "bits_per_token": 6.84339
+    },
+    {
+     "update": 800,
+     "cpu_s": 175.141,
+     "flops": 5194226073600,
+     "bits_per_token": 6.79739
+    },
+    {
+     "update": 850,
+     "cpu_s": 189.938,
+     "flops": 5518865203200,
+     "bits_per_token": 6.71398
+    },
+    {
+     "update": 900,
+     "cpu_s": 240.188,
+     "flops": 5843504332800,
+     "bits_per_token": 6.66279
+    },
+    {
+     "update": 950,
+     "cpu_s": 374.094,
+     "flops": 6168143462400,
+     "bits_per_token": 6.62703
+    },
+    {
+     "update": 1000,
+     "cpu_s": 492.25,
+     "flops": 6492782592000,
+     "bits_per_token": 6.58181
+    },
+    {
+     "update": 1050,
+     "cpu_s": 595.0,
+     "flops": 6817421721600,
+     "bits_per_token": 6.54074
+    },
+    {
+     "update": 1100,
+     "cpu_s": 699.625,
+     "flops": 7142060851200,
+     "bits_per_token": 6.51435
+    },
+    {
+     "update": 1150,
+     "cpu_s": 804.141,
+     "flops": 7466699980800,
+     "bits_per_token": 6.48999
+    },
+    {
+     "update": 1200,
+     "cpu_s": 907.484,
+     "flops": 7791339110400,
+     "bits_per_token": 6.46704
+    }
+   ],
+   "train_cpu_s": 907.484,
+   "total_cpu_s": 907.484,
+   "name": "baseline",
+   "lr": 0.016,
+   "seed": 11,
+   "wall_s": 587.9
+  },
+  {
+   "submission": "ngpt.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 729224,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.002,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 34.656,
+     "flops": 324639129600,
+     "bits_per_token": 10.12805
+    },
+    {
+     "update": 100,
+     "cpu_s": 69.172,
+     "flops": 649278259200,
+     "bits_per_token": 9.04998
+    },
+    {
+     "update": 150,
+     "cpu_s": 103.812,
+     "flops": 973917388800,
+     "bits_per_token": 8.52425
+    },
+    {
+     "update": 200,
+     "cpu_s": 138.859,
+     "flops": 1298556518400,
+     "bits_per_token": 8.15274
+    },
+    {
+     "update": 250,
+     "cpu_s": 173.141,
+     "flops": 1623195648000,
+     "bits_per_token": 7.87722
+    },
+    {
+     "update": 300,
+     "cpu_s": 207.781,
+     "flops": 1947834777600,
+     "bits_per_token": 7.64943
+    },
+    {
+     "update": 350,
+     "cpu_s": 242.375,
+     "flops": 2272473907200,
+     "bits_per_token": 7.4536
+    },
+    {
+     "update": 400,
+     "cpu_s": 277.203,
+     "flops": 2597113036800,
+     "bits_per_token": 7.30995
+    },
+    {
+     "update": 450,
+     "cpu_s": 312.109,
+     "flops": 2921752166400,
+     "bits_per_token": 7.18505
+    },
+    {
+     "update": 500,
+     "cpu_s": 347.844,
+     "flops": 3246391296000,
+     "bits_per_token": 7.08457
+    },
+    {
+     "update": 550,
+     "cpu_s": 382.781,
+     "flops": 3571030425600,
+     "bits_per_token": 7.00337
+    },
+    {
+     "update": 600,
+     "cpu_s": 416.672,
+     "flops": 3895669555200,
+     "bits_per_token": 6.92169
+    },
+    {
+     "update": 650,
+     "cpu_s": 451.812,
+     "flops": 4220308684800,
+     "bits_per_token": 6.86341
+    },
+    {
+     "update": 700,
+     "cpu_s": 486.609,
+     "flops": 4544947814400,
+     "bits_per_token": 6.8119
+    },
+    {
+     "update": 750,
+     "cpu_s": 521.984,
+     "flops": 4869586944000,
+     "bits_per_token": 6.75763
+    },
+    {
+     "update": 800,
+     "cpu_s": 556.688,
+     "flops": 5194226073600,
+     "bits_per_token": 6.72106
+    },
+    {
+     "update": 850,
+     "cpu_s": 591.875,
+     "flops": 5518865203200,
+     "bits_per_token": 6.67572
+    },
+    {
+     "update": 900,
+     "cpu_s": 627.391,
+     "flops": 5843504332800,
+     "bits_per_token": 6.64871
+    },
+    {
+     "update": 950,
+     "cpu_s": 662.469,
+     "flops": 6168143462400,
+     "bits_per_token": 6.62311
+    },
+    {
+     "update": 1000,
+     "cpu_s": 697.188,
+     "flops": 6492782592000,
+     "bits_per_token": 6.60562
+    },
+    {
+     "update": 1050,
+     "cpu_s": 732.078,
+     "flops": 6817421721600,
+     "bits_per_token": 6.59154
+    },
+    {
+     "update": 1100,
+     "cpu_s": 768.078,
+     "flops": 7142060851200,
+     "bits_per_token": 6.57436
+    },
+    {
+     "update": 1150,
+     "cpu_s": 803.109,
+     "flops": 7466699980800,
+     "bits_per_token": 6.56306
+    },
+    {
+     "update": 1200,
+     "cpu_s": 838.0,
+     "flops": 7791339110400,
+     "bits_per_token": 6.55404
+    }
+   ],
+   "train_cpu_s": 838.0,
+   "total_cpu_s": 838.0,
+   "name": "ngpt",
+   "lr": 0.002,
+   "seed": 11,
+   "wall_s": 706.3
+  },
+  {
+   "submission": "ngpt.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 729224,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 35.031,
+     "flops": 324639129600,
+     "bits_per_token": 9.13653
+    },
+    {
+     "update": 100,
+     "cpu_s": 69.859,
+     "flops": 649278259200,
+     "bits_per_token": 8.21726
+    },
+    {
+     "update": 150,
+     "cpu_s": 104.953,
+     "flops": 973917388800,
+     "bits_per_token": 7.71329
+    },
+    {
+     "update": 200,
+     "cpu_s": 139.25,
+     "flops": 1298556518400,
+     "bits_per_token": 7.3982
+    },
+    {
+     "update": 250,
+     "cpu_s": 174.812,
+     "flops": 1623195648000,
+     "bits_per_token": 7.15399
+    },
+    {
+     "update": 300,
+     "cpu_s": 209.969,
+     "flops": 1947834777600,
+     "bits_per_token": 6.97851
+    },
+    {
+     "update": 350,
+     "cpu_s": 244.766,
+     "flops": 2272473907200,
+     "bits_per_token": 6.83316
+    },
+    {
+     "update": 400,
+     "cpu_s": 279.828,
+     "flops": 2597113036800,
+     "bits_per_token": 6.73097
+    },
+    {
+     "update": 450,
+     "cpu_s": 315.078,
+     "flops": 2921752166400,
+     "bits_per_token": 6.63694
+    },
+    {
+     "update": 500,
+     "cpu_s": 349.75,
+     "flops": 3246391296000,
+     "bits_per_token": 6.569
+    },
+    {
+     "update": 550,
+     "cpu_s": 384.812,
+     "flops": 3571030425600,
+     "bits_per_token": 6.49767
+    },
+    {
+     "update": 600,
+     "cpu_s": 419.531,
+     "flops": 3895669555200,
+     "bits_per_token": 6.42801
+    },
+    {
+     "update": 650,
+     "cpu_s": 453.984,
+     "flops": 4220308684800,
+     "bits_per_token": 6.38729
+    },
+    {
+     "update": 700,
+     "cpu_s": 489.375,
+     "flops": 4544947814400,
+     "bits_per_token": 6.33858
+    },
+    {
+     "update": 750,
+     "cpu_s": 524.359,
+     "flops": 4869586944000,
+     "bits_per_token": 6.29656
+    },
+    {
+     "update": 800,
+     "cpu_s": 558.391,
+     "flops": 5194226073600,
+     "bits_per_token": 6.26823
+    },
+    {
+     "update": 850,
+     "cpu_s": 594.125,
+     "flops": 5518865203200,
+     "bits_per_token": 6.22024
+    },
+    {
+     "update": 900,
+     "cpu_s": 629.922,
+     "flops": 5843504332800,
+     "bits_per_token": 6.19653
+    },
+    {
+     "update": 950,
+     "cpu_s": 665.328,
+     "flops": 6168143462400,
+     "bits_per_token": 6.16775
+    },
+    {
+     "update": 1000,
+     "cpu_s": 700.422,
+     "flops": 6492782592000,
+     "bits_per_token": 6.15448
+    },
+    {
+     "update": 1050,
+     "cpu_s": 736.391,
+     "flops": 6817421721600,
+     "bits_per_token": 6.13761
+    },
+    {
+     "update": 1100,
+     "cpu_s": 773.125,
+     "flops": 7142060851200,
+     "bits_per_token": 6.11955
+    },
+    {
+     "update": 1150,
+     "cpu_s": 809.156,
+     "flops": 7466699980800,
+     "bits_per_token": 6.103
+    },
+    {
+     "update": 1200,
+     "cpu_s": 845.172,
+     "flops": 7791339110400,
+     "bits_per_token": 6.09339
+    }
+   ],
+   "train_cpu_s": 845.172,
+   "total_cpu_s": 845.172,
+   "name": "ngpt",
+   "lr": 0.004,
+   "seed": 11,
+   "wall_s": 702.4
+  },
+  {
+   "submission": "ngpt.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 729224,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.008,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 34.828,
+     "flops": 324639129600,
+     "bits_per_token": 8.36535
+    },
+    {
+     "update": 100,
+     "cpu_s": 70.547,
+     "flops": 649278259200,
+     "bits_per_token": 7.52641
+    },
+    {
+     "update": 150,
+     "cpu_s": 105.344,
+     "flops": 973917388800,
+     "bits_per_token": 7.13879
+    },
+    {
+     "update": 200,
+     "cpu_s": 139.234,
+     "flops": 1298556518400,
+     "bits_per_token": 6.9421
+    },
+    {
+     "update": 250,
+     "cpu_s": 173.641,
+     "flops": 1623195648000,
+     "bits_per_token": 6.77267
+    },
+    {
+     "update": 300,
+     "cpu_s": 208.531,
+     "flops": 1947834777600,
+     "bits_per_token": 6.66931
+    },
+    {
+     "update": 350,
+     "cpu_s": 243.922,
+     "flops": 2272473907200,
+     "bits_per_token": 6.56083
+    },
+    {
+     "update": 400,
+     "cpu_s": 278.781,
+     "flops": 2597113036800,
+     "bits_per_token": 6.49878
+    },
+    {
+     "update": 450,
+     "cpu_s": 313.469,
+     "flops": 2921752166400,
+     "bits_per_token": 6.42237
+    },
+    {
+     "update": 500,
+     "cpu_s": 348.812,
+     "flops": 3246391296000,
+     "bits_per_token": 6.37716
+    },
+    {
+     "update": 550,
+     "cpu_s": 383.672,
+     "flops": 3571030425600,
+     "bits_per_token": 6.28684
+    },
+    {
+     "update": 600,
+     "cpu_s": 418.312,
+     "flops": 3895669555200,
+     "bits_per_token": 6.23005
+    },
+    {
+     "update": 650,
+     "cpu_s": 452.906,
+     "flops": 4220308684800,
+     "bits_per_token": 6.18937
+    },
+    {
+     "update": 700,
+     "cpu_s": 488.016,
+     "flops": 4544947814400,
+     "bits_per_token": 6.1193
+    },
+    {
+     "update": 750,
+     "cpu_s": 522.594,
+     "flops": 4869586944000,
+     "bits_per_token": 6.06507
+    },
+    {
+     "update": 800,
+     "cpu_s": 557.906,
+     "flops": 5194226073600,
+     "bits_per_token": 6.03833
+    },
+    {
+     "update": 850,
+     "cpu_s": 591.328,
+     "flops": 5518865203200,
+     "bits_per_token": 5.96006
+    },
+    {
+     "update": 900,
+     "cpu_s": 625.906,
+     "flops": 5843504332800,
+     "bits_per_token": 5.93498
+    },
+    {
+     "update": 950,
+     "cpu_s": 661.156,
+     "flops": 6168143462400,
+     "bits_per_token": 5.89215
+    },
+    {
+     "update": 1000,
+     "cpu_s": 696.5,
+     "flops": 6492782592000,
+     "bits_per_token": 5.86254
+    },
+    {
+     "update": 1050,
+     "cpu_s": 731.125,
+     "flops": 6817421721600,
+     "bits_per_token": 5.83494
+    },
+    {
+     "update": 1100,
+     "cpu_s": 766.109,
+     "flops": 7142060851200,
+     "bits_per_token": 5.81717
+    },
+    {
+     "update": 1150,
+     "cpu_s": 801.703,
+     "flops": 7466699980800,
+     "bits_per_token": 5.78965
+    },
+    {
+     "update": 1200,
+     "cpu_s": 836.703,
+     "flops": 7791339110400,
+     "bits_per_token": 5.7876
+    }
+   ],
+   "train_cpu_s": 836.703,
+   "total_cpu_s": 836.703,
+   "name": "ngpt",
+   "lr": 0.008,
+   "seed": 11,
+   "wall_s": 703.5
+  },
+  {
+   "submission": "ngpt.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 729224,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.016,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 35.828,
+     "flops": 324639129600,
+     "bits_per_token": 7.72832
+    },
+    {
+     "update": 100,
+     "cpu_s": 70.156,
+     "flops": 649278259200,
+     "bits_per_token": 7.20517
+    },
+    {
+     "update": 150,
+     "cpu_s": 104.266,
+     "flops": 973917388800,
+     "bits_per_token": 7.00522
+    },
+    {
+     "update": 200,
+     "cpu_s": 138.875,
+     "flops": 1298556518400,
+     "bits_per_token": 6.93353
+    },
+    {
+     "update": 250,
+     "cpu_s": 173.453,
+     "flops": 1623195648000,
+     "bits_per_token": 6.83386
+    },
+    {
+     "update": 300,
+     "cpu_s": 209.109,
+     "flops": 1947834777600,
+     "bits_per_token": 6.7528
+    },
+    {
+     "update": 350,
+     "cpu_s": 244.656,
+     "flops": 2272473907200,
+     "bits_per_token": 6.6954
+    },
+    {
+     "update": 400,
+     "cpu_s": 279.25,
+     "flops": 2597113036800,
+     "bits_per_token": 6.65442
+    },
+    {
+     "update": 450,
+     "cpu_s": 313.703,
+     "flops": 2921752166400,
+     "bits_per_token": 6.59816
+    },
+    {
+     "update": 500,
+     "cpu_s": 347.188,
+     "flops": 3246391296000,
+     "bits_per_token": 6.54819
+    },
+    {
+     "update": 550,
+     "cpu_s": 382.297,
+     "flops": 3571030425600,
+     "bits_per_token": 6.44976
+    },
+    {
+     "update": 600,
+     "cpu_s": 418.016,
+     "flops": 3895669555200,
+     "bits_per_token": 6.40774
+    },
+    {
+     "update": 650,
+     "cpu_s": 452.922,
+     "flops": 4220308684800,
+     "bits_per_token": 6.31722
+    },
+    {
+     "update": 700,
+     "cpu_s": 488.188,
+     "flops": 4544947814400,
+     "bits_per_token": 6.25423
+    },
+    {
+     "update": 750,
+     "cpu_s": 522.469,
+     "flops": 4869586944000,
+     "bits_per_token": 6.18554
+    },
+    {
+     "update": 800,
+     "cpu_s": 557.328,
+     "flops": 5194226073600,
+     "bits_per_token": 6.1393
+    },
+    {
+     "update": 850,
+     "cpu_s": 592.297,
+     "flops": 5518865203200,
+     "bits_per_token": 6.05743
+    },
+    {
+     "update": 900,
+     "cpu_s": 626.625,
+     "flops": 5843504332800,
+     "bits_per_token": 5.98668
+    },
+    {
+     "update": 950,
+     "cpu_s": 662.609,
+     "flops": 6168143462400,
+     "bits_per_token": 5.94064
+    },
+    {
+     "update": 1000,
+     "cpu_s": 697.75,
+     "flops": 6492782592000,
+     "bits_per_token": 5.88752
+    },
+    {
+     "update": 1050,
+     "cpu_s": 732.266,
+     "flops": 6817421721600,
+     "bits_per_token": 5.83908
+    },
+    {
+     "update": 1100,
+     "cpu_s": 767.688,
+     "flops": 7142060851200,
+     "bits_per_token": 5.8104
+    },
+    {
+     "update": 1150,
+     "cpu_s": 802.719,
+     "flops": 7466699980800,
+     "bits_per_token": 5.77438
+    },
+    {
+     "update": 1200,
+     "cpu_s": 838.266,
+     "flops": 7791339110400,
+     "bits_per_token": 5.7669
+    }
+   ],
+   "train_cpu_s": 838.266,
+   "total_cpu_s": 838.266,
+   "name": "ngpt",
+   "lr": 0.016,
+   "seed": 11,
+   "wall_s": 697.3
+  },
+  {
+   "submission": "baseline.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 726336,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.001,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 25.281,
+     "flops": 324639129600,
+     "bits_per_token": 9.22327
+    },
+    {
+     "update": 100,
+     "cpu_s": 50.906,
+     "flops": 649278259200,
+     "bits_per_token": 9.19024
+    },
+    {
+     "update": 150,
+     "cpu_s": 77.031,
+     "flops": 973917388800,
+     "bits_per_token": 8.79627
+    },
+    {
+     "update": 200,
+     "cpu_s": 103.953,
+     "flops": 1298556518400,
+     "bits_per_token": 8.20971
+    },
+    {
+     "update": 250,
+     "cpu_s": 129.953,
+     "flops": 1623195648000,
+     "bits_per_token": 7.90419
+    },
+    {
+     "update": 300,
+     "cpu_s": 156.188,
+     "flops": 1947834777600,
+     "bits_per_token": 7.70673
+    },
+    {
+     "update": 350,
+     "cpu_s": 182.062,
+     "flops": 2272473907200,
+     "bits_per_token": 7.52273
+    },
+    {
+     "update": 400,
+     "cpu_s": 208.234,
+     "flops": 2597113036800,
+     "bits_per_token": 7.37008
+    },
+    {
+     "update": 450,
+     "cpu_s": 234.469,
+     "flops": 2921752166400,
+     "bits_per_token": 7.22959
+    },
+    {
+     "update": 500,
+     "cpu_s": 259.969,
+     "flops": 3246391296000,
+     "bits_per_token": 7.09549
+    },
+    {
+     "update": 550,
+     "cpu_s": 285.156,
+     "flops": 3571030425600,
+     "bits_per_token": 6.96068
+    },
+    {
+     "update": 600,
+     "cpu_s": 310.812,
+     "flops": 3895669555200,
+     "bits_per_token": 6.86453
+    },
+    {
+     "update": 650,
+     "cpu_s": 337.453,
+     "flops": 4220308684800,
+     "bits_per_token": 6.79562
+    },
+    {
+     "update": 700,
+     "cpu_s": 364.844,
+     "flops": 4544947814400,
+     "bits_per_token": 6.72378
+    },
+    {
+     "update": 750,
+     "cpu_s": 392.234,
+     "flops": 4869586944000,
+     "bits_per_token": 6.6564
+    },
+    {
+     "update": 800,
+     "cpu_s": 419.5,
+     "flops": 5194226073600,
+     "bits_per_token": 6.61096
+    },
+    {
+     "update": 850,
+     "cpu_s": 446.25,
+     "flops": 5518865203200,
+     "bits_per_token": 6.56102
+    },
+    {
+     "update": 900,
+     "cpu_s": 472.859,
+     "flops": 5843504332800,
+     "bits_per_token": 6.52437
+    },
+    {
+     "update": 950,
+     "cpu_s": 498.906,
+     "flops": 6168143462400,
+     "bits_per_token": 6.49443
+    },
+    {
+     "update": 1000,
+     "cpu_s": 523.719,
+     "flops": 6492782592000,
+     "bits_per_token": 6.47344
+    },
+    {
+     "update": 1050,
+     "cpu_s": 549.266,
+     "flops": 6817421721600,
+     "bits_per_token": 6.45423
+    },
+    {
+     "update": 1100,
+     "cpu_s": 576.609,
+     "flops": 7142060851200,
+     "bits_per_token": 6.43854
+    },
+    {
+     "update": 1150,
+     "cpu_s": 603.031,
+     "flops": 7466699980800,
+     "bits_per_token": 6.42186
+    },
+    {
+     "update": 1200,
+     "cpu_s": 629.859,
+     "flops": 7791339110400,
+     "bits_per_token": 6.40722
+    }
+   ],
+   "train_cpu_s": 629.859,
+   "total_cpu_s": 629.859,
+   "name": "baseline",
+   "lr": 0.001,
+   "seed": 11,
+   "wall_s": 508.8
+  },
+  {
+   "submission": "ngpt.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 729224,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 50,
+    "lr": 0.032,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "hidden": 256
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 50,
+     "cpu_s": 35.156,
+     "flops": 324639129600,
+     "bits_per_token": 7.50651
+    },
+    {
+     "update": 100,
+     "cpu_s": 70.656,
+     "flops": 649278259200,
+     "bits_per_token": 7.35521
+    },
+    {
+     "update": 150,
+     "cpu_s": 111.906,
+     "flops": 973917388800,
+     "bits_per_token": 7.28489
+    },
+    {
+     "update": 200,
+     "cpu_s": 157.281,
+     "flops": 1298556518400,
+     "bits_per_token": 7.26432
+    },
+    {
+     "update": 250,
+     "cpu_s": 205.312,
+     "flops": 1623195648000,
+     "bits_per_token": 7.20897
+    },
+    {
+     "update": 300,
+     "cpu_s": 257.391,
+     "flops": 1947834777600,
+     "bits_per_token": 7.12094
+    },
+    {
+     "update": 350,
+     "cpu_s": 310.578,
+     "flops": 2272473907200,
+     "bits_per_token": 7.09766
+    },
+    {
+     "update": 400,
+     "cpu_s": 365.516,
+     "flops": 2597113036800,
+     "bits_per_token": 7.04127
+    },
+    {
+     "update": 450,
+     "cpu_s": 421.0,
+     "flops": 2921752166400,
+     "bits_per_token": 7.0279
+    },
+    {
+     "update": 500,
+     "cpu_s": 479.156,
+     "flops": 3246391296000,
+     "bits_per_token": 6.97615
+    },
+    {
+     "update": 550,
+     "cpu_s": 535.422,
+     "flops": 3571030425600,
+     "bits_per_token": 6.85409
+    },
+    {
+     "update": 600,
+     "cpu_s": 592.703,
+     "flops": 3895669555200,
+     "bits_per_token": 6.83627
+    },
+    {
+     "update": 650,
+     "cpu_s": 647.953,
+     "flops": 4220308684800,
+     "bits_per_token": 6.72335
+    },
+    {
+     "update": 700,
+     "cpu_s": 703.312,
+     "flops": 4544947814400,
+     "bits_per_token": 6.67589
+    },
+    {
+     "update": 750,
+     "cpu_s": 759.375,
+     "flops": 4869586944000,
+     "bits_per_token": 6.61339
+    },
+    {
+     "update": 800,
+     "cpu_s": 818.766,
+     "flops": 5194226073600,
+     "bits_per_token": 6.52254
+    },
+    {
+     "update": 850,
+     "cpu_s": 875.188,
+     "flops": 5518865203200,
+     "bits_per_token": 6.38468
+    },
+    {
+     "update": 900,
+     "cpu_s": 934.188,
+     "flops": 5843504332800,
+     "bits_per_token": 6.30967
+    },
+    {
+     "update": 950,
+     "cpu_s": 990.312,
+     "flops": 6168143462400,
+     "bits_per_token": 6.24862
+    },
+    {
+     "update": 1000,
+     "cpu_s": 1049.969,
+     "flops": 6492782592000,
+     "bits_per_token": 6.16292
+    },
+    {
+     "update": 1050,
+     "cpu_s": 1108.344,
+     "flops": 6817421721600,
+     "bits_per_token": 6.08608
+    },
+    {
+     "update": 1100,
+     "cpu_s": 1167.172,
+     "flops": 7142060851200,
+     "bits_per_token": 6.03978
+    },
+    {
+     "update": 1150,
+     "cpu_s": 1226.625,
+     "flops": 7466699980800,
+     "bits_per_token": 5.98943
+    },
+    {
+     "update": 1200,
+     "cpu_s": 1285.516,
+     "flops": 7791339110400,
+     "bits_per_token": 5.96815
+    }
+   ],
+   "train_cpu_s": 1285.516,
+   "total_cpu_s": 1285.516,
+   "name": "ngpt",
+   "lr": 0.032,
+   "seed": 11,
+   "wall_s": 972.1
+  }
+ ],
+ "best": {
+  "baseline": {
+   "lr": 0.002,
+   "bits": 6.07759,
+   "at_grid_edge": false
+  },
+  "ngpt": {
+   "lr": 0.016,
+   "bits": 5.7669,
+   "at_grid_edge": false
+  }
+ },
+ "extensions": [
+  {
+   "name": "baseline",
+   "lr": 0.001,
+   "reason": "best 0.002 at the grid edge",
+   "bits": 6.40722
+  },
+  {
+   "name": "ngpt",
+   "lr": 0.032,
+   "reason": "best 0.016 at the grid edge",
+   "bits": 5.96815
+  }
+ ]
+}

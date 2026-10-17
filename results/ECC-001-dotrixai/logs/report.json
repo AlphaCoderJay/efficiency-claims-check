@@ -1,0 +1,622 @@
+{
+ "per_seed": {
+  "11": {
+   "grade": {
+    "reward": 0.1017,
+    "Q": 5.79857,
+    "R_time": 0.8685,
+    "R_time_bound": null,
+    "R_flops": 0.6707,
+    "R_flops_bound": null,
+    "prepare_share_of_cpu": 0.0,
+    "final_bits_per_token": 5.43789,
+    "R_time_curve": [
+     {
+      "ref_update": 50,
+      "Q": 9.11097,
+      "R_time": 1.311,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 100,
+      "Q": 9.08882,
+      "R_time": 0.6528,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 150,
+      "Q": 8.40012,
+      "R_time": 0.4309,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.82489,
+      "R_time": 0.3242,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 250,
+      "Q": 7.49749,
+      "R_time": 0.2679,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.20282,
+      "R_time": 0.3272,
+      "bound": null
+     },
+     {
+      "ref_update": 350,
+      "Q": 6.94157,
+      "R_time": 0.4173,
+      "bound": null
+     },
+     {
+      "ref_update": 400,
+      "Q": 6.73958,
+      "R_time": 0.6686,
+      "bound": null
+     },
+     {
+      "ref_update": 450,
+      "Q": 6.58956,
+      "R_time": 0.7936,
+      "bound": null
+     },
+     {
+      "ref_update": 500,
+      "Q": 6.49534,
+      "R_time": 0.8794,
+      "bound": null
+     },
+     {
+      "ref_update": 550,
+      "Q": 6.36116,
+      "R_time": 1.0311,
+      "bound": null
+     },
+     {
+      "ref_update": 600,
+      "Q": 6.28179,
+      "R_time": 1.1075,
+      "bound": null
+     },
+     {
+      "ref_update": 650,
+      "Q": 6.19535,
+      "R_time": 1.0885,
+      "bound": null
+     },
+     {
+      "ref_update": 700,
+      "Q": 6.12698,
+      "R_time": 1.1311,
+      "bound": null
+     },
+     {
+      "ref_update": 750,
+      "Q": 6.07649,
+      "R_time": 1.09,
+      "bound": null
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.00865,
+      "R_time": 1.1067,
+      "bound": null
+     },
+     {
+      "ref_update": 850,
+      "Q": 5.97133,
+      "R_time": 1.0819,
+      "bound": null
+     },
+     {
+      "ref_update": 900,
+      "Q": 5.93165,
+      "R_time": 1.0488,
+      "bound": null
+     },
+     {
+      "ref_update": 950,
+      "Q": 5.89039,
+      "R_time": 1.0212,
+      "bound": null
+     },
+     {
+      "ref_update": 1000,
+      "Q": 5.87955,
+      "R_time": 0.9781,
+      "bound": null
+     },
+     {
+      "ref_update": 1050,
+      "Q": 5.83739,
+      "R_time": 0.9629,
+      "bound": null
+     },
+     {
+      "ref_update": 1100,
+      "Q": 5.82612,
+      "R_time": 0.9263,
+      "bound": null
+     },
+     {
+      "ref_update": 1150,
+      "Q": 5.80845,
+      "R_time": 0.8991,
+      "bound": null
+     },
+     {
+      "ref_update": 1200,
+      "Q": 5.79857,
+      "R_time": 0.8685,
+      "bound": null
+     }
+    ]
+   },
+   "baseline_final": 5.79857,
+   "ngpt_final": 5.43789,
+   "flops_per_update": {
+    "baseline": 6492782592,
+    "ngpt": 6492782592
+   },
+   "checks": {
+    "baseline": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "ngpt": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    }
+   }
+  },
+  "22": {
+   "grade": {
+    "reward": 0.065,
+    "Q": 5.82877,
+    "R_time": 0.9138,
+    "R_time_bound": null,
+    "R_flops": 0.6853,
+    "R_flops_bound": null,
+    "prepare_share_of_cpu": 0.0,
+    "final_bits_per_token": 5.49226,
+    "R_time_curve": [
+     {
+      "ref_update": 50,
+      "Q": 9.1408,
+      "R_time": 1.2943,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 100,
+      "Q": 9.01988,
+      "R_time": 0.6517,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 150,
+      "Q": 8.54098,
+      "R_time": 0.4348,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.87811,
+      "R_time": 0.3296,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 250,
+      "Q": 7.57948,
+      "R_time": 0.2678,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.32862,
+      "R_time": 0.298,
+      "bound": null
+     },
+     {
+      "ref_update": 350,
+      "Q": 7.08008,
+      "R_time": 0.3405,
+      "bound": null
+     },
+     {
+      "ref_update": 400,
+      "Q": 6.88136,
+      "R_time": 0.4513,
+      "bound": null
+     },
+     {
+      "ref_update": 450,
+      "Q": 6.70907,
+      "R_time": 0.5862,
+      "bound": null
+     },
+     {
+      "ref_update": 500,
+      "Q": 6.57163,
+      "R_time": 0.7355,
+      "bound": null
+     },
+     {
+      "ref_update": 550,
+      "Q": 6.47215,
+      "R_time": 0.8174,
+      "bound": null
+     },
+     {
+      "ref_update": 600,
+      "Q": 6.34848,
+      "R_time": 1.0835,
+      "bound": null
+     },
+     {
+      "ref_update": 650,
+      "Q": 6.27532,
+      "R_time": 1.0894,
+      "bound": null
+     },
+     {
+      "ref_update": 700,
+      "Q": 6.19265,
+      "R_time": 1.1142,
+      "bound": null
+     },
+     {
+      "ref_update": 750,
+      "Q": 6.10789,
+      "R_time": 1.1356,
+      "bound": null
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.06569,
+      "R_time": 1.1021,
+      "bound": null
+     },
+     {
+      "ref_update": 850,
+      "Q": 6.01546,
+      "R_time": 1.0775,
+      "bound": null
+     },
+     {
+      "ref_update": 900,
+      "Q": 5.97694,
+      "R_time": 1.0476,
+      "bound": null
+     },
+     {
+      "ref_update": 950,
+      "Q": 5.96557,
+      "R_time": 1.0036,
+      "bound": null
+     },
+     {
+      "ref_update": 1000,
+      "Q": 5.92165,
+      "R_time": 1.0023,
+      "bound": null
+     },
+     {
+      "ref_update": 1050,
+      "Q": 5.89687,
+      "R_time": 0.981,
+      "bound": null
+     },
+     {
+      "ref_update": 1100,
+      "Q": 5.87313,
+      "R_time": 0.9601,
+      "bound": null
+     },
+     {
+      "ref_update": 1150,
+      "Q": 5.8472,
+      "R_time": 0.9404,
+      "bound": null
+     },
+     {
+      "ref_update": 1200,
+      "Q": 5.82877,
+      "R_time": 0.9138,
+      "bound": null
+     }
+    ]
+   },
+   "baseline_final": 5.82877,
+   "ngpt_final": 5.49226,
+   "flops_per_update": {
+    "baseline": 6492782592,
+    "ngpt": 6492782592
+   },
+   "checks": {
+    "baseline": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "ngpt": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    }
+   }
+  },
+  "33": {
+   "grade": {
+    "reward": 0.0907,
+    "Q": 5.84197,
+    "R_time": 0.8818,
+    "R_time_bound": null,
+    "R_flops": 0.6811,
+    "R_flops_bound": null,
+    "prepare_share_of_cpu": 0.0,
+    "final_bits_per_token": 5.4754,
+    "R_time_curve": [
+     {
+      "ref_update": 50,
+      "Q": 9.13875,
+      "R_time": 1.3192,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 100,
+      "Q": 9.07752,
+      "R_time": 0.6666,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 150,
+      "Q": 8.33508,
+      "R_time": 0.4433,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.89424,
+      "R_time": 0.3309,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 250,
+      "Q": 7.5547,
+      "R_time": 0.2744,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.29937,
+      "R_time": 0.3118,
+      "bound": null
+     },
+     {
+      "ref_update": 350,
+      "Q": 7.04949,
+      "R_time": 0.3623,
+      "bound": null
+     },
+     {
+      "ref_update": 400,
+      "Q": 6.85861,
+      "R_time": 0.4518,
+      "bound": null
+     },
+     {
+      "ref_update": 450,
+      "Q": 6.72001,
+      "R_time": 0.6188,
+      "bound": null
+     },
+     {
+      "ref_update": 500,
+      "Q": 6.57522,
+      "R_time": 0.7553,
+      "bound": null
+     },
+     {
+      "ref_update": 550,
+      "Q": 6.46195,
+      "R_time": 0.8302,
+      "bound": null
+     },
+     {
+      "ref_update": 600,
+      "Q": 6.37089,
+      "R_time": 0.9005,
+      "bound": null
+     },
+     {
+      "ref_update": 650,
+      "Q": 6.27679,
+      "R_time": 0.9731,
+      "bound": null
+     },
+     {
+      "ref_update": 700,
+      "Q": 6.18258,
+      "R_time": 1.1004,
+      "bound": null
+     },
+     {
+      "ref_update": 750,
+      "Q": 6.13296,
+      "R_time": 1.0692,
+      "bound": null
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.06511,
+      "R_time": 1.0537,
+      "bound": null
+     },
+     {
+      "ref_update": 850,
+      "Q": 6.02806,
+      "R_time": 1.0297,
+      "bound": null
+     },
+     {
+      "ref_update": 900,
+      "Q": 5.9837,
+      "R_time": 1.0171,
+      "bound": null
+     },
+     {
+      "ref_update": 950,
+      "Q": 5.95075,
+      "R_time": 0.9925,
+      "bound": null
+     },
+     {
+      "ref_update": 1000,
+      "Q": 5.9164,
+      "R_time": 0.9718,
+      "bound": null
+     },
+     {
+      "ref_update": 1050,
+      "Q": 5.91196,
+      "R_time": 0.9288,
+      "bound": null
+     },
+     {
+      "ref_update": 1100,
+      "Q": 5.88397,
+      "R_time": 0.9194,
+      "bound": null
+     },
+     {
+      "ref_update": 1150,
+      "Q": 5.86967,
+      "R_time": 0.8955,
+      "bound": null
+     },
+     {
+      "ref_update": 1200,
+      "Q": 5.84197,
+      "R_time": 0.8818,
+      "bound": null
+     }
+    ]
+   },
+   "baseline_final": 5.84197,
+   "ngpt_final": 5.4754,
+   "flops_per_update": {
+    "baseline": 6492782592,
+    "ngpt": 6492782592
+   },
+   "checks": {
+    "baseline": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "ngpt": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    }
+   }
+  }
+ },
+ "R_flops_sorted": [
+  0.6707,
+  0.6811,
+  0.6853
+ ],
+ "R_time_sorted": [
+  0.8685,
+  0.8818,
+  0.9138
+ ],
+ "bounds": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "median": {
+  "R_flops": 0.6811,
+  "R_time": 0.8818
+ },
+ "verdict": "PARTIAL",
+ "reason": "median R_FLOP class, all seeds agree"
+}

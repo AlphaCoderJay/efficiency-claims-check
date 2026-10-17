@@ -13,6 +13,7 @@ STATUS = {
     'SUPPORTED': 'independent work points the same way',
     'CONTESTED': 'independent work disagrees',
     'SHRINKS_WITH_SCALE': 'holds, but the gain shrinks at larger scale',
+    'CHECKED': 'checked in this project; the verdict and its scale are in the row and in results/',
 }
 
 out = ['# Claims to check', '',

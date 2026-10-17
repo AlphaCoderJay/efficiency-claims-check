@@ -1,0 +1,237 @@
+{"utc": "2026-10-17T12:18:01Z", "machine_cpu_percent": 12.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 0.0, "outside_cpu_percent_of_machine": 12.8}
+{"utc": "2026-10-17T12:18:16Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.33, "outside_cpu_percent_of_machine": 5.27}
+{"utc": "2026-10-17T12:18:31Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.78, "outside_cpu_percent_of_machine": 4.12}
+{"utc": "2026-10-17T12:18:46Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.78, "outside_cpu_percent_of_machine": 3.72, "top_other_percent_of_machine": [[85.69, "System Idle Process"], [0.95, "other process"], [0.43, "System"], [0.24, "MsMpEng.exe"]]}
+{"utc": "2026-10-17T12:19:03Z", "machine_cpu_percent": 17.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.55, "outside_cpu_percent_of_machine": 6.25}
+{"utc": "2026-10-17T12:19:18Z", "machine_cpu_percent": 15.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.66, "outside_cpu_percent_of_machine": 4.44}
+{"utc": "2026-10-17T12:19:33Z", "machine_cpu_percent": 19.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.21, "outside_cpu_percent_of_machine": 8.29}
+{"utc": "2026-10-17T12:19:48Z", "machine_cpu_percent": 16.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.69, "outside_cpu_percent_of_machine": 5.11, "top_other_percent_of_machine": [[83.25, "System Idle Process"], [0.9, "other process"], [0.61, "other process"], [0.58, "System"]]}
+{"utc": "2026-10-17T12:20:05Z", "machine_cpu_percent": 17.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.99, "outside_cpu_percent_of_machine": 6.21}
+{"utc": "2026-10-17T12:20:20Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.44, "outside_cpu_percent_of_machine": 5.66}
+{"utc": "2026-10-17T12:20:35Z", "machine_cpu_percent": 14.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.07, "outside_cpu_percent_of_machine": 3.63}
+{"utc": "2026-10-17T12:20:50Z", "machine_cpu_percent": 15.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 4.68, "top_other_percent_of_machine": [[84.28, "System Idle Process"], [0.92, "other process"], [0.48, "System"], [0.28, "other process"]]}
+{"utc": "2026-10-17T12:21:08Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.37, "outside_cpu_percent_of_machine": 5.73}
+{"utc": "2026-10-17T12:21:23Z", "machine_cpu_percent": 14.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.86, "outside_cpu_percent_of_machine": 3.44}
+{"utc": "2026-10-17T12:21:38Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 5.28}
+{"utc": "2026-10-17T12:21:53Z", "machine_cpu_percent": 17.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.92, "outside_cpu_percent_of_machine": 5.88, "top_other_percent_of_machine": [[84.26, "System Idle Process"], [0.8, "other process"], [0.53, "System"], [0.37, "other process"]]}
+{"utc": "2026-10-17T12:22:10Z", "machine_cpu_percent": 17.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.56, "outside_cpu_percent_of_machine": 6.04}
+{"utc": "2026-10-17T12:22:25Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.38, "outside_cpu_percent_of_machine": 5.72}
+{"utc": "2026-10-17T12:22:40Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.42, "outside_cpu_percent_of_machine": 4.58}
+{"utc": "2026-10-17T12:22:55Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.83, "outside_cpu_percent_of_machine": 4.07, "top_other_percent_of_machine": [[84.17, "System Idle Process"], [1.02, "other process"], [0.57, "System"], [0.25, "other process"]]}
+{"utc": "2026-10-17T12:23:12Z", "machine_cpu_percent": 16.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.08, "outside_cpu_percent_of_machine": 5.12}
+{"utc": "2026-10-17T12:23:27Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.28, "outside_cpu_percent_of_machine": 4.32}
+{"utc": "2026-10-17T12:23:42Z", "machine_cpu_percent": 16.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.38, "outside_cpu_percent_of_machine": 5.52}
+{"utc": "2026-10-17T12:23:57Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.98, "outside_cpu_percent_of_machine": 4.62, "top_other_percent_of_machine": [[84.44, "System Idle Process"], [0.91, "other process"], [0.52, "System"], [0.21, "other process"]]}
+{"utc": "2026-10-17T12:24:14Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.11, "outside_cpu_percent_of_machine": 5.29}
+{"utc": "2026-10-17T12:24:29Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.26, "outside_cpu_percent_of_machine": 4.44}
+{"utc": "2026-10-17T12:24:44Z", "machine_cpu_percent": 19.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.03, "outside_cpu_percent_of_machine": 8.37}
+{"utc": "2026-10-17T12:24:59Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.27, "outside_cpu_percent_of_machine": 5.33, "top_other_percent_of_machine": [[83.51, "System Idle Process"], [0.9, "other process"], [0.57, "System"], [0.45, "other process"]]}
+{"utc": "2026-10-17T12:25:16Z", "machine_cpu_percent": 17.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.24, "outside_cpu_percent_of_machine": 6.16}
+{"utc": "2026-10-17T12:25:31Z", "machine_cpu_percent": 16.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.17, "outside_cpu_percent_of_machine": 4.93}
+{"utc": "2026-10-17T12:25:46Z", "machine_cpu_percent": 16.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 5.38}
+{"utc": "2026-10-17T12:26:01Z", "machine_cpu_percent": 16.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.67, "outside_cpu_percent_of_machine": 4.63, "top_other_percent_of_machine": [[83.99, "System Idle Process"], [0.92, "other process"], [0.59, "System"], [0.27, "other process"]]}
+{"utc": "2026-10-17T12:26:18Z", "machine_cpu_percent": 17.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.43, "outside_cpu_percent_of_machine": 4.87}
+{"utc": "2026-10-17T12:26:33Z", "machine_cpu_percent": 17.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.34, "outside_cpu_percent_of_machine": 5.36}
+{"utc": "2026-10-17T12:26:48Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.78, "outside_cpu_percent_of_machine": 5.32}
+{"utc": "2026-10-17T12:27:03Z", "machine_cpu_percent": 15.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.74, "outside_cpu_percent_of_machine": 4.26, "top_other_percent_of_machine": [[83.76, "System Idle Process"], [1.02, "other process"], [0.25, "other process"], [0.24, "System"]]}
+{"utc": "2026-10-17T12:27:20Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.46, "outside_cpu_percent_of_machine": 5.04}
+{"utc": "2026-10-17T12:27:35Z", "machine_cpu_percent": 14.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.01, "outside_cpu_percent_of_machine": 4.19}
+{"utc": "2026-10-17T12:27:50Z", "machine_cpu_percent": 17.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.86, "outside_cpu_percent_of_machine": 6.54}
+{"utc": "2026-10-17T12:28:05Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.81, "outside_cpu_percent_of_machine": 4.89, "top_other_percent_of_machine": [[84.87, "System Idle Process"], [0.81, "other process"], [0.43, "other process"], [0.36, "other process"]]}
+{"utc": "2026-10-17T12:28:23Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.83, "outside_cpu_percent_of_machine": 5.77}
+{"utc": "2026-10-17T12:28:38Z", "machine_cpu_percent": 15.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.77, "outside_cpu_percent_of_machine": 4.53}
+{"utc": "2026-10-17T12:28:53Z", "machine_cpu_percent": 15.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.61, "outside_cpu_percent_of_machine": 4.69}
+{"utc": "2026-10-17T12:29:08Z", "machine_cpu_percent": 15.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.57, "outside_cpu_percent_of_machine": 4.63, "top_other_percent_of_machine": [[84.91, "System Idle Process"], [1.07, "other process"], [0.33, "System"], [0.24, "other process"]]}
+{"utc": "2026-10-17T12:29:25Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.62, "outside_cpu_percent_of_machine": 4.98}
+{"utc": "2026-10-17T12:29:40Z", "machine_cpu_percent": 16.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.63, "outside_cpu_percent_of_machine": 5.27}
+{"utc": "2026-10-17T12:29:55Z", "machine_cpu_percent": 19.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.07, "outside_cpu_percent_of_machine": 7.53}
+{"utc": "2026-10-17T12:30:10Z", "machine_cpu_percent": 15.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.37, "outside_cpu_percent_of_machine": 4.63, "top_other_percent_of_machine": [[83.77, "System Idle Process"], [0.87, "other process"], [0.67, "svchost.exe"], [0.59, "System"]]}
+{"utc": "2026-10-17T12:30:28Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.62, "outside_cpu_percent_of_machine": 6.08}
+{"utc": "2026-10-17T12:30:43Z", "machine_cpu_percent": 16.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.36, "outside_cpu_percent_of_machine": 5.84}
+{"utc": "2026-10-17T12:30:58Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.87, "outside_cpu_percent_of_machine": 4.73}
+{"utc": "2026-10-17T12:31:13Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 5.98, "top_other_percent_of_machine": [[84.12, "System Idle Process"], [1.11, "other process"], [0.43, "other process"], [0.38, "other process"]]}
+{"utc": "2026-10-17T12:31:30Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.34, "outside_cpu_percent_of_machine": 5.16}
+{"utc": "2026-10-17T12:31:45Z", "machine_cpu_percent": 16.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.83, "outside_cpu_percent_of_machine": 5.47}
+{"utc": "2026-10-17T12:32:00Z", "machine_cpu_percent": 20.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.38, "outside_cpu_percent_of_machine": 8.72}
+{"utc": "2026-10-17T12:32:15Z", "machine_cpu_percent": 16.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.78, "outside_cpu_percent_of_machine": 5.32, "top_other_percent_of_machine": [[83.59, "System Idle Process"], [0.79, "other process"], [0.63, "svchost.exe"], [0.37, "System"]]}
+{"utc": "2026-10-17T12:32:33Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.7, "outside_cpu_percent_of_machine": 6.3}
+{"utc": "2026-10-17T12:32:48Z", "machine_cpu_percent": 14.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.78, "outside_cpu_percent_of_machine": 3.32}
+{"utc": "2026-10-17T12:33:03Z", "machine_cpu_percent": 16.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.23, "outside_cpu_percent_of_machine": 5.07}
+{"utc": "2026-10-17T12:33:18Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.78, "outside_cpu_percent_of_machine": 4.82, "top_other_percent_of_machine": [[84.73, "System Idle Process"], [0.97, "other process"], [0.29, "System"], [0.23, "other process"]]}
+{"utc": "2026-10-17T12:33:35Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.68, "outside_cpu_percent_of_machine": 5.32}
+{"utc": "2026-10-17T12:33:50Z", "machine_cpu_percent": 14.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.58, "outside_cpu_percent_of_machine": 4.12}
+{"utc": "2026-10-17T12:34:05Z", "machine_cpu_percent": 15.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.83, "outside_cpu_percent_of_machine": 4.37}
+{"utc": "2026-10-17T12:34:20Z", "machine_cpu_percent": 17.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.89, "outside_cpu_percent_of_machine": 6.61, "top_other_percent_of_machine": [[84.75, "System Idle Process"], [0.92, "other process"], [0.43, "System"], [0.18, "other process"]]}
+{"utc": "2026-10-17T12:34:37Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.14, "outside_cpu_percent_of_machine": 5.56}
+{"utc": "2026-10-17T12:34:52Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.22, "outside_cpu_percent_of_machine": 5.38}
+{"utc": "2026-10-17T12:35:07Z", "machine_cpu_percent": 15.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.42, "outside_cpu_percent_of_machine": 4.78}
+{"utc": "2026-10-17T12:35:22Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.55, "outside_cpu_percent_of_machine": 5.45, "top_other_percent_of_machine": [[84.76, "System Idle Process"], [0.95, "other process"], [0.39, "other process"], [0.34, "other process"]]}
+{"utc": "2026-10-17T12:35:40Z", "machine_cpu_percent": 15.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 4.58}
+{"utc": "2026-10-17T12:35:55Z", "machine_cpu_percent": 15.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.81, "outside_cpu_percent_of_machine": 4.49}
+{"utc": "2026-10-17T12:36:10Z", "machine_cpu_percent": 14.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.53, "outside_cpu_percent_of_machine": 4.27}
+{"utc": "2026-10-17T12:36:25Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.08, "outside_cpu_percent_of_machine": 4.42, "top_other_percent_of_machine": [[85.26, "System Idle Process"], [0.95, "other process"], [0.33, "System"], [0.2, "other process"]]}
+{"utc": "2026-10-17T12:36:42Z", "machine_cpu_percent": 16.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.6, "outside_cpu_percent_of_machine": 5.6}
+{"utc": "2026-10-17T12:36:57Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.49, "outside_cpu_percent_of_machine": 5.11}
+{"utc": "2026-10-17T12:37:12Z", "machine_cpu_percent": 19.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.35, "outside_cpu_percent_of_machine": 7.85}
+{"utc": "2026-10-17T12:37:27Z", "machine_cpu_percent": 14.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 9.58, "outside_cpu_percent_of_machine": 5.12, "top_other_percent_of_machine": [[84.19, "System Idle Process"], [0.88, "other process"], [0.54, "other process"], [0.42, "other process"]]}
+{"utc": "2026-10-17T12:37:44Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.17, "outside_cpu_percent_of_machine": 4.43}
+{"utc": "2026-10-17T12:37:59Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.92, "outside_cpu_percent_of_machine": 4.48}
+{"utc": "2026-10-17T12:38:14Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.78, "outside_cpu_percent_of_machine": 5.22}
+{"utc": "2026-10-17T12:38:29Z", "machine_cpu_percent": 15.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.4, "outside_cpu_percent_of_machine": 4.0, "top_other_percent_of_machine": [[84.47, "System Idle Process"], [0.86, "other process"], [0.27, "System"], [0.26, "other process"]]}
+{"utc": "2026-10-17T12:38:46Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.98, "outside_cpu_percent_of_machine": 5.72}
+{"utc": "2026-10-17T12:39:01Z", "machine_cpu_percent": 15.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.78, "outside_cpu_percent_of_machine": 4.32}
+{"utc": "2026-10-17T12:39:16Z", "machine_cpu_percent": 15.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.56, "outside_cpu_percent_of_machine": 4.84}
+{"utc": "2026-10-17T12:39:31Z", "machine_cpu_percent": 14.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.17, "outside_cpu_percent_of_machine": 4.13, "top_other_percent_of_machine": [[85.04, "System Idle Process"], [0.9, "other process"], [0.39, "other process"], [0.37, "System"]]}
+{"utc": "2026-10-17T12:39:49Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.85, "outside_cpu_percent_of_machine": 5.75}
+{"utc": "2026-10-17T12:40:04Z", "machine_cpu_percent": 14.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.41, "outside_cpu_percent_of_machine": 3.69}
+{"utc": "2026-10-17T12:40:19Z", "machine_cpu_percent": 14.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.58, "outside_cpu_percent_of_machine": 4.12}
+{"utc": "2026-10-17T12:40:34Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.74, "outside_cpu_percent_of_machine": 4.96, "top_other_percent_of_machine": [[85.18, "System Idle Process"], [0.98, "other process"], [0.28, "other process"], [0.24, "System"]]}
+{"utc": "2026-10-17T12:40:51Z", "machine_cpu_percent": 15.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.82, "outside_cpu_percent_of_machine": 5.08}
+{"utc": "2026-10-17T12:41:06Z", "machine_cpu_percent": 13.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.45, "outside_cpu_percent_of_machine": 3.45}
+{"utc": "2026-10-17T12:41:21Z", "machine_cpu_percent": 22.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.08, "outside_cpu_percent_of_machine": 10.62}
+{"utc": "2026-10-17T12:41:36Z", "machine_cpu_percent": 19.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.24, "outside_cpu_percent_of_machine": 7.76, "top_other_percent_of_machine": [[82.74, "System Idle Process"], [1.71, "MsMpEng.exe"], [0.44, "System"], [0.2, "other process"]]}
+{"utc": "2026-10-17T12:41:54Z", "machine_cpu_percent": 18.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.25, "outside_cpu_percent_of_machine": 6.95}
+{"utc": "2026-10-17T12:42:09Z", "machine_cpu_percent": 15.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 4.28}
+{"utc": "2026-10-17T12:42:24Z", "machine_cpu_percent": 15.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.85, "outside_cpu_percent_of_machine": 4.25}
+{"utc": "2026-10-17T12:42:39Z", "machine_cpu_percent": 16.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.9, "outside_cpu_percent_of_machine": 5.3, "top_other_percent_of_machine": [[84.37, "System Idle Process"], [1.16, "other process"], [0.38, "System"], [0.34, "other process"]]}
+{"utc": "2026-10-17T12:42:55Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 5.68}
+{"utc": "2026-10-17T12:43:10Z", "machine_cpu_percent": 15.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 4.68}
+{"utc": "2026-10-17T12:43:25Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.67, "outside_cpu_percent_of_machine": 4.23}
+{"utc": "2026-10-17T12:43:40Z", "machine_cpu_percent": 15.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 4.68, "top_other_percent_of_machine": [[84.87, "System Idle Process"], [1.13, "other process"], [0.27, "System"], [0.26, "other process"]]}
+{"utc": "2026-10-17T12:43:58Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.54, "outside_cpu_percent_of_machine": 5.86}
+{"utc": "2026-10-17T12:44:13Z", "machine_cpu_percent": 14.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.4, "outside_cpu_percent_of_machine": 4.1}
+{"utc": "2026-10-17T12:44:28Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.96, "outside_cpu_percent_of_machine": 5.04}
+{"utc": "2026-10-17T12:44:43Z", "machine_cpu_percent": 18.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.22, "outside_cpu_percent_of_machine": 7.28, "top_other_percent_of_machine": [[84.23, "System Idle Process"], [1.07, "other process"], [0.47, "other process"], [0.45, "System"]]}
+{"utc": "2026-10-17T12:45:00Z", "machine_cpu_percent": 21.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 13.06, "outside_cpu_percent_of_machine": 8.24}
+{"utc": "2026-10-17T12:45:15Z", "machine_cpu_percent": 15.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.81, "outside_cpu_percent_of_machine": 4.49}
+{"utc": "2026-10-17T12:45:30Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.93, "outside_cpu_percent_of_machine": 5.67}
+{"utc": "2026-10-17T12:45:45Z", "machine_cpu_percent": 14.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.28, "outside_cpu_percent_of_machine": 3.92, "top_other_percent_of_machine": [[83.56, "System Idle Process"], [1.16, "other process"], [0.59, "svchost.exe"], [0.59, "System"]]}
+{"utc": "2026-10-17T12:46:02Z", "machine_cpu_percent": 17.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.86, "outside_cpu_percent_of_machine": 6.74}
+{"utc": "2026-10-17T12:46:17Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.98, "outside_cpu_percent_of_machine": 4.62}
+{"utc": "2026-10-17T12:46:32Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.89, "outside_cpu_percent_of_machine": 5.11}
+{"utc": "2026-10-17T12:46:47Z", "machine_cpu_percent": 17.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.07, "outside_cpu_percent_of_machine": 6.63, "top_other_percent_of_machine": [[83.89, "System Idle Process"], [1.18, "other process"], [0.42, "System"], [0.29, "other process"]]}
+{"utc": "2026-10-17T12:47:04Z", "machine_cpu_percent": 17.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.15, "outside_cpu_percent_of_machine": 6.55}
+{"utc": "2026-10-17T12:47:19Z", "machine_cpu_percent": 14.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.15, "outside_cpu_percent_of_machine": 4.05}
+{"utc": "2026-10-17T12:47:34Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.84, "outside_cpu_percent_of_machine": 4.06}
+{"utc": "2026-10-17T12:47:49Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.26, "outside_cpu_percent_of_machine": 5.84, "top_other_percent_of_machine": [[84.61, "System Idle Process"], [0.96, "other process"], [0.55, "System"], [0.22, "other process"]]}
+{"utc": "2026-10-17T12:48:06Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.91, "outside_cpu_percent_of_machine": 6.09}
+{"utc": "2026-10-17T12:48:21Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.06, "outside_cpu_percent_of_machine": 4.64}
+{"utc": "2026-10-17T12:48:36Z", "machine_cpu_percent": 14.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.3, "outside_cpu_percent_of_machine": 4.5}
+{"utc": "2026-10-17T12:48:51Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.93, "outside_cpu_percent_of_machine": 6.07, "top_other_percent_of_machine": [[84.4, "System Idle Process"], [1.13, "other process"], [0.45, "System"], [0.34, "other process"]]}
+{"utc": "2026-10-17T12:49:09Z", "machine_cpu_percent": 16.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.47, "outside_cpu_percent_of_machine": 5.83}
+{"utc": "2026-10-17T12:49:24Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.26, "outside_cpu_percent_of_machine": 4.44}
+{"utc": "2026-10-17T12:49:39Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.45, "outside_cpu_percent_of_machine": 4.95}
+{"utc": "2026-10-17T12:49:54Z", "machine_cpu_percent": 16.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.98, "outside_cpu_percent_of_machine": 4.22, "top_other_percent_of_machine": [[84.33, "System Idle Process"], [1.09, "other process"], [0.37, "other process"], [0.26, "System"]]}
+{"utc": "2026-10-17T12:50:11Z", "machine_cpu_percent": 17.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.84, "outside_cpu_percent_of_machine": 5.86}
+{"utc": "2026-10-17T12:50:26Z", "machine_cpu_percent": 15.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.86, "outside_cpu_percent_of_machine": 4.14}
+{"utc": "2026-10-17T12:50:41Z", "machine_cpu_percent": 17.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.24, "outside_cpu_percent_of_machine": 4.86}
+{"utc": "2026-10-17T12:50:56Z", "machine_cpu_percent": 17.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.98, "outside_cpu_percent_of_machine": 6.52, "top_other_percent_of_machine": [[83.63, "System Idle Process"], [1.1, "other process"], [0.51, "System"], [0.38, "other process"]]}
+{"utc": "2026-10-17T12:51:13Z", "machine_cpu_percent": 15.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.92, "outside_cpu_percent_of_machine": 4.98}
+{"utc": "2026-10-17T12:51:28Z", "machine_cpu_percent": 19.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.58, "outside_cpu_percent_of_machine": 8.32}
+{"utc": "2026-10-17T12:51:43Z", "machine_cpu_percent": 20.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.67, "outside_cpu_percent_of_machine": 8.33}
+{"utc": "2026-10-17T12:51:58Z", "machine_cpu_percent": 20.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.95, "outside_cpu_percent_of_machine": 8.65, "top_other_percent_of_machine": [[81.58, "System Idle Process"], [1.15, "other process"], [0.83, "other process"], [0.71, "other process"]]}
+{"utc": "2026-10-17T12:52:15Z", "machine_cpu_percent": 22.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.59, "outside_cpu_percent_of_machine": 10.71}
+{"utc": "2026-10-17T12:52:30Z", "machine_cpu_percent": 17.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.31, "outside_cpu_percent_of_machine": 6.49}
+{"utc": "2026-10-17T12:52:45Z", "machine_cpu_percent": 18.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.01, "outside_cpu_percent_of_machine": 6.79}
+{"utc": "2026-10-17T12:53:00Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.58, "outside_cpu_percent_of_machine": 5.42, "top_other_percent_of_machine": [[81.42, "System Idle Process"], [1.08, "other process"], [0.85, "other process"], [0.62, "other process"]]}
+{"utc": "2026-10-17T12:53:17Z", "machine_cpu_percent": 18.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.24, "outside_cpu_percent_of_machine": 7.16}
+{"utc": "2026-10-17T12:53:32Z", "machine_cpu_percent": 17.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.2, "outside_cpu_percent_of_machine": 6.6}
+{"utc": "2026-10-17T12:53:47Z", "machine_cpu_percent": 18.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.58, "outside_cpu_percent_of_machine": 6.52}
+{"utc": "2026-10-17T12:54:02Z", "machine_cpu_percent": 18.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.63, "outside_cpu_percent_of_machine": 6.97, "top_other_percent_of_machine": [[82.27, "System Idle Process"], [1.15, "other process"], [0.71, "other process"], [0.53, "other process"]]}
+{"utc": "2026-10-17T12:54:19Z", "machine_cpu_percent": 17.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.27, "outside_cpu_percent_of_machine": 6.63}
+{"utc": "2026-10-17T12:54:34Z", "machine_cpu_percent": 16.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.58, "outside_cpu_percent_of_machine": 6.32}
+{"utc": "2026-10-17T12:54:49Z", "machine_cpu_percent": 19.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.72, "outside_cpu_percent_of_machine": 7.38}
+{"utc": "2026-10-17T12:55:04Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 5.88, "top_other_percent_of_machine": [[82.86, "System Idle Process"], [0.97, "other process"], [0.92, "other process"], [0.5, "other process"]]}
+{"utc": "2026-10-17T12:55:22Z", "machine_cpu_percent": 18.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.46, "outside_cpu_percent_of_machine": 7.24}
+{"utc": "2026-10-17T12:55:37Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.97, "outside_cpu_percent_of_machine": 4.53}
+{"utc": "2026-10-17T12:55:52Z", "machine_cpu_percent": 17.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.02, "outside_cpu_percent_of_machine": 5.98}
+{"utc": "2026-10-17T12:56:07Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.9, "outside_cpu_percent_of_machine": 4.0, "top_other_percent_of_machine": [[83.98, "System Idle Process"], [1.25, "other process"], [0.37, "other process"], [0.25, "System"]]}
+{"utc": "2026-10-17T12:56:23Z", "machine_cpu_percent": 18.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.5, "outside_cpu_percent_of_machine": 6.7}
+{"utc": "2026-10-17T12:56:38Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.11, "outside_cpu_percent_of_machine": 5.59}
+{"utc": "2026-10-17T12:56:53Z", "machine_cpu_percent": 19.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.12, "outside_cpu_percent_of_machine": 7.58}
+{"utc": "2026-10-17T12:57:08Z", "machine_cpu_percent": 17.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.94, "outside_cpu_percent_of_machine": 5.66, "top_other_percent_of_machine": [[82.44, "System Idle Process"], [1.24, "other process"], [0.62, "System"], [0.55, "other process"]]}
+{"utc": "2026-10-17T12:57:25Z", "machine_cpu_percent": 15.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.04, "outside_cpu_percent_of_machine": 4.76}
+{"utc": "2026-10-17T12:57:40Z", "machine_cpu_percent": 13.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.59, "outside_cpu_percent_of_machine": 3.21}
+{"utc": "2026-10-17T12:57:55Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.83, "outside_cpu_percent_of_machine": 4.57}
+{"utc": "2026-10-17T12:58:10Z", "machine_cpu_percent": 17.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.9, "outside_cpu_percent_of_machine": 5.7, "top_other_percent_of_machine": [[84.57, "System Idle Process"], [0.93, "other process"], [0.24, "System"], [0.2, "other process"]]}
+{"utc": "2026-10-17T12:58:27Z", "machine_cpu_percent": 18.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.38, "outside_cpu_percent_of_machine": 6.42}
+{"utc": "2026-10-17T12:58:42Z", "machine_cpu_percent": 18.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.28, "outside_cpu_percent_of_machine": 5.82}
+{"utc": "2026-10-17T12:58:57Z", "machine_cpu_percent": 16.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.88, "outside_cpu_percent_of_machine": 4.92}
+{"utc": "2026-10-17T12:59:12Z", "machine_cpu_percent": 15.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.33, "outside_cpu_percent_of_machine": 4.57, "top_other_percent_of_machine": [[83.11, "System Idle Process"], [1.03, "other process"], [0.6, "System"], [0.23, "other process"]]}
+{"utc": "2026-10-17T12:59:30Z", "machine_cpu_percent": 15.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.55, "outside_cpu_percent_of_machine": 5.35}
+{"utc": "2026-10-17T12:59:45Z", "machine_cpu_percent": 15.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.51, "outside_cpu_percent_of_machine": 4.69}
+{"utc": "2026-10-17T13:00:00Z", "machine_cpu_percent": 18.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.94, "outside_cpu_percent_of_machine": 6.36}
+{"utc": "2026-10-17T13:00:15Z", "machine_cpu_percent": 22.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 13.32, "outside_cpu_percent_of_machine": 9.38, "top_other_percent_of_machine": [[82.66, "System Idle Process"], [1.03, "other process"], [0.83, "svchost.exe"], [0.49, "other process"]]}
+{"utc": "2026-10-17T13:00:32Z", "machine_cpu_percent": 16.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.05, "outside_cpu_percent_of_machine": 5.15}
+{"utc": "2026-10-17T13:00:47Z", "machine_cpu_percent": 16.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.56, "outside_cpu_percent_of_machine": 5.34}
+{"utc": "2026-10-17T13:01:02Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.08, "outside_cpu_percent_of_machine": 4.62}
+{"utc": "2026-10-17T13:01:17Z", "machine_cpu_percent": 15.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.03, "outside_cpu_percent_of_machine": 4.17, "top_other_percent_of_machine": [[84.48, "System Idle Process"], [1.18, "other process"], [0.32, "other process"], [0.29, "System"]]}
+{"utc": "2026-10-17T13:01:34Z", "machine_cpu_percent": 17.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.97, "outside_cpu_percent_of_machine": 6.33}
+{"utc": "2026-10-17T13:01:49Z", "machine_cpu_percent": 18.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.73, "outside_cpu_percent_of_machine": 6.37}
+{"utc": "2026-10-17T13:02:04Z", "machine_cpu_percent": 23.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.49, "outside_cpu_percent_of_machine": 10.81}
+{"utc": "2026-10-17T13:02:19Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.74, "outside_cpu_percent_of_machine": 4.96, "top_other_percent_of_machine": [[81.74, "System Idle Process"], [1.08, "other process"], [0.88, "other process"], [0.54, "System"]]}
+{"utc": "2026-10-17T13:02:36Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.27, "outside_cpu_percent_of_machine": 5.13}
+{"utc": "2026-10-17T13:02:51Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.39, "outside_cpu_percent_of_machine": 5.21}
+{"utc": "2026-10-17T13:03:06Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.89, "outside_cpu_percent_of_machine": 4.61}
+{"utc": "2026-10-17T13:03:21Z", "machine_cpu_percent": 15.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.41, "outside_cpu_percent_of_machine": 4.49, "top_other_percent_of_machine": [[84.39, "System Idle Process"], [0.98, "other process"], [0.38, "System"], [0.26, "other process"]]}
+{"utc": "2026-10-17T13:03:39Z", "machine_cpu_percent": 16.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.24, "outside_cpu_percent_of_machine": 4.86}
+{"utc": "2026-10-17T13:03:54Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.51, "outside_cpu_percent_of_machine": 5.19}
+{"utc": "2026-10-17T13:04:09Z", "machine_cpu_percent": 15.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 4.48}
+{"utc": "2026-10-17T13:04:24Z", "machine_cpu_percent": 15.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.97, "outside_cpu_percent_of_machine": 4.83, "top_other_percent_of_machine": [[84.42, "System Idle Process"], [1.26, "other process"], [0.3, "System"], [0.25, "other process"]]}
+{"utc": "2026-10-17T13:04:41Z", "machine_cpu_percent": 16.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.22, "outside_cpu_percent_of_machine": 5.08}
+{"utc": "2026-10-17T13:04:56Z", "machine_cpu_percent": 18.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.99, "outside_cpu_percent_of_machine": 7.41}
+{"utc": "2026-10-17T13:05:11Z", "machine_cpu_percent": 15.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.97, "outside_cpu_percent_of_machine": 4.03}
+{"utc": "2026-10-17T13:05:26Z", "machine_cpu_percent": 16.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.49, "outside_cpu_percent_of_machine": 4.61, "top_other_percent_of_machine": [[84.08, "System Idle Process"], [1.03, "other process"], [0.43, "other process"], [0.41, "other process"]]}
+{"utc": "2026-10-17T13:05:43Z", "machine_cpu_percent": 18.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.73, "outside_cpu_percent_of_machine": 6.87}
+{"utc": "2026-10-17T13:05:58Z", "machine_cpu_percent": 18.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.78, "outside_cpu_percent_of_machine": 7.02}
+{"utc": "2026-10-17T13:06:13Z", "machine_cpu_percent": 14.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.38, "outside_cpu_percent_of_machine": 3.42}
+{"utc": "2026-10-17T13:06:28Z", "machine_cpu_percent": 14.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.76, "outside_cpu_percent_of_machine": 3.44, "top_other_percent_of_machine": [[83.86, "System Idle Process"], [1.07, "other process"], [0.37, "MsMpEng.exe"], [0.28, "System"]]}
+{"utc": "2026-10-17T13:06:45Z", "machine_cpu_percent": 17.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.93, "outside_cpu_percent_of_machine": 5.77}
+{"utc": "2026-10-17T13:07:00Z", "machine_cpu_percent": 18.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.22, "outside_cpu_percent_of_machine": 5.98}
+{"utc": "2026-10-17T13:07:15Z", "machine_cpu_percent": 17.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 12.17, "outside_cpu_percent_of_machine": 5.43}
+{"utc": "2026-10-17T13:07:30Z", "machine_cpu_percent": 16.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.26, "outside_cpu_percent_of_machine": 4.84, "top_other_percent_of_machine": [[83.09, "System Idle Process"], [0.89, "other process"], [0.42, "System"], [0.29, "other process"]]}
+{"utc": "2026-10-17T13:07:47Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.2, "outside_cpu_percent_of_machine": 5.2}
+{"utc": "2026-10-17T13:08:02Z", "machine_cpu_percent": 17.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.96, "outside_cpu_percent_of_machine": 6.34}
+{"utc": "2026-10-17T13:08:17Z", "machine_cpu_percent": 13.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 9.58, "outside_cpu_percent_of_machine": 3.82}
+{"utc": "2026-10-17T13:08:32Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.51, "outside_cpu_percent_of_machine": 4.39, "top_other_percent_of_machine": [[85.02, "System Idle Process"], [0.97, "other process"], [0.51, "other process"], [0.3, "System"]]}
+{"utc": "2026-10-17T13:08:50Z", "machine_cpu_percent": 19.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.9, "outside_cpu_percent_of_machine": 8.6}
+{"utc": "2026-10-17T13:09:05Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.9, "outside_cpu_percent_of_machine": 5.7}
+{"utc": "2026-10-17T13:09:20Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.83, "outside_cpu_percent_of_machine": 4.67}
+{"utc": "2026-10-17T13:09:35Z", "machine_cpu_percent": 13.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 9.89, "outside_cpu_percent_of_machine": 3.61, "top_other_percent_of_machine": [[84.2, "System Idle Process"], [1.25, "other process"], [0.56, "other process"], [0.37, "System"]]}
+{"utc": "2026-10-17T13:09:51Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.91, "outside_cpu_percent_of_machine": 5.79}
+{"utc": "2026-10-17T13:10:06Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.51, "outside_cpu_percent_of_machine": 5.19}
+{"utc": "2026-10-17T13:10:21Z", "machine_cpu_percent": 16.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.63, "outside_cpu_percent_of_machine": 5.87}
+{"utc": "2026-10-17T13:10:36Z", "machine_cpu_percent": 14.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.84, "outside_cpu_percent_of_machine": 3.66, "top_other_percent_of_machine": [[84.66, "System Idle Process"], [1.12, "other process"], [0.49, "other process"], [0.23, "System"]]}
+{"utc": "2026-10-17T13:10:54Z", "machine_cpu_percent": 18.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.79, "outside_cpu_percent_of_machine": 7.81}
+{"utc": "2026-10-17T13:11:09Z", "machine_cpu_percent": 14.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.03, "outside_cpu_percent_of_machine": 3.67}
+{"utc": "2026-10-17T13:11:24Z", "machine_cpu_percent": 14.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.28, "outside_cpu_percent_of_machine": 3.72}
+{"utc": "2026-10-17T13:11:39Z", "machine_cpu_percent": 14.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.12, "outside_cpu_percent_of_machine": 3.58, "top_other_percent_of_machine": [[84.79, "System Idle Process"], [1.05, "other process"], [0.43, "other process"], [0.42, "System"]]}
+{"utc": "2026-10-17T13:11:56Z", "machine_cpu_percent": 17.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.41, "outside_cpu_percent_of_machine": 7.19}
+{"utc": "2026-10-17T13:12:11Z", "machine_cpu_percent": 16.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.36, "outside_cpu_percent_of_machine": 5.04}
+{"utc": "2026-10-17T13:12:26Z", "machine_cpu_percent": 14.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.4, "outside_cpu_percent_of_machine": 4.0}
+{"utc": "2026-10-17T13:12:41Z", "machine_cpu_percent": 13.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.15, "outside_cpu_percent_of_machine": 3.45, "top_other_percent_of_machine": [[84.87, "System Idle Process"], [1.24, "other process"], [0.4, "other process"], [0.38, "System"]]}
+{"utc": "2026-10-17T13:12:58Z", "machine_cpu_percent": 17.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.82, "outside_cpu_percent_of_machine": 6.48}
+{"utc": "2026-10-17T13:13:13Z", "machine_cpu_percent": 15.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.58, "outside_cpu_percent_of_machine": 4.52}
+{"utc": "2026-10-17T13:13:28Z", "machine_cpu_percent": 15.3, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.83, "outside_cpu_percent_of_machine": 4.47}
+{"utc": "2026-10-17T13:13:43Z", "machine_cpu_percent": 14.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.53, "outside_cpu_percent_of_machine": 3.87, "top_other_percent_of_machine": [[84.93, "System Idle Process"], [1.06, "other process"], [0.26, "other process"], [0.23, "System"]]}
+{"utc": "2026-10-17T13:14:00Z", "machine_cpu_percent": 16.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.97, "outside_cpu_percent_of_machine": 5.83}
+{"utc": "2026-10-17T13:14:15Z", "machine_cpu_percent": 14.1, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.26, "outside_cpu_percent_of_machine": 3.84}
+{"utc": "2026-10-17T13:14:30Z", "machine_cpu_percent": 15.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 5.08}
+{"utc": "2026-10-17T13:14:45Z", "machine_cpu_percent": 15.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.62, "outside_cpu_percent_of_machine": 4.58, "top_other_percent_of_machine": [[85.03, "System Idle Process"], [1.0, "other process"], [0.34, "System"], [0.24, "other process"]]}
+{"utc": "2026-10-17T13:15:03Z", "machine_cpu_percent": 18.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.87, "outside_cpu_percent_of_machine": 7.33}
+{"utc": "2026-10-17T13:15:18Z", "machine_cpu_percent": 18.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.94, "outside_cpu_percent_of_machine": 6.86}
+{"utc": "2026-10-17T13:15:33Z", "machine_cpu_percent": 17.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.66, "outside_cpu_percent_of_machine": 5.54}
+{"utc": "2026-10-17T13:15:48Z", "machine_cpu_percent": 14.4, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.15, "outside_cpu_percent_of_machine": 4.25, "top_other_percent_of_machine": [[83.34, "System Idle Process"], [1.21, "other process"], [0.62, "svchost.exe"], [0.42, "other process"]]}
+{"utc": "2026-10-17T13:16:04Z", "machine_cpu_percent": 15.8, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.08, "outside_cpu_percent_of_machine": 5.72}
+{"utc": "2026-10-17T13:16:20Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.09, "outside_cpu_percent_of_machine": 4.61}
+{"utc": "2026-10-17T13:16:35Z", "machine_cpu_percent": 17.2, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.37, "outside_cpu_percent_of_machine": 5.83}
+{"utc": "2026-10-17T13:16:50Z", "machine_cpu_percent": 17.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.11, "outside_cpu_percent_of_machine": 6.79, "top_other_percent_of_machine": [[83.99, "System Idle Process"], [0.92, "other process"], [0.42, "System"], [0.28, "other process"]]}
+{"utc": "2026-10-17T13:17:07Z", "machine_cpu_percent": 16.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.28, "outside_cpu_percent_of_machine": 6.42}
+{"utc": "2026-10-17T13:17:22Z", "machine_cpu_percent": 14.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.7, "outside_cpu_percent_of_machine": 4.2}
+{"utc": "2026-10-17T13:17:37Z", "machine_cpu_percent": 13.9, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.67, "outside_cpu_percent_of_machine": 3.23}
+{"utc": "2026-10-17T13:17:52Z", "machine_cpu_percent": 16.0, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.72, "outside_cpu_percent_of_machine": 5.28, "top_other_percent_of_machine": [[85.06, "System Idle Process"], [0.97, "other process"], [0.37, "System"], [0.25, "other process"]]}
+{"utc": "2026-10-17T13:18:09Z", "machine_cpu_percent": 15.7, "runner_pid": 27024, "runner_cpu_percent_of_machine": 10.59, "outside_cpu_percent_of_machine": 5.11}
+{"utc": "2026-10-17T13:18:24Z", "machine_cpu_percent": 16.6, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.42, "outside_cpu_percent_of_machine": 5.18}
+{"utc": "2026-10-17T13:18:39Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.55, "outside_cpu_percent_of_machine": 3.95}
+{"utc": "2026-10-17T13:18:54Z", "machine_cpu_percent": 15.5, "runner_pid": 27024, "runner_cpu_percent_of_machine": 11.84, "outside_cpu_percent_of_machine": 3.66, "top_other_percent_of_machine": [[84.67, "System Idle Process"], [1.11, "other process"], [0.42, "other process"], [0.24, "System"]]}
+{"utc": "2026-10-17T13:19:12Z", "machine_cpu_percent": 16.0, "runner_pid": null, "runner_cpu_percent_of_machine": null}
