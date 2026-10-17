@@ -1,0 +1,54 @@
+"""Reference recipe: a small pre-norm GPT (d 96, 3 layers, 4 heads, tied embeddings, learned positions), AdamW, 20-update warmup, cosine."""
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+CONFIG = dict(updates=1200, eval_every=100, lr=4e-3, d=96, layers=3, heads=4, wd=0.1)
+
+
+class Block(nn.Module):
+    def __init__(self, d, h):
+        super().__init__()
+        self.h = h
+        self.ln1, self.ln2 = nn.LayerNorm(d), nn.LayerNorm(d)
+        self.qkv = nn.Linear(d, 3 * d, bias=False)
+        self.o = nn.Linear(d, d, bias=False)
+        self.up = nn.Linear(d, 4 * d, bias=False)
+        self.down = nn.Linear(4 * d, d, bias=False)
+
+    def forward(self, x):
+        B, T, D = x.shape
+        q, k, v = self.qkv(self.ln1(x)).view(B, T, 3, self.h, D // self.h).permute(2, 0, 3, 1, 4)
+        a = F.scaled_dot_product_attention(q, k, v, is_causal=True)
+        x = x + self.o(a.transpose(1, 2).reshape(B, T, D))
+        return x + self.down(F.gelu(self.up(self.ln2(x))))
+
+
+class GPT(nn.Module):
+    def __init__(self, vocab, d, layers, heads, ctx=128):
+        super().__init__()
+        self.emb = nn.Embedding(vocab, d)
+        self.pos = nn.Parameter(torch.zeros(ctx, d))
+        self.blocks = nn.ModuleList(Block(d, heads) for _ in range(layers))
+        self.ln = nn.LayerNorm(d)
+        nn.init.normal_(self.emb.weight, std=0.02)
+
+    def inputs(self, x):
+        return self.emb(x) + self.pos[: x.shape[1]]
+
+    def forward(self, x):
+        h = self.inputs(x)
+        for b in self.blocks:
+            h = b(h)
+        return self.ln(h) @ self.emb.weight.T
+
+
+def build_model(vocab, aux=None):
+    c = CONFIG
+    return GPT(vocab, c['d'], c['layers'], c['heads'])
+
+
+def make_optimizer(model, cfg):
+    decay = [p for n, p in model.named_parameters() if p.dim() >= 2 and not n.startswith('emb')]
+    rest = [p for n, p in model.named_parameters() if not (p.dim() >= 2 and not n.startswith('emb'))]
+    return torch.optim.AdamW([dict(params=decay, weight_decay=cfg['wd']), dict(params=rest, weight_decay=0.0)], lr=cfg['lr'], betas=(0.9, 0.95))

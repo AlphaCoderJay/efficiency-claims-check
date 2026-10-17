@@ -1,0 +1,1148 @@
+{
+ "started_utc": "2026-10-16T12:26:32Z",
+ "machine": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+ "torch": "2.7.0+cpu",
+ "threads": 2,
+ "train_tokens": 3860300,
+ "eval_tokens": 32768,
+ "runs": {
+  "reference": {
+   "record": {
+    "submission": "reference.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "params": 542016,
+    "prepare_cpu_s": 0.0,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "done",
+    "flops_per_update": 6492782592,
+    "points": [
+     {
+      "update": 100,
+      "cpu_s": 10.406,
+      "flops": 649278259200,
+      "bits_per_token": 8.64955
+     },
+     {
+      "update": 200,
+      "cpu_s": 21.016,
+      "flops": 1298556518400,
+      "bits_per_token": 7.99091
+     },
+     {
+      "update": 300,
+      "cpu_s": 32.031,
+      "flops": 1947834777600,
+      "bits_per_token": 7.6556
+     },
+     {
+      "update": 400,
+      "cpu_s": 43.203,
+      "flops": 2597113036800,
+      "bits_per_token": 7.46384
+     },
+     {
+      "update": 500,
+      "cpu_s": 54.859,
+      "flops": 3246391296000,
+      "bits_per_token": 7.30119
+     },
+     {
+      "update": 600,
+      "cpu_s": 66.25,
+      "flops": 3895669555200,
+      "bits_per_token": 7.14085
+     },
+     {
+      "update": 700,
+      "cpu_s": 78.0,
+      "flops": 4544947814400,
+      "bits_per_token": 7.01173
+     },
+     {
+      "update": 800,
+      "cpu_s": 89.719,
+      "flops": 5194226073600,
+      "bits_per_token": 6.88899
+     },
+     {
+      "update": 900,
+      "cpu_s": 101.484,
+      "flops": 5843504332800,
+      "bits_per_token": 6.79419
+     },
+     {
+      "update": 1000,
+      "cpu_s": 113.469,
+      "flops": 6492782592000,
+      "bits_per_token": 6.74209
+     },
+     {
+      "update": 1100,
+      "cpu_s": 125.078,
+      "flops": 7142060851200,
+      "bits_per_token": 6.68102
+     },
+     {
+      "update": 1200,
+      "cpu_s": 136.766,
+      "flops": 7791339110400,
+      "bits_per_token": 6.65585
+     }
+    ],
+    "train_cpu_s": 136.766,
+    "total_cpu_s": 136.766
+   }
+  },
+  "ngram_input": {
+   "record": {
+    "submission": "ngram_input.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "params": 6833472,
+    "prepare_cpu_s": 0.0,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "done",
+    "flops_per_update": 6492782592,
+    "points": [
+     {
+      "update": 100,
+      "cpu_s": 12.266,
+      "flops": 649278259200,
+      "bits_per_token": 8.69258
+     },
+     {
+      "update": 200,
+      "cpu_s": 24.562,
+      "flops": 1298556518400,
+      "bits_per_token": 7.68546
+     },
+     {
+      "update": 300,
+      "cpu_s": 37.188,
+      "flops": 1947834777600,
+      "bits_per_token": 7.27013
+     },
+     {
+      "update": 400,
+      "cpu_s": 49.688,
+      "flops": 2597113036800,
+      "bits_per_token": 7.00263
+     },
+     {
+      "update": 500,
+      "cpu_s": 62.406,
+      "flops": 3246391296000,
+      "bits_per_token": 6.79298
+     },
+     {
+      "update": 600,
+      "cpu_s": 75.391,
+      "flops": 3895669555200,
+      "bits_per_token": 6.5496
+     },
+     {
+      "update": 700,
+      "cpu_s": 87.875,
+      "flops": 4544947814400,
+      "bits_per_token": 6.38622
+     },
+     {
+      "update": 800,
+      "cpu_s": 100.406,
+      "flops": 5194226073600,
+      "bits_per_token": 6.24586
+     },
+     {
+      "update": 900,
+      "cpu_s": 112.938,
+      "flops": 5843504332800,
+      "bits_per_token": 6.14447
+     },
+     {
+      "update": 1000,
+      "cpu_s": 125.719,
+      "flops": 6492782592000,
+      "bits_per_token": 6.07446
+     },
+     {
+      "update": 1100,
+      "cpu_s": 138.266,
+      "flops": 7142060851200,
+      "bits_per_token": 6.03095
+     },
+     {
+      "update": 1200,
+      "cpu_s": 151.344,
+      "flops": 7791339110400,
+      "bits_per_token": 5.98625
+     }
+    ],
+    "train_cpu_s": 151.344,
+    "total_cpu_s": 151.344
+   },
+   "grade": {
+    "reward": 0.4891,
+    "Q": 6.65585,
+    "R_time": 0.5076,
+    "R_time_bound": null,
+    "R_flops": 0.4617,
+    "R_flops_bound": null,
+    "prepare_share_of_cpu": 0.0,
+    "final_bits_per_token": 5.98625,
+    "R_time_curve": [
+     {
+      "ref_update": 100,
+      "Q": 8.64955,
+      "R_time": 1.2142,
+      "bound": null
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.99091,
+      "R_time": 0.9468,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.6556,
+      "R_time": 0.79,
+      "bound": null
+     },
+     {
+      "ref_update": 400,
+      "Q": 7.46384,
+      "R_time": 0.7094,
+      "bound": null
+     },
+     {
+      "ref_update": 500,
+      "Q": 7.30119,
+      "R_time": 0.6572,
+      "bound": null
+     },
+     {
+      "ref_update": 600,
+      "Q": 7.14085,
+      "R_time": 0.6457,
+      "bound": null
+     },
+     {
+      "ref_update": 700,
+      "Q": 7.01173,
+      "R_time": 0.6308,
+      "bound": null
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.88899,
+      "R_time": 0.6266,
+      "bound": null
+     },
+     {
+      "ref_update": 900,
+      "Q": 6.79419,
+      "R_time": 0.6141,
+      "bound": null
+     },
+     {
+      "ref_update": 1000,
+      "Q": 6.74209,
+      "R_time": 0.5722,
+      "bound": null
+     },
+     {
+      "ref_update": 1100,
+      "Q": 6.68102,
+      "R_time": 0.5443,
+      "bound": null
+     },
+     {
+      "ref_update": 1200,
+      "Q": 6.65585,
+      "R_time": 0.5076,
+      "bound": null
+     }
+    ]
+   },
+   "grade_vs_strong_reference": {
+    "reward": 0.0,
+    "Q": 5.63655,
+    "R_time": 0.8819,
+    "R_time_bound": "lower",
+    "R_flops": 1.0,
+    "R_flops_bound": "lower",
+    "prepare_share_of_cpu": 0.0,
+    "final_bits_per_token": 5.98625,
+    "R_time_curve": [
+     {
+      "ref_update": 100,
+      "Q": 6.23345,
+      "R_time": 7.2438,
+      "bound": null
+     },
+     {
+      "ref_update": 200,
+      "Q": 6.1905,
+      "R_time": 3.7732,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 6.10266,
+      "R_time": 2.8052,
+      "bound": null
+     },
+     {
+      "ref_update": 400,
+      "Q": 6.0203,
+      "R_time": 2.459,
+      "bound": null
+     },
+     {
+      "ref_update": 500,
+      "Q": 5.95152,
+      "R_time": 2.1111,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 600,
+      "Q": 5.8668,
+      "R_time": 1.756,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 700,
+      "Q": 5.80226,
+      "R_time": 1.5029,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 800,
+      "Q": 5.7359,
+      "R_time": 1.3177,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 900,
+      "Q": 5.7032,
+      "R_time": 1.1712,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 1000,
+      "Q": 5.67555,
+      "R_time": 1.0564,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 1100,
+      "Q": 5.64936,
+      "R_time": 0.9611,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 1200,
+      "Q": 5.63655,
+      "R_time": 0.8819,
+      "bound": "lower"
+     }
+    ]
+   }
+  },
+  "counted_prior": {
+   "record": {
+    "submission": "counted_prior.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "params": 542017,
+    "prepare_cpu_s": 0.109,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "done",
+    "flops_per_update": 6492782592,
+    "points": [
+     {
+      "update": 100,
+      "cpu_s": 13.531,
+      "flops": 649278259200,
+      "bits_per_token": 6.23731
+     },
+     {
+      "update": 200,
+      "cpu_s": 26.516,
+      "flops": 1298556518400,
+      "bits_per_token": 6.23033
+     },
+     {
+      "update": 300,
+      "cpu_s": 39.203,
+      "flops": 1947834777600,
+      "bits_per_token": 6.22712
+     },
+     {
+      "update": 400,
+      "cpu_s": 52.141,
+      "flops": 2597113036800,
+      "bits_per_token": 6.2181
+     },
+     {
+      "update": 500,
+      "cpu_s": 65.297,
+      "flops": 3246391296000,
+      "bits_per_token": 6.21777
+     },
+     {
+      "update": 600,
+      "cpu_s": 78.562,
+      "flops": 3895669555200,
+      "bits_per_token": 6.19893
+     },
+     {
+      "update": 700,
+      "cpu_s": 91.969,
+      "flops": 4544947814400,
+      "bits_per_token": 6.19272
+     },
+     {
+      "update": 800,
+      "cpu_s": 105.359,
+      "flops": 5194226073600,
+      "bits_per_token": 6.17668
+     },
+     {
+      "update": 900,
+      "cpu_s": 118.609,
+      "flops": 5843504332800,
+      "bits_per_token": 6.16093
+     },
+     {
+      "update": 1000,
+      "cpu_s": 132.141,
+      "flops": 6492782592000,
+      "bits_per_token": 6.15509
+     },
+     {
+      "update": 1100,
+      "cpu_s": 145.422,
+      "flops": 7142060851200,
+      "bits_per_token": 6.14838
+     },
+     {
+      "update": 1200,
+      "cpu_s": 159.156,
+      "flops": 7791339110400,
+      "bits_per_token": 6.14236
+     }
+    ],
+    "train_cpu_s": 159.047,
+    "total_cpu_s": 159.156
+   },
+   "grade": {
+    "reward": 1.0,
+    "Q": 6.65585,
+    "R_time": 0.0989,
+    "R_time_bound": "upper",
+    "R_flops": 0.0833,
+    "R_flops_bound": "upper",
+    "prepare_share_of_cpu": 0.0007,
+    "final_bits_per_token": 6.14236,
+    "R_time_curve": [
+     {
+      "ref_update": 100,
+      "Q": 8.64955,
+      "R_time": 1.3003,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.99091,
+      "R_time": 0.6438,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.6556,
+      "R_time": 0.4224,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 400,
+      "Q": 7.46384,
+      "R_time": 0.3132,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 500,
+      "Q": 7.30119,
+      "R_time": 0.2467,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 600,
+      "Q": 7.14085,
+      "R_time": 0.2042,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 700,
+      "Q": 7.01173,
+      "R_time": 0.1735,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.88899,
+      "R_time": 0.1508,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 900,
+      "Q": 6.79419,
+      "R_time": 0.1333,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 1000,
+      "Q": 6.74209,
+      "R_time": 0.1192,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 1100,
+      "Q": 6.68102,
+      "R_time": 0.1082,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 1200,
+      "Q": 6.65585,
+      "R_time": 0.0989,
+      "bound": "upper"
+     }
+    ]
+   },
+   "grade_vs_strong_reference": {
+    "reward": 0.0,
+    "Q": 5.63655,
+    "R_time": 0.9274,
+    "R_time_bound": "lower",
+    "R_flops": 1.0,
+    "R_flops_bound": "lower",
+    "prepare_share_of_cpu": 0.0007,
+    "final_bits_per_token": 6.14236,
+    "R_time_curve": [
+     {
+      "ref_update": 100,
+      "Q": 6.23345,
+      "R_time": 1.3959,
+      "bound": null
+     },
+     {
+      "ref_update": 200,
+      "Q": 6.1905,
+      "R_time": 3.3027,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 6.10266,
+      "R_time": 3.708,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 400,
+      "Q": 6.0203,
+      "R_time": 2.7702,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 500,
+      "Q": 5.95152,
+      "R_time": 2.2201,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 600,
+      "Q": 5.8668,
+      "R_time": 1.8466,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 700,
+      "Q": 5.80226,
+      "R_time": 1.5804,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 800,
+      "Q": 5.7359,
+      "R_time": 1.3857,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 900,
+      "Q": 5.7032,
+      "R_time": 1.2317,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 1000,
+      "Q": 5.67555,
+      "R_time": 1.1109,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 1100,
+      "Q": 5.64936,
+      "R_time": 1.0107,
+      "bound": "lower"
+     },
+     {
+      "ref_update": 1200,
+      "Q": 5.63655,
+      "R_time": 0.9274,
+      "bound": "lower"
+     }
+    ]
+   }
+  },
+  "strong_reference": {
+   "record": {
+    "submission": "strong_reference.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "params": 6833473,
+    "prepare_cpu_s": 0.094,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "done",
+    "flops_per_update": 6492782592,
+    "points": [
+     {
+      "update": 100,
+      "cpu_s": 14.062,
+      "flops": 649278259200,
+      "bits_per_token": 6.23345
+     },
+     {
+      "update": 200,
+      "cpu_s": 28.375,
+      "flops": 1298556518400,
+      "bits_per_token": 6.1905
+     },
+     {
+      "update": 300,
+      "cpu_s": 42.922,
+      "flops": 1947834777600,
+      "bits_per_token": 6.10266
+     },
+     {
+      "update": 400,
+      "cpu_s": 57.453,
+      "flops": 2597113036800,
+      "bits_per_token": 6.0203
+     },
+     {
+      "update": 500,
+      "cpu_s": 71.688,
+      "flops": 3246391296000,
+      "bits_per_token": 5.95152
+     },
+     {
+      "update": 600,
+      "cpu_s": 86.188,
+      "flops": 3895669555200,
+      "bits_per_token": 5.8668
+     },
+     {
+      "update": 700,
+      "cpu_s": 100.703,
+      "flops": 4544947814400,
+      "bits_per_token": 5.80226
+     },
+     {
+      "update": 800,
+      "cpu_s": 114.859,
+      "flops": 5194226073600,
+      "bits_per_token": 5.7359
+     },
+     {
+      "update": 900,
+      "cpu_s": 129.219,
+      "flops": 5843504332800,
+      "bits_per_token": 5.7032
+     },
+     {
+      "update": 1000,
+      "cpu_s": 143.266,
+      "flops": 6492782592000,
+      "bits_per_token": 5.67555
+     },
+     {
+      "update": 1100,
+      "cpu_s": 157.469,
+      "flops": 7142060851200,
+      "bits_per_token": 5.64936
+     },
+     {
+      "update": 1200,
+      "cpu_s": 171.609,
+      "flops": 7791339110400,
+      "bits_per_token": 5.63655
+     }
+    ],
+    "train_cpu_s": 171.516,
+    "total_cpu_s": 171.609
+   },
+   "grade": {
+    "reward": 1.0,
+    "Q": 6.65585,
+    "R_time": 0.1028,
+    "R_time_bound": "upper",
+    "R_flops": 0.0833,
+    "R_flops_bound": "upper",
+    "prepare_share_of_cpu": 0.0005,
+    "final_bits_per_token": 5.63655,
+    "R_time_curve": [
+     {
+      "ref_update": 100,
+      "Q": 8.64955,
+      "R_time": 1.3513,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.99091,
+      "R_time": 0.6691,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.6556,
+      "R_time": 0.439,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 400,
+      "Q": 7.46384,
+      "R_time": 0.3255,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 500,
+      "Q": 7.30119,
+      "R_time": 0.2563,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 600,
+      "Q": 7.14085,
+      "R_time": 0.2123,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 700,
+      "Q": 7.01173,
+      "R_time": 0.1803,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.88899,
+      "R_time": 0.1567,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 900,
+      "Q": 6.79419,
+      "R_time": 0.1386,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 1000,
+      "Q": 6.74209,
+      "R_time": 0.1239,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 1100,
+      "Q": 6.68102,
+      "R_time": 0.1124,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 1200,
+      "Q": 6.65585,
+      "R_time": 0.1028,
+      "bound": "upper"
+     }
+    ]
+   }
+  },
+  "no_causal_mask": {
+   "record": {
+    "submission": "no_causal_mask.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": false,
+      "max_change_before_t": 0.06864636391401291,
+      "max_change_other_row": 0.0
+     }
+    },
+    "params": 542016,
+    "prepare_cpu_s": 0.0,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "rejected: causality (initial model)"
+   },
+   "grade": {
+    "reward": 0.0,
+    "reason": "rejected: causality (initial model)"
+   }
+  },
+  "batch_coupled": {
+   "record": {
+    "submission": "batch_coupled.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": false,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.1910841315984726
+     }
+    },
+    "params": 542016,
+    "prepare_cpu_s": 0.0,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "rejected: causality (initial model)"
+   },
+   "grade": {
+    "reward": 0.0,
+    "reason": "rejected: causality (initial model)"
+   }
+  },
+  "reads_files": {
+   "record": {
+    "submission": "reads_files.py",
+    "checks": {
+     "static": {
+      "ok": false,
+      "problems": [
+       "import os",
+       "name open"
+      ]
+     }
+    },
+    "status": "rejected: static scan"
+   },
+   "grade": {
+    "reward": 0.0,
+    "reason": "rejected: static scan"
+   }
+  },
+  "reference_repeat": {
+   "record": {
+    "submission": "reference.py",
+    "checks": {
+     "static": {
+      "ok": true,
+      "problems": []
+     },
+     "causal_init": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     },
+     "causal_trained": {
+      "ok": true,
+      "max_change_before_t": 0.0,
+      "max_change_other_row": 0.0
+     }
+    },
+    "params": 542016,
+    "prepare_cpu_s": 0.0,
+    "config": {
+     "updates": 1200,
+     "eval_every": 100,
+     "lr": 0.004,
+     "d": 96,
+     "layers": 3,
+     "heads": 4,
+     "wd": 0.1
+    },
+    "status": "done",
+    "flops_per_update": 6492782592,
+    "points": [
+     {
+      "update": 100,
+      "cpu_s": 11.719,
+      "flops": 649278259200,
+      "bits_per_token": 8.64955
+     },
+     {
+      "update": 200,
+      "cpu_s": 23.766,
+      "flops": 1298556518400,
+      "bits_per_token": 7.99091
+     },
+     {
+      "update": 300,
+      "cpu_s": 35.859,
+      "flops": 1947834777600,
+      "bits_per_token": 7.6556
+     },
+     {
+      "update": 400,
+      "cpu_s": 47.906,
+      "flops": 2597113036800,
+      "bits_per_token": 7.46384
+     },
+     {
+      "update": 500,
+      "cpu_s": 60.047,
+      "flops": 3246391296000,
+      "bits_per_token": 7.30119
+     },
+     {
+      "update": 600,
+      "cpu_s": 72.312,
+      "flops": 3895669555200,
+      "bits_per_token": 7.14085
+     },
+     {
+      "update": 700,
+      "cpu_s": 87.391,
+      "flops": 4544947814400,
+      "bits_per_token": 7.01173
+     },
+     {
+      "update": 800,
+      "cpu_s": 101.734,
+      "flops": 5194226073600,
+      "bits_per_token": 6.88899
+     },
+     {
+      "update": 900,
+      "cpu_s": 116.234,
+      "flops": 5843504332800,
+      "bits_per_token": 6.79419
+     },
+     {
+      "update": 1000,
+      "cpu_s": 130.922,
+      "flops": 6492782592000,
+      "bits_per_token": 6.74209
+     },
+     {
+      "update": 1100,
+      "cpu_s": 145.188,
+      "flops": 7142060851200,
+      "bits_per_token": 6.68102
+     },
+     {
+      "update": 1200,
+      "cpu_s": 160.031,
+      "flops": 7791339110400,
+      "bits_per_token": 6.65585
+     }
+    ],
+    "train_cpu_s": 160.031,
+    "total_cpu_s": 160.031
+   },
+   "grade": {
+    "reward": 0.0,
+    "Q": 6.65585,
+    "R_time": 1.1701,
+    "R_time_bound": null,
+    "R_flops": 1.0,
+    "R_flops_bound": null,
+    "prepare_share_of_cpu": 0.0,
+    "final_bits_per_token": 6.65585,
+    "R_time_curve": [
+     {
+      "ref_update": 100,
+      "Q": 8.64955,
+      "R_time": 1.1262,
+      "bound": "upper"
+     },
+     {
+      "ref_update": 200,
+      "Q": 7.99091,
+      "R_time": 1.1309,
+      "bound": null
+     },
+     {
+      "ref_update": 300,
+      "Q": 7.6556,
+      "R_time": 1.1195,
+      "bound": null
+     },
+     {
+      "ref_update": 400,
+      "Q": 7.46384,
+      "R_time": 1.1089,
+      "bound": null
+     },
+     {
+      "ref_update": 500,
+      "Q": 7.30119,
+      "R_time": 1.0946,
+      "bound": null
+     },
+     {
+      "ref_update": 600,
+      "Q": 7.14085,
+      "R_time": 1.0915,
+      "bound": null
+     },
+     {
+      "ref_update": 700,
+      "Q": 7.01173,
+      "R_time": 1.1204,
+      "bound": null
+     },
+     {
+      "ref_update": 800,
+      "Q": 6.88899,
+      "R_time": 1.1339,
+      "bound": null
+     },
+     {
+      "ref_update": 900,
+      "Q": 6.79419,
+      "R_time": 1.1453,
+      "bound": null
+     },
+     {
+      "ref_update": 1000,
+      "Q": 6.74209,
+      "R_time": 1.1538,
+      "bound": null
+     },
+     {
+      "ref_update": 1100,
+      "Q": 6.68102,
+      "R_time": 1.1608,
+      "bound": null
+     },
+     {
+      "ref_update": 1200,
+      "Q": 6.65585,
+      "R_time": 1.1701,
+      "bound": null
+     }
+    ]
+   }
+  }
+ },
+ "finished_utc": "2026-10-16T12:34:28Z"
+}
