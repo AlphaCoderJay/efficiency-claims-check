@@ -20,7 +20,20 @@ A submission is one Python file that defines a language model and how to train i
 
 ## Run it
 
-The data is a uint16 token stream with vocabulary 2,048 (`train.bin` and `valid.bin`). The demo used WikiText-2 tokenised with a byte-level BPE of 2,048 tokens; the data is not included in this package.
+The harness reads two uint16 token files with vocabulary 2,048: `train.bin` and `valid.bin` (the names `en_train.bin` and `en_validation.bin` also work). The token files are not stored in the repository; build them once from public WikiText-2 with the script and tokenizer in [`dataprep/`](dataprep/):
+
+```bash
+pip install torch numpy pyarrow tokenizers
+REV=b08601e04326c79dfdd32d625aee71d232d685c3
+BASE=https://huggingface.co/datasets/Salesforce/wikitext/resolve/$REV/wikitext-2-raw-v1
+curl -L -o train-00000-of-00001.parquet $BASE/train-00000-of-00001.parquet
+curl -L -o validation-00000-of-00001.parquet $BASE/validation-00000-of-00001.parquet
+python dataprep/prepare_data.py --train train-00000-of-00001.parquet --valid validation-00000-of-00001.parquet --tokenizer dataprep/tokenizer.json --out DATA_DIR
+```
+
+`prepare_data.py` checks the SHA-256 of the token files it writes. The expected result is `en_train.bin` with 3,860,300 tokens and `en_validation.bin` with 401,875 tokens. These are the same files used in [ECC-001](../results/ECC-001-dotrixai/).
+
+Then run the demo:
 
 ```bash
 python run_demo.py --data-dir DATA_DIR --threads 2
