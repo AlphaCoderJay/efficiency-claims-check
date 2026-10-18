@@ -1,5 +1,7 @@
 # Method
 
+Standard S-1, draft v1.0 (see [`standards/`](standards/)). Governed by [`CHARTER.md`](CHARTER.md).
+
 How a check is measured and reported. The rules exist because each one caught a real mistake, often our own.
 
 ## 1. The quantity
@@ -25,7 +27,8 @@ If R_FLOP and R_time disagree, report both and explain the gap. A method can sav
 
 ## 3. Baseline
 
-- Use a strong, well tuned recipe. Tune the baseline's learning rate with the same effort as the method's.
+- Use a strong, well tuned recipe. For the CPU harness, the default is [ECC baseline v1](harness/baselines/). Another baseline must be argued in the pre-registration and accepted in review.
+- Tune the baseline's learning rate with the same grid and the same effort as the method's.
 - Include cheap published improvements in the baseline when they are standard for the scale. A method that only beats a weak baseline has not shown much.
 - Use the same data, tokenizer, context length, batch size and evaluation text for both sides, unless the claim is about one of them.
 

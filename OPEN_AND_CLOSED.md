@@ -4,7 +4,7 @@ DotrixAI works in the open and also has a small commercial side. We keep the two
 
 ## Open: everything in this repository
 
-- The claim list, the method, the templates and the harness.
+- The charter, the claim list, proposals, technique notes, standards, the method, the templates and the harness.
 - Every check submitted here, with its code, logs and verdict.
 - Corrections, including corrections of our own mistakes.
 

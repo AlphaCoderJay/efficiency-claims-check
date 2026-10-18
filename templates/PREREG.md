@@ -13,7 +13,7 @@ Author:
 - Model and size:
 - Data and tokenizer:
 - Context length, batch size, updates:
-- Baseline recipe and how it was tuned:
+- Baseline recipe (normally harness/baselines/ecc_baseline_v1.py) and how it was tuned:
 - Method recipe and how it was tuned (same effort as the baseline):
 - Hardware and threads:
 - Seeds:

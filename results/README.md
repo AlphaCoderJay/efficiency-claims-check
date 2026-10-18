@@ -1,6 +1,6 @@
 # Results
 
-One folder per check, named `C07-<handle>` for contributed checks, holding `PREREG.md`, `RESULT.md`, code and logs. See [`../CONTRIBUTING.md`](../CONTRIBUTING.md).
+One folder per check, named `ECC-###-<handle>` (the number is assigned by a maintainer), holding `PREREG.md`, `RESULT.md`, `REVIEW.md`, code and logs. See [`../CONTRIBUTING.md`](../CONTRIBUTING.md).
 
 | check | claim | by | status |
 |---|---|---|---|
