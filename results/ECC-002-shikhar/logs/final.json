@@ -1,0 +1,694 @@
+{
+ "runs": [
+  {
+   "submission": "reference.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 542016,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 100,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 100,
+     "cpu_s": 25.453,
+     "flops": 649278259200,
+     "bits_per_token": 8.66425
+    },
+    {
+     "update": 200,
+     "cpu_s": 49.391,
+     "flops": 1298556518400,
+     "bits_per_token": 7.97068
+    },
+    {
+     "update": 300,
+     "cpu_s": 75.922,
+     "flops": 1947834777600,
+     "bits_per_token": 7.67452
+    },
+    {
+     "update": 400,
+     "cpu_s": 102.047,
+     "flops": 2597113036800,
+     "bits_per_token": 7.47231
+    },
+    {
+     "update": 500,
+     "cpu_s": 128.203,
+     "flops": 3246391296000,
+     "bits_per_token": 7.31041
+    },
+    {
+     "update": 600,
+     "cpu_s": 154.672,
+     "flops": 3895669555200,
+     "bits_per_token": 7.15105
+    },
+    {
+     "update": 700,
+     "cpu_s": 181.422,
+     "flops": 4544947814400,
+     "bits_per_token": 7.01437
+    },
+    {
+     "update": 800,
+     "cpu_s": 207.766,
+     "flops": 5194226073600,
+     "bits_per_token": 6.90897
+    },
+    {
+     "update": 900,
+     "cpu_s": 234.391,
+     "flops": 5843504332800,
+     "bits_per_token": 6.81483
+    },
+    {
+     "update": 1000,
+     "cpu_s": 260.281,
+     "flops": 6492782592000,
+     "bits_per_token": 6.75771
+    },
+    {
+     "update": 1100,
+     "cpu_s": 285.609,
+     "flops": 7142060851200,
+     "bits_per_token": 6.70301
+    },
+    {
+     "update": 1200,
+     "cpu_s": 311.0,
+     "flops": 7791339110400,
+     "bits_per_token": 6.66667
+    }
+   ],
+   "train_cpu_s": 311.0,
+   "total_cpu_s": 311.0,
+   "name": "baseline",
+   "lr": 0.004,
+   "seed": 11,
+   "wall_s": 171.5,
+   "extra_pointwise_flops_per_update": 0,
+   "flops_per_update_torch": 6492782592
+  },
+  {
+   "submission": "dynamic_qkv.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 575712,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 100,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "wd": 0.1,
+    "rank": 7,
+    "width": 4
+   },
+   "status": "done",
+   "flops_per_update": 6915600000,
+   "points": [
+    {
+     "update": 100,
+     "cpu_s": 51.031,
+     "flops": 691560000000,
+     "bits_per_token": 8.73425
+    },
+    {
+     "update": 200,
+     "cpu_s": 103.0,
+     "flops": 1383120000000,
+     "bits_per_token": 7.88653
+    },
+    {
+     "update": 300,
+     "cpu_s": 154.125,
+     "flops": 2074680000000,
+     "bits_per_token": 7.49923
+    },
+    {
+     "update": 400,
+     "cpu_s": 203.344,
+     "flops": 2766240000000,
+     "bits_per_token": 7.21806
+    },
+    {
+     "update": 500,
+     "cpu_s": 252.859,
+     "flops": 3457800000000,
+     "bits_per_token": 7.01938
+    },
+    {
+     "update": 600,
+     "cpu_s": 301.062,
+     "flops": 4149360000000,
+     "bits_per_token": 6.84449
+    },
+    {
+     "update": 700,
+     "cpu_s": 349.594,
+     "flops": 4840920000000,
+     "bits_per_token": 6.69175
+    },
+    {
+     "update": 800,
+     "cpu_s": 399.094,
+     "flops": 5532480000000,
+     "bits_per_token": 6.58681
+    },
+    {
+     "update": 900,
+     "cpu_s": 448.359,
+     "flops": 6224040000000,
+     "bits_per_token": 6.47438
+    },
+    {
+     "update": 1000,
+     "cpu_s": 498.125,
+     "flops": 6915600000000,
+     "bits_per_token": 6.41933
+    },
+    {
+     "update": 1100,
+     "cpu_s": 545.234,
+     "flops": 7607160000000,
+     "bits_per_token": 6.3526
+    },
+    {
+     "update": 1200,
+     "cpu_s": 592.547,
+     "flops": 8298720000000,
+     "bits_per_token": 6.32285
+    }
+   ],
+   "train_cpu_s": 592.547,
+   "total_cpu_s": 592.547,
+   "name": "dynamic",
+   "lr": 0.004,
+   "seed": 11,
+   "wall_s": 316.1,
+   "extra_pointwise_flops_per_update": 51228288,
+   "flops_per_update_torch": 6864371712
+  },
+  {
+   "submission": "dynamic_qkv.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 575712,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 100,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "wd": 0.1,
+    "rank": 7,
+    "width": 4
+   },
+   "status": "done",
+   "flops_per_update": 6915600000,
+   "points": [
+    {
+     "update": 100,
+     "cpu_s": 49.062,
+     "flops": 691560000000,
+     "bits_per_token": 8.62665
+    },
+    {
+     "update": 200,
+     "cpu_s": 96.344,
+     "flops": 1383120000000,
+     "bits_per_token": 7.75409
+    },
+    {
+     "update": 300,
+     "cpu_s": 146.094,
+     "flops": 2074680000000,
+     "bits_per_token": 7.36158
+    },
+    {
+     "update": 400,
+     "cpu_s": 193.516,
+     "flops": 2766240000000,
+     "bits_per_token": 7.09078
+    },
+    {
+     "update": 500,
+     "cpu_s": 243.375,
+     "flops": 3457800000000,
+     "bits_per_token": 6.88732
+    },
+    {
+     "update": 600,
+     "cpu_s": 291.859,
+     "flops": 4149360000000,
+     "bits_per_token": 6.69607
+    },
+    {
+     "update": 700,
+     "cpu_s": 340.109,
+     "flops": 4840920000000,
+     "bits_per_token": 6.55295
+    },
+    {
+     "update": 800,
+     "cpu_s": 389.609,
+     "flops": 5532480000000,
+     "bits_per_token": 6.42671
+    },
+    {
+     "update": 900,
+     "cpu_s": 438.578,
+     "flops": 6224040000000,
+     "bits_per_token": 6.33113
+    },
+    {
+     "update": 1000,
+     "cpu_s": 486.594,
+     "flops": 6915600000000,
+     "bits_per_token": 6.2647
+    },
+    {
+     "update": 1100,
+     "cpu_s": 534.5,
+     "flops": 7607160000000,
+     "bits_per_token": 6.21055
+    },
+    {
+     "update": 1200,
+     "cpu_s": 581.922,
+     "flops": 8298720000000,
+     "bits_per_token": 6.16113
+    }
+   ],
+   "train_cpu_s": 581.922,
+   "total_cpu_s": 581.922,
+   "name": "dynamic",
+   "lr": 0.004,
+   "seed": 22,
+   "wall_s": 309.0,
+   "extra_pointwise_flops_per_update": 51228288,
+   "flops_per_update_torch": 6864371712
+  },
+  {
+   "submission": "reference.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 542016,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 100,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 100,
+     "cpu_s": 24.359,
+     "flops": 649278259200,
+     "bits_per_token": 8.6381
+    },
+    {
+     "update": 200,
+     "cpu_s": 49.078,
+     "flops": 1298556518400,
+     "bits_per_token": 8.04883
+    },
+    {
+     "update": 300,
+     "cpu_s": 74.547,
+     "flops": 1947834777600,
+     "bits_per_token": 7.68268
+    },
+    {
+     "update": 400,
+     "cpu_s": 100.406,
+     "flops": 2597113036800,
+     "bits_per_token": 7.50881
+    },
+    {
+     "update": 500,
+     "cpu_s": 124.938,
+     "flops": 3246391296000,
+     "bits_per_token": 7.36886
+    },
+    {
+     "update": 600,
+     "cpu_s": 150.156,
+     "flops": 3895669555200,
+     "bits_per_token": 7.22145
+    },
+    {
+     "update": 700,
+     "cpu_s": 175.344,
+     "flops": 4544947814400,
+     "bits_per_token": 7.10036
+    },
+    {
+     "update": 800,
+     "cpu_s": 200.844,
+     "flops": 5194226073600,
+     "bits_per_token": 6.9931
+    },
+    {
+     "update": 900,
+     "cpu_s": 225.891,
+     "flops": 5843504332800,
+     "bits_per_token": 6.90789
+    },
+    {
+     "update": 1000,
+     "cpu_s": 250.25,
+     "flops": 6492782592000,
+     "bits_per_token": 6.85247
+    },
+    {
+     "update": 1100,
+     "cpu_s": 275.766,
+     "flops": 7142060851200,
+     "bits_per_token": 6.79576
+    },
+    {
+     "update": 1200,
+     "cpu_s": 300.688,
+     "flops": 7791339110400,
+     "bits_per_token": 6.75251
+    }
+   ],
+   "train_cpu_s": 300.688,
+   "total_cpu_s": 300.688,
+   "name": "baseline",
+   "lr": 0.004,
+   "seed": 22,
+   "wall_s": 160.3,
+   "extra_pointwise_flops_per_update": 0,
+   "flops_per_update_torch": 6492782592
+  },
+  {
+   "submission": "reference.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 542016,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 100,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "wd": 0.1
+   },
+   "status": "done",
+   "flops_per_update": 6492782592,
+   "points": [
+    {
+     "update": 100,
+     "cpu_s": 24.844,
+     "flops": 649278259200,
+     "bits_per_token": 8.75337
+    },
+    {
+     "update": 200,
+     "cpu_s": 50.828,
+     "flops": 1298556518400,
+     "bits_per_token": 7.93134
+    },
+    {
+     "update": 300,
+     "cpu_s": 76.438,
+     "flops": 1947834777600,
+     "bits_per_token": 7.62825
+    },
+    {
+     "update": 400,
+     "cpu_s": 102.172,
+     "flops": 2597113036800,
+     "bits_per_token": 7.42123
+    },
+    {
+     "update": 500,
+     "cpu_s": 128.016,
+     "flops": 3246391296000,
+     "bits_per_token": 7.2755
+    },
+    {
+     "update": 600,
+     "cpu_s": 152.641,
+     "flops": 3895669555200,
+     "bits_per_token": 7.156
+    },
+    {
+     "update": 700,
+     "cpu_s": 177.562,
+     "flops": 4544947814400,
+     "bits_per_token": 7.06742
+    },
+    {
+     "update": 800,
+     "cpu_s": 202.75,
+     "flops": 5194226073600,
+     "bits_per_token": 6.96099
+    },
+    {
+     "update": 900,
+     "cpu_s": 227.75,
+     "flops": 5843504332800,
+     "bits_per_token": 6.89985
+    },
+    {
+     "update": 1000,
+     "cpu_s": 254.266,
+     "flops": 6492782592000,
+     "bits_per_token": 6.83906
+    },
+    {
+     "update": 1100,
+     "cpu_s": 279.781,
+     "flops": 7142060851200,
+     "bits_per_token": 6.79784
+    },
+    {
+     "update": 1200,
+     "cpu_s": 304.578,
+     "flops": 7791339110400,
+     "bits_per_token": 6.77174
+    }
+   ],
+   "train_cpu_s": 304.578,
+   "total_cpu_s": 304.578,
+   "name": "baseline",
+   "lr": 0.004,
+   "seed": 33,
+   "wall_s": 162.0,
+   "extra_pointwise_flops_per_update": 0,
+   "flops_per_update_torch": 6492782592
+  },
+  {
+   "submission": "dynamic_qkv.py",
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "params": 575712,
+   "prepare_cpu_s": 0.0,
+   "config": {
+    "updates": 1200,
+    "eval_every": 100,
+    "lr": 0.004,
+    "d": 96,
+    "layers": 3,
+    "heads": 4,
+    "wd": 0.1,
+    "rank": 7,
+    "width": 4
+   },
+   "status": "done",
+   "flops_per_update": 6915600000,
+   "points": [
+    {
+     "update": 100,
+     "cpu_s": 48.719,
+     "flops": 691560000000,
+     "bits_per_token": 8.77258
+    },
+    {
+     "update": 200,
+     "cpu_s": 96.625,
+     "flops": 1383120000000,
+     "bits_per_token": 7.77004
+    },
+    {
+     "update": 300,
+     "cpu_s": 143.672,
+     "flops": 2074680000000,
+     "bits_per_token": 7.40835
+    },
+    {
+     "update": 400,
+     "cpu_s": 190.297,
+     "flops": 2766240000000,
+     "bits_per_token": 7.15443
+    },
+    {
+     "update": 500,
+     "cpu_s": 237.234,
+     "flops": 3457800000000,
+     "bits_per_token": 6.96889
+    },
+    {
+     "update": 600,
+     "cpu_s": 284.312,
+     "flops": 4149360000000,
+     "bits_per_token": 6.80887
+    },
+    {
+     "update": 700,
+     "cpu_s": 331.906,
+     "flops": 4840920000000,
+     "bits_per_token": 6.67293
+    },
+    {
+     "update": 800,
+     "cpu_s": 380.734,
+     "flops": 5532480000000,
+     "bits_per_token": 6.5535
+    },
+    {
+     "update": 900,
+     "cpu_s": 428.656,
+     "flops": 6224040000000,
+     "bits_per_token": 6.47342
+    },
+    {
+     "update": 1000,
+     "cpu_s": 477.172,
+     "flops": 6915600000000,
+     "bits_per_token": 6.40412
+    },
+    {
+     "update": 1100,
+     "cpu_s": 525.5,
+     "flops": 7607160000000,
+     "bits_per_token": 6.35672
+    },
+    {
+     "update": 1200,
+     "cpu_s": 574.625,
+     "flops": 8298720000000,
+     "bits_per_token": 6.31906
+    }
+   ],
+   "train_cpu_s": 574.625,
+   "total_cpu_s": 574.625,
+   "name": "dynamic",
+   "lr": 0.004,
+   "seed": 33,
+   "wall_s": 305.0,
+   "extra_pointwise_flops_per_update": 51228288,
+   "flops_per_update_torch": 6864371712
+  }
+ ]
+}

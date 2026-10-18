@@ -1,0 +1,106 @@
+{
+ "runs": [
+  {
+   "name": "baseline",
+   "status": "done",
+   "params": 542016,
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "flops_per_update": 6492782592,
+   "flops_per_update_torch": 6492782592,
+   "extra_pointwise_flops_per_update": 0,
+   "points": [
+    {
+     "update": 10,
+     "cpu_s": 4.828,
+     "flops": 64927825920,
+     "bits_per_token": 10.03548
+    },
+    {
+     "update": 20,
+     "cpu_s": 9.703,
+     "flops": 129855651840,
+     "bits_per_token": 9.32666
+    },
+    {
+     "update": 30,
+     "cpu_s": 14.328,
+     "flops": 194783477760,
+     "bits_per_token": 9.24034
+    },
+    {
+     "update": 40,
+     "cpu_s": 19.359,
+     "flops": 259711303680,
+     "bits_per_token": 9.2209
+    }
+   ],
+   "wall_s": 29.3
+  },
+  {
+   "name": "dynamic",
+   "status": "done",
+   "params": 575712,
+   "checks": {
+    "static": {
+     "ok": true,
+     "problems": []
+    },
+    "causal_init": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    },
+    "causal_trained": {
+     "ok": true,
+     "max_change_before_t": 0.0,
+     "max_change_other_row": 0.0
+    }
+   },
+   "flops_per_update": 6915600000,
+   "flops_per_update_torch": 6864371712,
+   "extra_pointwise_flops_per_update": 51228288,
+   "points": [
+    {
+     "update": 10,
+     "cpu_s": 10.297,
+     "flops": 69156000000,
+     "bits_per_token": 10.0112
+    },
+    {
+     "update": 20,
+     "cpu_s": 21.141,
+     "flops": 138312000000,
+     "bits_per_token": 9.32451
+    },
+    {
+     "update": 30,
+     "cpu_s": 30.625,
+     "flops": 207468000000,
+     "bits_per_token": 9.24315
+    },
+    {
+     "update": 40,
+     "cpu_s": 37.859,
+     "flops": 276624000000,
+     "bits_per_token": 9.22031
+    }
+   ],
+   "wall_s": 29.8
+  }
+ ]
+}
