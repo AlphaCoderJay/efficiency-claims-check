@@ -6,6 +6,7 @@ For both arms and for fp32, fp16 and bf16 autocast:
   - training runs and stays finite, and held-out bits fall;
   - the causality test passes on the initial and the trained model;
   - a run split into two segments (checkpoint, resume) ends at the same evaluation points as an uninterrupted run (fp32);
+  - the torch.compile path (aot_eager backend on CPU) gives the same evaluation points as eager (fp32);
 Also: the causality test catches a non-causal model and a batch-coupled model (negative controls), the sealed and tuning windows do not overlap, the token-file hashes
 are enforced, and the analytic FLOP count is compared with torch.utils.flop_counter.
 """
@@ -77,6 +78,13 @@ def main():
                   dict(bits=row['bits'], skipped=row['skipped'], wall_s=row['wall_s']))
             check(f'{arm}/{amp} causal init+trained', rec['checks']['causal_init']['ok'] and rec['checks']['causal_trained']['ok'],
                   dict(init=rec['checks']['causal_init'], trained=rec['checks']['causal_trained']))
+
+    # the compiled path (aot_eager backend: same graph capture as inductor, runs on a CPU without a C++ toolchain) matches eager
+    for arm in ('baseline', 'ngpt'):
+        eager = next(r for r in report['runs'] if r['arm'] == arm and r['amp'] == 'fp32')
+        rec = E.train(tiny(arm, 'fp32', compile='aot_eager'), data, root / f'{arm}_compiled', device=cpu, log=lambda s: None)
+        diff = max(abs(a - p['bits_per_token']) for a, p in zip(eager['bits'], rec['points']))
+        check(f'{arm} compiled path matches eager (fp32)', rec['status'] == 'done' and diff < 1e-3, dict(max_bits_diff=diff))
 
     # resume equivalence (fp32): 60 updates straight vs 25 + resume 35
     for arm in ('baseline', 'ngpt'):

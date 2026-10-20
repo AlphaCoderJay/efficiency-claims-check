@@ -28,6 +28,9 @@ Measurement: train_time_s is GPU time of the training updates only (synchronized
 and batch assembly excluded). FLOPs are counted analytically per token for one forward and backward pass (3x forward matmuls, attention
 counted at full T x T like torch.utils.flop_counter does); the flop_counter value is logged as a cross-check. nGPT's normalizations are
 not matmuls, so they appear in time only.
+
+Compilation: with --compile inductor, the forward pass and the loss are compiled with torch.compile for BOTH arms (this fuses nGPT's
+normalizations, which run as separate kernels in eager mode). Compilation happens in the first updates and is counted as training time.
 """
 import argparse
 import dataclasses
@@ -68,6 +71,7 @@ class Config:
     betas: tuple = (0.9, 0.95)
     grad_clip: float = 1.0                # both arms, as in NVIDIA/ngpt train.py
     amp: str = 'fp16'                     # fp16 | bf16 | fp32
+    compile: str = 'none'                 # none | inductor (torch.compile of forward + loss, both arms) | aot_eager (CPU tests of the same path)
     seed: int = 11
     eval_tokens: int = 2 ** 21            # scored targets per evaluation
     eval_split: str = 'sealed'            # sealed (Q and the verdict) | tune (learning-rate tuning only)
@@ -399,6 +403,13 @@ def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0,
     sync = (lambda: torch.cuda.synchronize(device)) if device.type == 'cuda' else (lambda: None)
     last_ckpt, run_loss, run_n, consecutive_bad = time.time(), 0.0, 0, 0
 
+    def loss_fn(x, y):
+        with autocast(c, device):
+            logits = model(x)
+        return F.cross_entropy(logits.float().reshape(-1, c.vocab), y.reshape(-1))
+    # Compilation time is part of training time (it happens in the first updates). Evaluation and the causality test use the eager model.
+    step_loss = loss_fn if c.compile == 'none' else torch.compile(loss_fn, backend=c.compile)
+
     def checkpoint(u):
         tmp = out / 'ckpt.pt.tmp'
         torch.save(dict(config=dataclasses.asdict(c), model=model.state_dict(), opt=opt.state_dict(), scaler=scaler.state_dict(),
@@ -426,9 +437,7 @@ def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0,
         loss_sum = torch.zeros((), device=device)
         for i in range(n_micro):
             x, y = xs[i * c.micro_rows:(i + 1) * c.micro_rows], ys[i * c.micro_rows:(i + 1) * c.micro_rows]
-            with autocast(c, device):
-                logits = model(x)
-            loss = F.cross_entropy(logits.float().reshape(-1, c.vocab), y.reshape(-1)) / n_micro
+            loss = step_loss(x, y) / n_micro
             scaler.scale(loss).backward()
             loss_sum += loss.detach()
         scaler.unscale_(opt)
@@ -437,7 +446,9 @@ def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0,
         scaler.step(opt); scaler.update(); opt.zero_grad(set_to_none=True)
         if c.arm == 'ngpt':
             model.renormalize()
-        sync(); rec['train_time_s'] += time.perf_counter() - t0
+        sync(); dt = time.perf_counter() - t0; rec['train_time_s'] += dt
+        if u == u0:
+            rec['segments'][-1]['first_update_s'] = round(dt, 3)                    # includes compilation when compile != none
         lv = float(loss_sum)
         if scaler.is_enabled() and scaler.get_scale() < scale_before:
             rec['skipped_steps'] += 1
