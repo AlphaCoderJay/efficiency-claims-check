@@ -354,6 +354,22 @@ def save_json(path, obj):
     tmp = Path(str(path) + '.tmp'); tmp.write_text(json.dumps(obj, indent=1) + '\n', encoding='utf-8', newline='\n'); os.replace(tmp, path)
 
 
+def save_logs(out, rec):
+    """log.json (everything, including the training-loss curve) and run.jsonl, the raw log that verify.py reads (standard S-3, level 1):
+    one 'run' line, one 'eval' line per evaluation point, one 'end' line. Keys sorted, so equal runs give equal bytes."""
+    save_json(out / 'log.json', rec)
+    c = rec['config']
+    head = dict(type='run', check='ECC-004', claim='C12', arm=c['arm'], seed=c['seed'], ctx=c['ctx'], tokens_budget=c['tokens'], config=c,
+                params=rec['params'], updates=rec['updates'], flops_per_token=rec['flops_per_token'], code_sha256=CODE_SHA,
+                data_sha256=rec['data']['meta'].get('sha256'))
+    end = dict(type='end', status=rec['status'], checks=rec['checks'], skipped_steps=rec['skipped_steps'], nonfinite_losses=rec['nonfinite_losses'],
+               train_time_s=round(rec['train_time_s'], 3), wall_s=rec.get('wall_s'), segments=rec['segments'])
+    lines = [head] + [dict(type='eval', **p) for p in rec['points']] + [end]
+    tmp = out / 'run.jsonl.tmp'
+    tmp.write_text(''.join(json.dumps(x, sort_keys=True, separators=(',', ':')) + '\n' for x in lines), encoding='utf-8', newline='\n')
+    os.replace(tmp, out / 'run.jsonl')
+
+
 def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0, device=None, check_hashes=True, log=print, stop_at_update=None):
     t_start = time.time()
     device = device or torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -387,14 +403,14 @@ def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0,
         tmp = out / 'ckpt.pt.tmp'
         torch.save(dict(config=dataclasses.asdict(c), model=model.state_dict(), opt=opt.state_dict(), scaler=scaler.state_dict(),
                         update=u, rec=rec), tmp)
-        os.replace(tmp, out / 'ckpt.pt'); save_json(out / 'log.json', rec)
+        os.replace(tmp, out / 'ckpt.pt'); save_logs(out, rec)
 
     def eval_point(u, kind):
         ev = evaluate(model, data, c, device, c.eval_split)
         rec['points'].append(dict(update=u, kind=kind, tokens=u * c.tokens_per_update, flops=u * c.tokens_per_update * rec['flops_per_token']['analytic'],
                                   train_time_s=round(rec['train_time_s'], 3), **{k: round(v, 6) if isinstance(v, float) else v for k, v in ev.items()}))
         log(f'  eval u {u}: {ev["bits_per_token"]:.4f} bits/token, {ev["bits_per_byte"]:.4f} bits/byte, train time {rec["train_time_s"]:.0f} s')
-        save_json(out / 'log.json', rec)
+        save_logs(out, rec)
 
     for u in range(u0, c.updates):
         if deadline_min and (time.time() - t_start) / 60 > deadline_min:
