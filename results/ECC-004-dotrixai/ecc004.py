@@ -351,7 +351,7 @@ def env_info(device):
 
 
 def save_json(path, obj):
-    tmp = Path(str(path) + '.tmp'); tmp.write_text(json.dumps(obj, indent=1) + '\n', encoding='utf-8'); os.replace(tmp, path)
+    tmp = Path(str(path) + '.tmp'); tmp.write_text(json.dumps(obj, indent=1) + '\n', encoding='utf-8', newline='\n'); os.replace(tmp, path)
 
 
 def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0, device=None, check_hashes=True, log=print, stop_at_update=None):

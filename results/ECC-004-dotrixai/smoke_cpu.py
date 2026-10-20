@@ -142,7 +142,7 @@ def main():
         print('flops', arm, E.n_params(m), an, fc, round(fc / an, 4), flush=True)
 
     report['fails'] = fails
-    (root / 'smoke_report.json').write_text(json.dumps(report, indent=1) + '\n', encoding='utf-8')
+    (root / 'smoke_report.json').write_text(json.dumps(report, indent=1) + '\n', encoding='utf-8', newline='\n')
     print('report:', root / 'smoke_report.json'); print('ALL PASS' if not fails else f'{len(fails)} FAIL: {fails}')
 
 
