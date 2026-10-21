@@ -5,6 +5,13 @@ Author: DotrixAI (code and runs by a DotrixAI agent session, owner Noven). Revie
 
 **Scale, up front:** this is a proof of concept, a small-scale screen at about 25M parameters, with one point at 89M to show the trend. It is not a verdict on nGPT at the paper's 0.5B to 1B. Every verdict below carries that label.
 
+**In short:**
+- The claim: nGPT needs 4x fewer training steps than a normal GPT at context 1k, and 10x fewer at 4k.
+- The test: train both on the same OpenWebText data, on free Kaggle T4s, and count how many steps nGPT needs to reach the baseline's final loss. 25M parameters at 1k and 4k with 3 seeds each, and one 89M run at 1k.
+- Fairness: the same shapes and data on both sides, a modern baseline with QK-norm, the same learning-rate search on both sides, and time measured with each model alone on the GPU.
+- Everything is written down before the runs, and anyone can recompute the result from the logs with `verify.py`.
+- Whatever comes out gets published, including "it did not hold".
+
 ## Why this check
 
 ECC-001 tested the same claim on a laptop CPU with a 0.73M model, context 128 and 1,200 updates. It came out PARTIAL (1.47x fewer steps against the claimed 4x to 20x). Two fair objections followed. A GPU method run on a CPU says little about how it behaves where it is meant to run. And 0.73M at context 128 is far from the setting where the paper reports its gains, which grow with context. This check redoes it on free Kaggle GPUs, about 35x bigger, at context 1024 and 4096, with the baseline trained much closer to convergence. It is still small; the next section says what that means.
@@ -70,7 +77,9 @@ Known differences from the paper:
 - about 25M parameters, against 0.5B and 1B;
 - fp16 compute with fp32 parameters on a T4, against bf16 on A100s;
 - token budget 504M, against tens to hundreds of billions;
-- the scaling of u by sqrt(d) follows the code; it has no effect, since the MLP output is normalized next.
+- the scaling of u by sqrt(d) follows the code; it has no effect, since the MLP output is normalized next;
+- the base scale of the scaling vectors is 1/sqrt(d) as the paper says (1/sqrt(384) at 25M). NVIDIA's code sets it by default to 1/sqrt(1024) (a config value), which equals 1/sqrt(d) only for its d 1024 models. The choice changes how fast the scaling vectors learn;
+- α starts at 0.05, as in the paper's main text and the code; the paper's appendix gives 1/sqrt(d) instead.
 
 Code: `ecc004.py` (both sides).
 
@@ -112,6 +121,7 @@ Code: `ecc004.py` (both sides).
 - **Edge rule:** if the best rate is at an edge of its grid, one more doubling is run on that side. This is allowed at most twice per side and context, and reported.
 - A run that diverges is dropped from the grid and reported, not retried.
 - **Compile guard:** at 1024, one baseline run without torch.compile at the chosen rate, same budget and seed. If it ends more than 0.10 bits per token below the compiled run, both sides switch to eager mode for all final runs, and the result says so.
+- Only the learning rate is tuned, on both sides. Warmup, weight decay, Adam betas and the schedule are fixed as written above.
 - Tuning at 1/4 of the budget is a limit: the best rate for the full budget may differ a little.
 
 ### Final runs
@@ -235,7 +245,7 @@ A run is invalid if any of these fail:
 - A budget of 20 tokens per parameter, far below the paper's.
 - T4 GPUs in fp16.
 - An 8k vocabulary.
-- Learning rates tuned at 1/4 of the budget, with grid positions informed by calibration.
+- Only the learning rate is tuned, at 1/4 of the budget, with grid positions informed by calibration.
 - The baseline has QK-norm, which the paper's baseline does not.
 
 ## Separation
