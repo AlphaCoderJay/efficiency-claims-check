@@ -112,6 +112,12 @@ Kaggle "GPU T4 x2". Calibration ran on Python 3.13.15, torch 2.11.0+cu128, CUDA 
    - over 200 updates, an eager baseline from calibration 1 lies between two compiled runs that differ only in micro-batch split (difference within 0.03 to 0.05 nats);
    - the 60-update gap is not fully explained; the compile guard above covers it.
 
+4. **QK-norm baseline pilot** (2026-10-21, 0.39 GPU hours), compiled:
+   - causality passed at 1024 and 4096;
+   - one update compiled vs eager: equal within noise;
+   - 200 updates at 1024 (tuning windows, bits per token): 8.64 at 2e-3, 9.18 at 8e-3; 3.2e-2 diverged at about update 58. The baseline grid was therefore kept;
+   - about 1.5 seconds per update (ESTIMATED from these runs, compilation included), about 10% slower than without QK-norm.
+
 The data order of seed 11 was used in the calibration runs (first 200 updates), scored on the tuning windows only.
 
 ## Target quality

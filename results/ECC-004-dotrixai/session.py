@@ -43,7 +43,7 @@ def run_args(arm, ctx, seed, lr, frac, split, compile_=None, tag=''):
 
 
 def est_hours(arm, ctx, frac):
-    per = {('baseline', 1024): 1.40, ('ngpt', 1024): 1.83, ('baseline', 4096): 2.61, ('ngpt', 4096): 2.89}[(arm, ctx)]   # s per update, calib 2
+    per = {('baseline', 1024): 1.55, ('ngpt', 1024): 1.83, ('baseline', 4096): 2.80, ('ngpt', 4096): 2.89}[(arm, ctx)]   # s per update, calib 2 + QK-norm pilot
     return UPDATES * frac * per / 3600 * 1.15                                                                             # + parallel slowdown
 
 
