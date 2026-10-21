@@ -1,9 +1,9 @@
-# Pre-registration: C12 nGPT on GPU at 25M parameters, context 1k and 4k, a small-scale screen (ECC-004)
+# Pre-registration: C12 nGPT on GPU at 25M and 89M parameters, context 1k and 4k, a small-scale screen (ECC-004)
 
 **DRAFT, not frozen.** Frozen at: (the commit time of this file on main, once review is done)
 Author: DotrixAI (code and runs by a DotrixAI agent session, owner Noven). Reviewer: to be named.
 
-**Scale, up front:** this is a proof of concept, a small-scale screen at about 25M parameters. It is not a verdict on nGPT at the paper's 0.5B to 1B. Every verdict below carries that label.
+**Scale, up front:** this is a proof of concept, a small-scale screen at about 25M parameters, with one point at 89M to show the trend. It is not a verdict on nGPT at the paper's 0.5B to 1B. Every verdict below carries that label.
 
 ## Why this check
 
@@ -13,9 +13,9 @@ ECC-001 tested the same claim on a laptop CPU with a 0.73M model, context 128 an
 
 | | paper | this check |
 |---|---|---|
-| model | 0.5B and 1B | about 25M |
+| model | 0.5B and 1B | about 25M, plus one 89M point |
 | data | OpenWebText | OpenWebText (12 of 80 files) |
-| tokens per run | up to about 400B | 504M (20 per parameter) |
+| tokens per run | up to about 400B | 504M at 25M (20 per parameter); 446M at 89M (5 per parameter) |
 | context | 1k, 4k, 8k | 1k, 4k |
 | vocabulary | 32k (LLaMA-2) | 8k |
 | hardware, precision | 64 A100s, bf16 weights | 2 T4s, fp16 compute with fp32 weights |
@@ -30,7 +30,7 @@ Reasons it may not:
 - a small model trained for 504M tokens sits in a different regime from a 1B model trained for hundreds of billions;
 - the vocabulary, the precision and the baseline all differ from the paper.
 
-What a 25M result cannot show: whether nGPT saves steps at 0.5B to 1B or beyond, whether a gain grows or shrinks with size, or anything at 8k. A 1B run at 20 tokens per parameter needs about 1.2e20 FLOPs (ESTIMATED), roughly 3,000 T4 hours, which free GPUs cannot reach. That is why this is a screen, and why a trend over two sizes, if the budget allows, is worth more than one point.
+What a 25M result cannot show: whether nGPT saves steps at 0.5B to 1B or beyond, whether a gain grows or shrinks with size, or anything at 8k. A 1B run at 20 tokens per parameter needs about 1.2e20 FLOPs (ESTIMATED), roughly 3,000 T4 hours, which free GPUs cannot reach. That is why this is a screen, and why it adds a second size: a trend over two sizes says more than one point, though two points are still only a hint of a trend.
 
 ## Claim
 
@@ -43,7 +43,9 @@ What a 25M result cannot show: whether nGPT saves steps at 0.5B to 1B or beyond,
 
 ### Model (same shapes on both sides)
 
-d 384, 8 layers, 6 heads (head dim 64), SwiGLU MLP with hidden size 1536 (4d, as in the paper), RoPE, untied input and output embeddings, vocabulary 8,192. Parameters: baseline 25,179,904, nGPT 25,207,808. The difference is nGPT's scaling vectors (41,984) against the baseline's LayerNorm and QK-norm gains (14,080). FLOPs per token are the same on both sides: 169.9M at context 1024 and 283.1M at 4096 (forward and backward, analytic count, attention counted at full T x T).
+**Main size, 25M:** d 384, 8 layers, 6 heads (head dim 64), SwiGLU MLP with hidden size 1536 (4d, as in the paper), RoPE, untied input and output embeddings, vocabulary 8,192. Parameters: baseline 25,179,904, nGPT 25,207,808. The difference is nGPT's scaling vectors (41,984) against the baseline's LayerNorm and QK-norm gains (14,080). FLOPs per token are the same on both sides: 169.9M at context 1024 and 283.1M at 4096 (forward and backward, analytic count, attention counted at full T x T).
+
+**Scale point, 89M (context 1024 only):** d 640, 12 layers, 10 heads (head dim 64), MLP hidden 2560, otherwise the same. About 89.1M parameters and 597.6M FLOPs per token at 1024 (3.5x the 25M model).
 
 ### Baseline: modern GPT
 
@@ -85,7 +87,9 @@ Code: `ecc004.py` (both sides).
 ### Training
 
 - 2^17 = 131,072 tokens per update: 128 rows of 1024, or 32 rows of 4096.
-- Full budget: 3,842 updates = 503,578,624 tokens, about 20 tokens per parameter. Training windows are non-overlapping and never repeat (one epoch at most). The seed sets the window order and the init; both sides with the same seed see the same data in the same order.
+- Full budget at 25M: 3,842 updates = 503,578,624 tokens, about 20 tokens per parameter.
+- Full budget at 89M: 3,400 updates = 445,644,800 tokens, about 5 tokens per parameter. 20 tokens per parameter would need 1.78B tokens, more than the 1.59B in the training text, and would break the one-epoch rule.
+- **Matching point at 25M:** a 25M baseline at 1/4 of its budget (960 updates, also about 5 tokens per parameter), so the two sizes are compared at the same tokens per parameter. Training windows are non-overlapping and never repeat (one epoch at most). The seed sets the window order and the init; both sides with the same seed see the same data in the same order.
 - fp16 autocast with fp32 parameters and optimizer state, GradScaler. Norms, residual mixing and the loss run in fp32.
 - torch.compile (inductor) of the forward pass and loss, for both sides. Compilation time counts as training time.
 
@@ -103,7 +107,8 @@ Code: `ecc004.py` (both sides).
   - Baseline: {1e-3, 2e-3, 4e-3, 8e-3}.
   - nGPT: {4e-3, 8e-3, 1.6e-2, 3.2e-2}.
   - The grids sit in different places because the calibration (below) showed nGPT's best rate is several times the baseline's. The number of points and the rules are the same.
-- **Context 4096:** 3 rates per side: half, equal to and double the side's best rate at 1024.
+- **Context 4096 (25M):** 3 rates per side: half, equal to and double the side's best rate at 1024.
+- **89M (context 1024):** 3 rates per side at 1/4 of its budget: a quarter, half and equal to the side's best rate at 25M (larger models usually want lower rates).
 - **Edge rule:** if the best rate is at an edge of its grid, one more doubling is run on that side. This is allowed at most twice per side and context, and reported.
 - A run that diverges is dropped from the grid and reported, not retried.
 - **Compile guard:** at 1024, one baseline run without torch.compile at the chosen rate, same budget and seed. If it ends more than 0.10 bits per token below the compiled run, both sides switch to eager mode for all final runs, and the result says so.
@@ -111,10 +116,10 @@ Code: `ecc004.py` (both sides).
 
 ### Final runs
 
-- Seeds 11, 22 and 33. Context 1024 first (stage A), then 4096 (stage B).
-- Per seed, one Kaggle session with two T4s:
-  - the baseline at the full budget;
-  - nGPT at the full budget and at 1/2, 1/4 and 1/8 of it (at 4096 also 1/16), each with its own full schedule.
+- **25M:** seeds 11, 22 and 33 at context 1024 (stage A) and 4096 (stage B). **89M:** seed 11 at context 1024 (stage C).
+- Per seed and stage, one Kaggle session with two T4s:
+  - the baseline at the full budget (at 25M / 1024 also at 1/4, the matching point);
+  - nGPT at the full budget and at 1/2, 1/4 and 1/8 of it, each with its own full schedule (at 25M / 4096 also 1/16; at 25M / 1024 also 1/16 and 1/32, which bracket the matching point).
 - The runs are split over the two GPUs by `session.py`. The GPU assignment is swapped between seeds.
 - Then a **timing block** on one GPU: each side alone for 60 updates, in the order baseline, nGPT, nGPT, baseline. The first 10 updates are dropped (warm-up and compilation), and the median seconds per update is taken.
 
@@ -147,12 +152,13 @@ The data order of seed 11 was used in the calibration runs (first 200 updates), 
 
 ## Target quality
 
-- **Q** = the baseline's bits per token on the sealed windows at its last evaluation point (update 3,842), per seed and context.
+- **Q** = the baseline's bits per token on the sealed windows at its last evaluation point, per seed, context and size (and for the 25M matching point, at the end of the 1/4-budget baseline).
 
 ## What is measured
 
 - **R_steps** = training tokens nGPT needs to reach Q, divided by the baseline's. Tokens per update are equal, so this is the ratio of steps the paper reports. FLOPs per token are equal too, so **R_FLOP = R_steps**.
-- **Primary estimator, as in the paper:** the final points of the nGPT runs at 1/8 to 1 (or 1/16 to 1) of the budget, each with its own schedule, interpolated linearly in log tokens.
+- **Primary estimator, as in the paper:** the final points of the nGPT runs at their different budgets, each with its own schedule, interpolated linearly in log tokens.
+- **Trend with size:** R at 89M divided by R at 25M, both at 5 tokens per parameter (seed 11, and the 25M seeds' range). Reported with its seed count; no pass rule.
 - **Secondary estimator, as in METHOD §1 and ECC-001:** the evaluation points of the full-budget nGPT run. Reported, not used for the verdict.
 - A quality never reached gives a lower bound. A quality already passed at the smallest budget gives an upper bound.
 - **R_time (ESTIMATED)** = R_steps x (nGPT seconds per update / baseline seconds per update) from the timing block. The training time measured inside the long runs is reported too, but runs on the two GPUs can slow each other, so it is not used for the verdict.
@@ -160,13 +166,15 @@ The data order of seed 11 was used in the calibration runs (first 200 updates), 
 
 ## Prediction (written before any final run)
 
-| | context 1024 | context 4096 |
-|---|---|---|
-| median R (primary estimator), 80% interval | 0.6, [0.35, 0.95] | 0.55, [0.25, 1.0] |
-| median R_time | 0.75, [0.45, 1.2] | 0.6, [0.3, 1.1] |
-| HOLDS / PARTIAL / DOES NOT HOLD / INCONCLUSIVE | 0.10 / 0.60 / 0.20 / 0.10 | 0.05 / 0.55 / 0.25 / 0.15 |
+| | 25M, 1024, 20 tok/param | 25M, 4096, 20 tok/param | 25M, 1024, 5 tok/param | 89M, 1024, 5 tok/param |
+|---|---|---|---|---|
+| median R (primary estimator), 80% interval | 0.6, [0.35, 0.95] | 0.55, [0.25, 1.0] | 0.5, [0.25, 0.85] | 0.55, [0.25, 0.95] |
+| median R_time | 0.75, [0.45, 1.2] | 0.6, [0.3, 1.1] | 0.6, [0.3, 1.05] | 0.65, [0.3, 1.1] |
+| HOLDS / PARTIAL / DOES NOT HOLD / INCONCLUSIVE | 0.10 / 0.60 / 0.20 / 0.10 | 0.05 / 0.55 / 0.25 / 0.15 | 0.15 / 0.60 / 0.15 / 0.10 | 0.10 / 0.55 / 0.20 / 0.15 |
 
-Reasoning: ECC-001 measured 1.47x fewer steps at small scale, with a large early gain that faded; the authors' own later number at large scale is about 2x; NVIDIA's reimplementation notes its speed-ups are inflated by bf16; and our baseline has QK-norm.
+Trend: R at 89M over R at 25M (both at 5 tokens per parameter), median guess 1.1, 80% interval [0.7, 1.6]. Above 1 means the gain shrinks with size.
+
+Reasoning: ECC-001 measured 1.47x fewer steps at small scale, with a large early gain that faded (so a shorter budget, 5 tokens per parameter, should look better for nGPT); the authors' own later number at large scale is about 2x; NVIDIA's reimplementation notes its speed-ups are inflated by bf16; and our baseline has QK-norm.
 
 ## Pass rule
 
@@ -181,7 +189,7 @@ Per context, using the median over seeds of R (primary estimator) and R_time:
 
 A context with fewer than 3 finished seeds gets its verdict with the seed count, for example "PARTIAL (1 seed only)".
 
-Every verdict is stated with its scale and the screen label, for example "PARTIAL at 25M, context 1024 (small-scale screen)". It is a verdict on this setup, not on the claim at 0.5B to 1B.
+The pass rule of a context applies to every stage at that context (25M at 20 and at 5 tokens per parameter, 89M at 5). Every verdict is stated with its scale, budget and the screen label, for example "PARTIAL at 25M, context 1024, 20 tokens per parameter (small-scale screen)"; the 89M stage always carries "(1 seed only)". It is a verdict on this setup, not on the claim at 0.5B to 1B.
 
 ## Validity checks
 
@@ -193,13 +201,17 @@ A run is invalid if any of these fail:
 
 ## Stop rules and budget
 
-- **Approved GPU budget:** 36 Kaggle GPU hours for tuning and final runs (owner, 2026-10-21), on DotrixAI's Kaggle account. The 2.0 hours of calibration above are outside it.
-- **Order of work:**
-  1. tuning at 1024 (with edge runs and the compile guard);
-  2. the three seeds at 1024;
-  3. tuning at 4096;
-  4. the 4096 seeds, one at a time.
-- **If the budget runs out:** the seeds not yet run are reported as not run, never dropped silently. If no 4096 seed finishes, stage B is reported as not run.
+- **Approved GPU budget:** 48 Kaggle GPU hours for tuning and final runs (owner, 2026-10-21), on DotrixAI's Kaggle account. The calibration and pilot hours above are outside it.
+- **Order of work** (planned hours, PROJECTED):
+  1. 25M tuning at 1024, with edge runs and the compile guard (about 3);
+  2. the three 25M seeds at 1024, with the matching point (about 11);
+  3. 25M tuning at 4096 (about 2.5);
+  4. 25M seed 11 at 4096 (about 5.5);
+  5. 89M tuning (about 5);
+  6. 89M seed 11 (about 10.5);
+  7. 25M seeds 22 and 33 at 4096 (about 11).
+  This order keeps at least one 4096 seed and the 89M point if the budget runs short.
+- **If the budget runs out:** the seeds not yet run are reported as not run, never dropped silently. If no 4096 seed finishes, stage B is reported as not run; the same for the 89M point.
 - **Session limit:** a run still going 11 hours into its Kaggle session stops with an evaluation at that point. It is resumed from its checkpoint in a new session if the budget allows; otherwise that point is reported as a bound.
 - **Nothing else stops a run.** Quality is never used to stop a run.
 - **After the freeze:** no change to data, code, grids, seeds or rules. Corrections go into RESULT.md and DEVIATIONS.md.
@@ -218,7 +230,8 @@ A run is invalid if any of these fail:
 
 ## Limits known before the run
 
-- One model size (about 25M) and one data set. The paper's gains are reported at 0.5B to 1B.
+- Two model sizes (about 25M, and one 89M seed at context 1024 only) and one data set. The paper's gains are reported at 0.5B to 1B.
+- The 89M point is trained for only 5 tokens per parameter, because the data has no room for 20 without a second epoch.
 - A budget of 20 tokens per parameter, far below the paper's.
 - T4 GPUs in fp16.
 - An 8k vocabulary.

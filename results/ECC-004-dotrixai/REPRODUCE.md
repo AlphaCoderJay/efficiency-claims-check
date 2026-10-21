@@ -29,9 +29,9 @@ You need a free Kaggle account with GPU access (phone verified).
 1. **Data.** Run `prepare_data.py` as a Kaggle CPU notebook with internet on (about 30 minutes, no GPU). Check that the four SHA-256 values it prints match `PREREG.md`.
 2. **One seed.** In a GPU T4 x2 notebook, with the data notebook's output attached, run:
    ```
-   python session.py final --ctx 1024 --seed 11 --lr-baseline <from result.json> --lr-ngpt <from result.json> --data-dir <data> --out /kaggle/working/s11
+   python session.py final --ctx 1024 --size 25m --seed 11 --lr-baseline <from result.json> --lr-ngpt <from result.json> --data-dir <data> --out /kaggle/working/s11
    ```
-   This trains the baseline and nGPT at four budgets, then times both. It takes about 3.5 GPU hours at 1024 and about 5.5 at 4096 (PROJECTED from our calibration).
+   This trains the baseline and nGPT at several budgets, then times both. It takes about 3.5 GPU hours at 25M / 1024, about 5.5 at 25M / 4096 and about 10.5 at 89M (`--size 89m`, 1024 only), PROJECTED from our calibration.
 3. **Compare.** Copy the output folder into `logs/final/` and run `python verify.py`. Your seed should land within the tolerance in `PREREG.md`:
    - final bits per token within the range of our three seeds, plus 0.02;
    - R within the range of our three seeds, plus 0.05.
