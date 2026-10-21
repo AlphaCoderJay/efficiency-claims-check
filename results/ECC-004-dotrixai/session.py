@@ -24,7 +24,7 @@ SIZES = {'25m': dict(d=384, layers=8, heads=6, hidden=1536),            # 25.2M 
 UPDATES = {'25m': 3842,                                                 # 20 tokens per parameter at 2^17 tokens per update
            '89m': 3400}                                                 # 5 tokens per parameter (20 would need more text than the data has)
 MICRO = {('baseline', 1024, '25m'): 32, ('ngpt', 1024, '25m'): 16, ('baseline', 4096, '25m'): 8, ('ngpt', 4096, '25m'): 8,   # calibration 2
-         ('baseline', 1024, '89m'): 8, ('ngpt', 1024, '89m'): 8}                                                            # set by the 89M calibration
+         ('baseline', 1024, '89m'): 16, ('ngpt', 1024, '89m'): 8}                                                           # 89M calibration (21 Okt)
 GRID = {(1024, '25m'): {'baseline': [1e-3, 2e-3, 4e-3, 8e-3], 'ngpt': [4e-3, 8e-3, 1.6e-2, 3.2e-2]}}   # others: --grid (rules in PREREG)
 # nGPT budgets for the budget estimator, as fractions of the size's full budget; at 25M / 1024 down to 1/32 so that the
 # 5-tokens-per-parameter baseline (1/4) is bracketed too
@@ -33,7 +33,7 @@ BASE_FRACTIONS = {(1024, '25m'): [1, 1 / 4], (4096, '25m'): [1], (1024, '89m'): 
 TUNE_SEED, TUNE_FRAC = 7, 1 / 4
 DEADLINE_H = 11.0                                      # Kaggle sessions end at 12 h; runs still going at 11 h stop with an evaluation
 SECONDS = {('baseline', 1024, '25m'): 1.55, ('ngpt', 1024, '25m'): 1.83, ('baseline', 4096, '25m'): 2.80, ('ngpt', 4096, '25m'): 2.89,
-           ('baseline', 1024, '89m'): 5.45, ('ngpt', 1024, '89m'): 6.43}   # s per update for planning only (89M: ESTIMATED from FLOPs)
+           ('baseline', 1024, '89m'): 5.18, ('ngpt', 1024, '89m'): 5.84}   # s per update for planning only (MEASURED in calibration)
 
 if os.environ.get('ECC004_SMOKE'):                     # laptop test of the session plumbing only: tiny model, CPU, one thread per process
     COMMON = dict(vocab=8192, tokens_per_update=2048, amp='fp32', compile='none', qk_norm=1, eval_tokens=4096)

@@ -157,6 +157,9 @@ Kaggle "GPU T4 x2". Calibration ran on Python 3.13.15, torch 2.11.0+cu128, CUDA 
    - one update compiled vs eager: equal within noise;
    - 200 updates at 1024 (tuning windows, bits per token): 8.64 at 2e-3, 9.18 at 8e-3; 3.2e-2 diverged at about update 58. The baseline grid was therefore kept;
    - about 1.5 seconds per update (ESTIMATED from these runs, compilation included), about 10% slower than without QK-norm.
+5. **89M calibration** (2026-10-21, 0.39 GPU hours; a first try was cancelled after it hung with no output, and Kaggle's quota page suggests it never got a GPU):
+   - causality passed for both sides at 1024; 89,162,496 and 89,221,632 parameters;
+   - compiled seconds per update: baseline 5.18 (micro-batch 16), nGPT 5.84 (micro-batch 8), so nGPT is 1.13x slower per step; peak memory at most 9.6 GB.
 
 The data order of seed 11 was used in the calibration runs (first 200 updates), scored on the tuning windows only.
 
