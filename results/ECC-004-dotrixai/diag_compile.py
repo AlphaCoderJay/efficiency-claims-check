@@ -79,6 +79,11 @@ def main():
                 log(f'step {arm} {amp}: compiled vs eager {r["compiled_vs_eager"]}, floor {r["noise_floor_eager_split2"]}')
 
     if 'traj' in a.parts:
+        # free this process's GPU memory first: in diag v1 (21 Okt) the step part still held it and both eager runs on GPU 0 hit OOM
+        import gc
+        gc.collect()
+        if dev.type == 'cuda':
+            torch.cuda.empty_cache()
         n_up = 200 if not a.smoke else 12
         ngpu = torch.cuda.device_count() if dev.type == 'cuda' else 1
         runs = [('none', 32), (a.backend, 32), ('none', 16), (a.backend, 16)] if not a.smoke else [('none', 16), (a.backend, 16), ('none', 8), (a.backend, 8)]
