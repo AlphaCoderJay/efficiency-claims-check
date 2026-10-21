@@ -61,8 +61,9 @@ def load_timing(logs):
     for p in sorted(Path(logs).rglob('timing.jsonl')):
         raw = p.read_bytes()
         for x in (json.loads(l) for l in raw.decode('utf-8').splitlines() if l.strip()):
-            t.setdefault((x['ctx'], x['seed']), dict(lines=[], files={}))['lines'].append(x)
-            t[(x['ctx'], x['seed'])]['files'][p.relative_to(Path(logs)).as_posix()] = hashlib.sha256(raw).hexdigest()
+            k = (x['ctx'], x.get('d'), x['seed'])
+            t.setdefault(k, dict(lines=[], files={}))['lines'].append(x)
+            t[k]['files'][p.relative_to(Path(logs)).as_posix()] = hashlib.sha256(raw).hexdigest()
     for v in t.values():
         per = {arm: statistics.mean(x['median_s'] for x in v['lines'] if x['arm'] == arm) for arm in ('baseline', 'ngpt')}
         v.update(seconds_per_update=per, ratio=per['ngpt'] / per['baseline'], gpus=sorted({x['gpu'] or 'cpu' for x in v['lines']}))
@@ -75,6 +76,8 @@ def load_runs(logs):
         raw = p.read_bytes(); lines = [json.loads(x) for x in raw.decode('utf-8').splitlines() if x.strip()]
         head = lines[0]; end = lines[-1]
         assert head['type'] == 'run' and end['type'] == 'end', f'{p}: not a complete run.jsonl'
+        if head['config']['eval_split'] != 'sealed':
+            continue                                   # only runs scored on the sealed windows count (timing-block runs are scored on tuning windows)
         runs.append(dict(path=p.relative_to(Path(logs)).as_posix(), sha256=hashlib.sha256(raw).hexdigest(), head=head, end=end,
                          evals=[x for x in lines[1:-1] if x['type'] == 'eval']))
     return runs
@@ -127,69 +130,79 @@ def verdict_for(ctx, seeds, est):
     return out
 
 
+def seed_point(base, meths, timing_entry):
+    """One baseline run (its final point is Q) against every nGPT run of the same context, size and seed."""
+    same = [m for m in meths if m['head']['tokens_budget'] == base['head']['tokens_budget']]
+    assert {m['head']['config']['tokens_per_update'] for m in meths} == {base['head']['config']['tokens_per_update']}, 'tokens per update differ'
+    okb, cb = run_ok(base); oks = [run_ok(m) for m in meths]
+    final = base['evals'][-1]; q = final['bits_per_token']
+    s = dict(seed=base['head']['seed'], valid=okb and all(o for o, _ in oks), Q=dict(value=q, label='MEASURED'),
+             baseline=dict(log=base['path'], final_bits_per_token=q, final_bits_per_byte=final['bits_per_byte'], tokens=final['tokens'],
+                           train_time_s=final['train_time_s'], gpus=gpus(base), checks=cb),
+             method_runs=[dict(log=m['path'], tokens_budget=m['head']['tokens_budget'], final_bits_per_token=m['evals'][-1]['bits_per_token'],
+                               train_time_s=m['evals'][-1]['train_time_s'], gpus=gpus(m), checks=c) for m, (o, c) in zip(meths, oks)])
+    if same:
+        m = same[0]; s['curve'] = {}
+        for name, key in KEYS.items():
+            v, b = ratio(m['evals'], q, final[key], key)
+            s['curve'][name] = dict(value=r3(v), bound=b, label='ESTIMATED')
+        s['curve']['by_baseline_point'] = []
+        for p in base['evals']:
+            row = dict(baseline_update=p['update'], Q=p['bits_per_token'])
+            for name, key in KEYS.items():
+                v, b = ratio(m['evals'], p['bits_per_token'], p[key], key); row[name] = r3(v); row[name + '_bound'] = b
+            s['curve']['by_baseline_point'].append(row)
+    if len(meths) >= 2:
+        finals = [dict(m['evals'][-1]) for m in meths]
+        s['budgets'] = {name: dict(zip(('value', 'bound'), (lambda v, b: (r3(v), b))(*ratio(finals, q, final[key], key))), label='ESTIMATED')
+                        for name, key in KEYS.items()}
+    if timing_entry:
+        tb = timing_entry
+        s['timing'] = dict(seconds_per_update={k: round(v, 5) for k, v in tb['seconds_per_update'].items()}, ratio=r3(tb['ratio']),
+                           gpus=tb['gpus'], label='MEASURED')
+        for est in ('curve', 'budgets'):
+            if est in s:
+                st = s[est]['R_steps']
+                s[est]['R_time_timing'] = dict(value=r3(st['value'] * tb['ratio']), bound=st['bound'], label='ESTIMATED')
+    return s
+
+
 def build(logs):
+    """Stages = (context, model size, baseline budget). The main stages are 25M at 20 tokens per parameter (contexts 1024 and 4096); the
+    scale points (25M and 89M at 5 tokens per parameter, context 1024) give the trend of R with size."""
     runs = load_runs(logs); timing = load_timing(logs)
     assert runs, f'no run.jsonl under {logs}'
     data_sha = {json.dumps(r['head']['data_sha256'], sort_keys=True) for r in runs}
+    shape = lambda r: (r['head']['config']['d'], r['head']['config']['layers'])
+    keys = sorted({(r['head']['ctx'], shape(r), r['head']['tokens_budget']) for r in runs if r['head']['arm'] == 'baseline'})
     stages = []
-    for ctx in sorted({r['head']['ctx'] for r in runs}):
-        per_seed = []
-        for seed in sorted({r['head']['seed'] for r in runs if r['head']['ctx'] == ctx}):
-            group = [r for r in runs if r['head']['ctx'] == ctx and r['head']['seed'] == seed]
-            bases = [r for r in group if r['head']['arm'] == 'baseline']; meths = [r for r in group if r['head']['arm'] == 'ngpt']
-            if not bases or not meths:
-                per_seed.append(dict(seed=seed, missing='baseline' if not bases else 'ngpt')); continue
-            base = max(bases, key=lambda r: r['head']['tokens_budget'])
-            same = [m for m in meths if m['head']['tokens_budget'] == base['head']['tokens_budget']]
-            assert {m['head']['config']['tokens_per_update'] for m in meths} == {base['head']['config']['tokens_per_update']}, 'tokens per update differ'
-            okb, cb = run_ok(base); oks = [run_ok(m) for m in meths]
-            final = base['evals'][-1]; q = final['bits_per_token']
-            s = dict(seed=seed, valid=okb and all(o for o, _ in oks), Q=dict(value=q, label='MEASURED'),
-                     baseline=dict(log=base['path'], final_bits_per_token=q, final_bits_per_byte=final['bits_per_byte'], tokens=final['tokens'],
-                                   train_time_s=final['train_time_s'], gpus=gpus(base), checks=cb),
-                     method_runs=[dict(log=m['path'], tokens_budget=m['head']['tokens_budget'], final_bits_per_token=m['evals'][-1]['bits_per_token'],
-                                       train_time_s=m['evals'][-1]['train_time_s'], gpus=gpus(m), checks=c) for m, (o, c) in zip(meths, oks)])
-            if same:
-                m = same[0]; s['curve'] = {}
-                for name, key in KEYS.items():
-                    v, b = ratio(m['evals'], q, final[key], key)
-                    s['curve'][name] = dict(value=r3(v), bound=b, label='ESTIMATED')
-                s['curve']['by_baseline_point'] = []
-                for p in base['evals']:
-                    row = dict(baseline_update=p['update'], Q=p['bits_per_token'])
-                    for name, key in KEYS.items():
-                        v, b = ratio(m['evals'], p['bits_per_token'], p[key], key); row[name] = r3(v); row[name + '_bound'] = b
-                    s['curve']['by_baseline_point'].append(row)
-            if len(meths) >= 2:
-                finals = [dict(m['evals'][-1]) for m in meths]
-                s['budgets'] = {name: dict(zip(('value', 'bound'), (lambda v, b: (r3(v), b))(*ratio(finals, q, final[key], key))), label='ESTIMATED')
-                                for name, key in KEYS.items()}
-            tb = timing.get((ctx, seed))
-            if tb:
-                s['timing'] = dict(seconds_per_update={k: round(v, 5) for k, v in tb['seconds_per_update'].items()}, ratio=r3(tb['ratio']),
-                                   gpus=tb['gpus'], label='MEASURED')
-                for est in ('curve', 'budgets'):
-                    if est in s:
-                        st = s[est]['R_steps']
-                        s[est]['R_time_timing'] = dict(value=r3(st['value'] * tb['ratio']), bound=st['bound'], label='ESTIMATED')
-            per_seed.append(s)
-        complete = [s for s in per_seed if 'missing' not in s]
-        stage = dict(context=ctx, seeds_run=[s['seed'] for s in complete], seeds_missing=[s for s in per_seed if 'missing' in s], per_seed=complete)
+    for ctx, shp, budget in keys:
+        bases = [r for r in runs if r['head']['arm'] == 'baseline' and r['head']['ctx'] == ctx and shape(r) == shp and r['head']['tokens_budget'] == budget]
+        per_seed, missing = [], []
+        for base in sorted(bases, key=lambda r: r['head']['seed']):
+            seed = base['head']['seed']
+            meths = [r for r in runs if r['head']['arm'] == 'ngpt' and r['head']['ctx'] == ctx and shape(r) == shp and r['head']['seed'] == seed]
+            if not meths:
+                missing.append(dict(seed=seed, missing='ngpt')); continue
+            per_seed.append(seed_point(base, meths, timing.get((ctx, shp[0], seed))))
+        b0 = bases[0]['head']
+        params = b0['params']
+        stage = dict(context=ctx, tokens_budget=budget, tokens_per_parameter=round(budget / params, 1), seeds_run=[s['seed'] for s in per_seed],
+                     seeds_missing=missing, per_seed=per_seed)
         for est in ('curve', 'budgets'):
-            seeds = [s for s in complete if est in s]
+            seeds = [s for s in per_seed if est in s]
             if seeds:
                 stage[f'verdict_{est}'] = verdict_for(ctx, seeds, est)
         stage['verdict'] = stage.get(f'verdict_{RULES["primary_estimator"]}', dict(verdict='NO DATA'))
-        any_run = next(r for r in runs if r['head']['ctx'] == ctx)
-        stage['scale'] = dict(params_baseline=next((r['head']['params'] for r in runs if r['head']['ctx'] == ctx and r['head']['arm'] == 'baseline'), None),
-                              params_ngpt=next((r['head']['params'] for r in runs if r['head']['ctx'] == ctx and r['head']['arm'] == 'ngpt'), None),
-                              d=any_run['head']['config']['d'], layers=any_run['head']['config']['layers'], vocab=any_run['head']['config']['vocab'],
-                              tokens_per_update=any_run['head']['config']['tokens_per_update'],
-                              flops_per_token_analytic=any_run['head']['flops_per_token']['analytic'])
-        stage['hardware'] = sorted({g for r in runs if r['head']['ctx'] == ctx for g in gpus(r)})
+        meth_any = next((r['head'] for r in runs if r['head']['arm'] == 'ngpt' and r['head']['ctx'] == ctx and shape(r) == shp), None)
+        stage['scale'] = dict(params_baseline=params, params_ngpt=meth_any['params'] if meth_any else None, d=shp[0], layers=shp[1],
+                              vocab=b0['config']['vocab'], tokens_per_update=b0['config']['tokens_per_update'],
+                              flops_per_token_analytic=b0['flops_per_token']['analytic'])
+        stage['hardware'] = sorted({g for r in runs if r['head']['ctx'] == ctx and shape(r) == shp for g in gpus(r)})
         v = stage['verdict']
-        if 'verdict' in v and stage['scale']['params_baseline']:
-            v['statement'] = f"{v['verdict']} at {round(stage['scale']['params_baseline'] / 1e6)}M, context {ctx} ({RULES['scale_label']})"
+        if 'verdict' in v:
+            v['statement'] = (f"{v['verdict']} at {round(params / 1e6)}M, context {ctx}, {stage['tokens_per_parameter']:g} tokens per parameter "
+                              f"({RULES['scale_label']})")
         stages.append(stage)
     return dict(schema='ecc-result/1', check='ECC-004', claim='C12', rules=RULES, stages=stages,
                 data_sha256_consistent=len(data_sha) == 1, data_sha256=json.loads(next(iter(data_sha))) if len(data_sha) == 1 else None,
@@ -209,7 +222,7 @@ def main():
     a = ap.parse_args()
     res = build(a.logs); text = dumps(res)
     for st in res['stages']:
-        print(f"context {st['context']}: seeds {st['seeds_run']}, verdict {st['verdict'].get('statement', st['verdict'].get('verdict'))}, "
+        print(f"context {st['context']}, {st['scale']['params_baseline'] / 1e6:.1f}M, {st['tokens_per_parameter']:g} tok/param: seeds {st['seeds_run']}, verdict {st['verdict'].get('statement', st['verdict'].get('verdict'))}, "
               f"median R_FLOP {st['verdict'].get('median_R_FLOP')}, median R_time {st['verdict'].get('median_R_time')}")
     if a.check:
         old = Path(a.out).read_text(encoding='utf-8')

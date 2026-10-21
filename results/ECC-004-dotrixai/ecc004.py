@@ -496,7 +496,7 @@ def timing_block(cfgs, data_dir, out, n_up=60, skip=10, device=None, log=print):
                                 eval_split='tune')
         rec = train(c, data_dir, out / f'timing_{i}_{arm}', device=device, check_hashes=False, log=lambda s: None)
         cur = rec['curve']; t = sorted([b['train_time_s'] - a['train_time_s'] for a, b in zip(cur, cur[1:])][skip:])   # drop warm-up and compilation
-        lines.append(dict(type='timing', order=i, arm=arm, seed=c.seed, ctx=c.ctx, micro_rows=c.micro_rows, compile=c.compile, n=len(t),
+        lines.append(dict(type='timing', order=i, arm=arm, seed=c.seed, ctx=c.ctx, d=c.d, layers=c.layers, micro_rows=c.micro_rows, compile=c.compile, n=len(t),
                           median_s=round(t[len(t) // 2], 5), mean_s=round(sum(t) / len(t), 5), gpu=rec['segments'][0]['env'].get('gpu'),
                           code_sha256=CODE_SHA))
         (out / f'timing_{i}_{arm}' / 'ckpt.pt').unlink(missing_ok=True)

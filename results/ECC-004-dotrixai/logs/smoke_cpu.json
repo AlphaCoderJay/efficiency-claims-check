@@ -1,6 +1,6 @@
 {
- "utc": "2026-10-21T04:15:50Z",
- "code_sha256": "0ce1a009456c6e76a3c8291c2f7111887f73a5665c3869bb0677d7b0079007f4",
+ "utc": "2026-10-21T08:44:47Z",
+ "code_sha256": "ce88c293a4524967450222a9011a1b6ec3bcf16711c6f499347921406f864b2c",
  "torch": "2.7.0+cpu",
  "runs": [
   {
@@ -15,8 +15,8 @@
    ],
    "skipped": 0,
    "nonfinite": 0,
-   "train_time_s": 0.92,
-   "wall_s": 2.9,
+   "train_time_s": 1.4,
+   "wall_s": 4.4,
    "causal_init": {
     "ok": true,
     "max_change_before_t": 0.0,
@@ -58,8 +58,8 @@
    ],
    "skipped": 0,
    "nonfinite": 0,
-   "train_time_s": 11.64,
-   "wall_s": 12.1,
+   "train_time_s": 16.99,
+   "wall_s": 17.7,
    "causal_init": {
     "ok": true,
     "max_change_before_t": 0.0,
@@ -101,8 +101,8 @@
    ],
    "skipped": 0,
    "nonfinite": 0,
-   "train_time_s": 10.56,
-   "wall_s": 11.0,
+   "train_time_s": 15.27,
+   "wall_s": 15.9,
    "causal_init": {
     "ok": true,
     "max_change_before_t": 0.0,
@@ -144,8 +144,8 @@
    ],
    "skipped": 0,
    "nonfinite": 0,
-   "train_time_s": 1.26,
-   "wall_s": 1.4,
+   "train_time_s": 1.86,
+   "wall_s": 2.0,
    "causal_init": {
     "ok": true,
     "max_change_before_t": 0.0,
@@ -187,8 +187,8 @@
    ],
    "skipped": 0,
    "nonfinite": 0,
-   "train_time_s": 12.33,
-   "wall_s": 12.8,
+   "train_time_s": 17.51,
+   "wall_s": 18.2,
    "causal_init": {
     "ok": true,
     "max_change_before_t": 0.0,
@@ -230,8 +230,8 @@
    ],
    "skipped": 0,
    "nonfinite": 0,
-   "train_time_s": 11.51,
-   "wall_s": 12.0,
+   "train_time_s": 15.41,
+   "wall_s": 16.1,
    "causal_init": {
     "ok": true,
     "max_change_before_t": 0.0,
@@ -272,7 +272,7 @@
      5.873601
     ],
     "skipped": 0,
-    "wall_s": 2.9
+    "wall_s": 4.4
    }
   },
   "baseline/fp32 causal init+trained": {
@@ -305,7 +305,7 @@
      5.8726
     ],
     "skipped": 0,
-    "wall_s": 12.1
+    "wall_s": 17.7
    }
   },
   "baseline/fp16 causal init+trained": {
@@ -338,7 +338,7 @@
      5.87465
     ],
     "skipped": 0,
-    "wall_s": 11.0
+    "wall_s": 15.9
    }
   },
   "baseline/bf16 causal init+trained": {
@@ -371,7 +371,7 @@
      8.367105
     ],
     "skipped": 0,
-    "wall_s": 1.4
+    "wall_s": 2.0
    }
   },
   "ngpt/fp32 causal init+trained": {
@@ -404,7 +404,7 @@
      8.367103
     ],
     "skipped": 0,
-    "wall_s": 12.8
+    "wall_s": 18.2
    }
   },
   "ngpt/fp16 causal init+trained": {
@@ -437,7 +437,7 @@
      8.367078
     ],
     "skipped": 0,
-    "wall_s": 12.0
+    "wall_s": 16.1
    }
   },
   "ngpt/bf16 causal init+trained": {
