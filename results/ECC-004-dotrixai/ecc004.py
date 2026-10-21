@@ -9,7 +9,8 @@ files (see prepare_data.py).
 
 Both arms use the same shapes: d, layers, heads, a SwiGLU MLP with hidden size 4d (as in the paper), RoPE, untied input and output embeddings.
 
-  baseline  pre-LayerNorm GPT (ECC baseline v1, scaled up): AdamW (0.9, 0.95), weight decay 0.1 on matrices except the input embedding,
+  baseline  pre-LayerNorm GPT (ECC baseline v1, scaled up) with QK-norm (per-head RMSNorm of q and k before RoPE, learnable gain):
+            AdamW (0.9, 0.95), weight decay 0.1 on matrices except the input embedding,
             init std 0.02 with residual projections scaled by 1 / sqrt(2 layers), linear warmup then cosine.
   ngpt      the paper's normalized Transformer, checked against github.com/NVIDIA/ngpt (commit ed19eb2):
               - every hidden state on the unit sphere: h <- Norm(Norm(h) + |alpha| (Norm(h_X) - Norm(h))) after attention and after the MLP;
@@ -59,6 +60,7 @@ class Config:
     layers: int = 8
     heads: int = 6
     hidden: int = 1536                    # SwiGLU hidden size (paper: 4d)
+    qk_norm: int = 1                      # baseline only: per-head RMSNorm of q and k (a common modern addition; PREREG decision 4b)
     vocab: int = 8192
     ctx: int = 1024
     tokens: float = 5e8                   # training tokens of this run; the LR schedule spans exactly this budget
@@ -124,6 +126,12 @@ def norm(x, dim=-1):
     return x / x.norm(dim=dim, keepdim=True).clamp_min(1e-12)
 
 
+def rms_norm(x, gain, eps=1e-6):
+    """RMSNorm over the last dimension in fp32, times a learnable gain; returned in x's dtype (baseline QK-norm)."""
+    x32 = x.float()
+    return (x32 * torch.rsqrt(x32.pow(2).mean(-1, keepdim=True) + eps) * gain).to(x.dtype)
+
+
 class Scale(nn.Module):
     """nGPT scaling vector with the paper's restoration: effective = param * (init / scale), param initialized to scale."""
     def __init__(self, n, init, scale):
@@ -145,6 +153,8 @@ class Block(nn.Module):
         self.down = nn.Linear(c.hidden, c.d, bias=False)
         if c.arm == 'baseline':
             self.ln1, self.ln2 = nn.LayerNorm(c.d), nn.LayerNorm(c.d)
+            if c.qk_norm:                                   # per-head RMSNorm of q and k before RoPE, one gain vector shared by the heads
+                self.q_gain, self.k_gain = nn.Parameter(torch.ones(self.dh)), nn.Parameter(torch.ones(self.dh))
         else:
             s = 1 / math.sqrt(c.d)
             self.alpha_a, self.alpha_m = Scale(c.d, 0.05, s), Scale(c.d, 0.05, s)
@@ -154,6 +164,8 @@ class Block(nn.Module):
     def attend(self, a, B, T):
         q, k, v = self.qkv(a).view(B, T, 3, self.c.heads, self.dh).permute(2, 0, 3, 1, 4)   # each [B, H, T, dh]
         cos, sin = rope_tables(T, self.dh, a.device)
+        if self.c.arm == 'baseline' and self.c.qk_norm:
+            q, k = rms_norm(q, self.q_gain), rms_norm(k, self.k_gain)
         q, k = rope(q, cos, sin), rope(k, cos, sin)
         if self.c.arm == 'baseline':
             y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
@@ -471,6 +483,26 @@ def train(c, data_dir, out, resume=None, deadline_min=None, ckpt_every_min=30.0,
     rec['status'] = 'done'; rec['wall_s'] = round(time.time() - t_start, 1)
     checkpoint(c.updates)
     return rec
+
+
+def timing_block(cfgs, data_dir, out, n_up=60, skip=10, device=None, log=print):
+    """Per-update GPU time of each arm ALONE on one GPU, in the order A B B A (drift cancels), after the long runs of a session.
+    R_time (ESTIMATED) = R_steps x (nGPT seconds per update / baseline seconds per update); the long runs themselves may share the
+    machine with another run and are only reported. cfgs: {'baseline': Config, 'ngpt': Config} with the session's real settings."""
+    device = device or torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    out = Path(out); out.mkdir(parents=True, exist_ok=True); lines = []
+    for i, arm in enumerate(('baseline', 'ngpt', 'ngpt', 'baseline')):
+        c = dataclasses.replace(cfgs[arm], tokens=float(n_up * cfgs[arm].tokens_per_update), log_every=1, eval_fracs=(1.0,), eval_tokens=2 ** 14,
+                                eval_split='tune')
+        rec = train(c, data_dir, out / f'timing_{i}_{arm}', device=device, check_hashes=False, log=lambda s: None)
+        cur = rec['curve']; t = sorted([b['train_time_s'] - a['train_time_s'] for a, b in zip(cur, cur[1:])][skip:])   # drop warm-up and compilation
+        lines.append(dict(type='timing', order=i, arm=arm, seed=c.seed, ctx=c.ctx, micro_rows=c.micro_rows, compile=c.compile, n=len(t),
+                          median_s=round(t[len(t) // 2], 5), mean_s=round(sum(t) / len(t), 5), gpu=rec['segments'][0]['env'].get('gpu'),
+                          code_sha256=CODE_SHA))
+        (out / f'timing_{i}_{arm}' / 'ckpt.pt').unlink(missing_ok=True)
+        log(f'timing {i} {arm}: median {lines[-1]["median_s"]} s per update')
+    (out / 'timing.jsonl').write_text(''.join(json.dumps(x, sort_keys=True, separators=(',', ':')) + '\n' for x in lines), encoding='utf-8', newline='\n')
+    return lines
 
 
 def config_from_args(a):

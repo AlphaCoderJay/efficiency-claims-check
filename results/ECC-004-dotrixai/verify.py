@@ -28,10 +28,11 @@ HERE = Path(__file__).resolve().parent
 # The pass rule, copied from PREREG.md when it is frozen. Until then it is a draft and verify.py says so in result.json.
 RULES = {
     'status': 'DRAFT, not frozen',
-    'primary_estimator': 'curve',
+    'primary_estimator': 'budgets',
+    'time_source': 'timing block (R_time = R_steps x seconds-per-update ratio, both arms alone on one GPU); in-run time reported only',
     'contexts': {
         '1024': dict(claimed_R=0.25, holds_R_flop=0.25, holds_R_time=0.35, does_not_hold_R_flop=0.8),
-        '4096': dict(claimed_R=0.10, holds_R_flop=0.10, holds_R_time=0.18, does_not_hold_R_flop=0.8),
+        '4096': dict(claimed_R=0.10, holds_R_flop=0.10, holds_R_time=0.14, does_not_hold_R_flop=0.8),
     },
     'min_seeds_for_verdict': 3,
 }
@@ -51,6 +52,20 @@ def ratio(points, q, c_ref, key):
             f = (b0 - q) / (b0 - b1)
             return math.exp(math.log(c0) + f * (math.log(c1) - math.log(c0))) / c_ref, None
     return pts[-1][0] / c_ref, 'lower'
+
+
+def load_timing(logs):
+    """timing.jsonl lines (ecc004.timing_block) by (ctx, seed): mean of the A B B A medians per arm, and their ratio."""
+    t = {}
+    for p in sorted(Path(logs).rglob('timing.jsonl')):
+        raw = p.read_bytes()
+        for x in (json.loads(l) for l in raw.decode('utf-8').splitlines() if l.strip()):
+            t.setdefault((x['ctx'], x['seed']), dict(lines=[], files={}))['lines'].append(x)
+            t[(x['ctx'], x['seed'])]['files'][p.relative_to(Path(logs)).as_posix()] = hashlib.sha256(raw).hexdigest()
+    for v in t.values():
+        per = {arm: statistics.mean(x['median_s'] for x in v['lines'] if x['arm'] == arm) for arm in ('baseline', 'ngpt')}
+        v.update(seconds_per_update=per, ratio=per['ngpt'] / per['baseline'], gpus=sorted({x['gpu'] or 'cpu' for x in v['lines']}))
+    return t
 
 
 def load_runs(logs):
@@ -85,11 +100,12 @@ def verdict_for(ctx, seeds, est):
         return dict(verdict='NO RULE', reason=f'no pass rule for context {ctx}')
     if any(not s['valid'] for s in seeds):
         return dict(verdict='INCONCLUSIVE', reason='a validity check failed')
-    rf = [s[est]['R_FLOP']['value'] for s in seeds]; rt = [s[est]['R_time']['value'] for s in seeds]
+    tkey = 'R_time_timing' if all('R_time_timing' in s[est] for s in seeds) else 'R_time'
+    rf = [s[est]['R_FLOP']['value'] for s in seeds]; rt = [s[est][tkey]['value'] for s in seeds]
     order = ['HOLDS', 'PARTIAL', 'DOES NOT HOLD']
     cls = lambda r: 'HOLDS' if r <= rule['holds_R_flop'] else ('PARTIAL' if r <= rule['does_not_hold_R_flop'] else 'DOES NOT HOLD')
     med_f, med_t = statistics.median(rf), statistics.median(rt)
-    out = dict(median_R_FLOP=r3(med_f), median_R_time=r3(med_t), n_seeds=len(seeds), rule=rule,
+    out = dict(median_R_FLOP=r3(med_f), median_R_time=r3(med_t), R_time_source=tkey, n_seeds=len(seeds), rule=rule,
                bounds=[s[est]['R_FLOP']['bound'] for s in seeds])
     ambiguous = []                                       # a bound leaves more than one class possible: 'upper' = at most, 'lower' = at least
     for s, r in zip(seeds, rf):
@@ -111,7 +127,7 @@ def verdict_for(ctx, seeds, est):
 
 
 def build(logs):
-    runs = load_runs(logs)
+    runs = load_runs(logs); timing = load_timing(logs)
     assert runs, f'no run.jsonl under {logs}'
     data_sha = {json.dumps(r['head']['data_sha256'], sort_keys=True) for r in runs}
     stages = []
@@ -147,6 +163,14 @@ def build(logs):
                 finals = [dict(m['evals'][-1]) for m in meths]
                 s['budgets'] = {name: dict(zip(('value', 'bound'), (lambda v, b: (r3(v), b))(*ratio(finals, q, final[key], key))), label='ESTIMATED')
                                 for name, key in KEYS.items()}
+            tb = timing.get((ctx, seed))
+            if tb:
+                s['timing'] = dict(seconds_per_update={k: round(v, 5) for k, v in tb['seconds_per_update'].items()}, ratio=r3(tb['ratio']),
+                                   gpus=tb['gpus'], label='MEASURED')
+                for est in ('curve', 'budgets'):
+                    if est in s:
+                        st = s[est]['R_steps']
+                        s[est]['R_time_timing'] = dict(value=r3(st['value'] * tb['ratio']), bound=st['bound'], label='ESTIMATED')
             per_seed.append(s)
         complete = [s for s in per_seed if 'missing' not in s]
         stage = dict(context=ctx, seeds_run=[s['seed'] for s in complete], seeds_missing=[s for s in per_seed if 'missing' in s], per_seed=complete)
@@ -166,7 +190,7 @@ def build(logs):
     return dict(schema='ecc-result/1', check='ECC-004', claim='C12', rules=RULES, stages=stages,
                 data_sha256_consistent=len(data_sha) == 1, data_sha256=json.loads(next(iter(data_sha))) if len(data_sha) == 1 else None,
                 code_sha256=sorted({r['head']['code_sha256'] for r in runs}),
-                logs={r['path']: r['sha256'] for r in runs},
+                logs={**{r['path']: r['sha256'] for r in runs}, **{f: h for v in timing.values() for f, h in v['files'].items()}},
                 verify_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
 
 
