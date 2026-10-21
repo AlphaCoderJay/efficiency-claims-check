@@ -49,6 +49,9 @@ def main():
     ap.add_argument('--data-dir', required=True); ap.add_argument('--out', required=True)
     ap.add_argument('--parts', default='checks,throughput,stability,parallel'); ap.add_argument('--deadline-min', type=float, default=150)
     ap.add_argument('--smoke', action='store_true'); ap.add_argument('--compile-backend', default='inductor')
+    ap.add_argument('--arms', default='baseline,ngpt', help='arms for checks, compile and stability')
+    ap.add_argument('--stab-lrs', default='', help='stability learning rates, e.g. baseline:2e-3,8e-3;ngpt:1.6e-2 (default: calibration 1)')
+    ap.add_argument('--stab-compile', default='none', help='compile mode of the stability runs')
     a = ap.parse_args(); t0 = time.time(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     dev = torch.device('cuda' if torch.cuda.is_available() else 'cpu'); cuda = dev.type == 'cuda'
     parts = a.parts.split(','); smoke = a.smoke
@@ -60,10 +63,11 @@ def main():
     late = lambda: (time.time() - t0) / 60 > a.deadline_min
     ctxs = (1024, 4096) if not smoke else (128,)
     vocab = json.loads((Path(a.data_dir) / 'meta.json').read_text())['vocab']
+    arms = a.arms.split(',')
     first = True
 
     if 'checks' in parts:
-        for arm in ('baseline', 'ngpt'):
+        for arm in arms:
             for ctx in ctxs:
                 c = base_config(smoke, arm=arm, ctx=ctx, vocab=vocab); torch.manual_seed(0); m = E.LM(c).to(dev)
                 r = dict(arm=arm, ctx=ctx, params=E.n_params(m), flops_analytic=E.flops_per_token_analytic(c),
@@ -100,17 +104,21 @@ def main():
 
     if 'stability' in parts:
         n_up = 200 if not smoke else 10
-        for arm, lrs in (('baseline', (2e-3, 8e-3)), ('ngpt', (1.6e-2, 6.4e-2))):
+        stab = ({k: [float(x) for x in v.split(',')] for k, v in (p.split(':') for p in a.stab_lrs.split(';'))} if a.stab_lrs
+                else {'baseline': [2e-3, 8e-3], 'ngpt': [1.6e-2, 6.4e-2]})
+        for arm, lrs in ((k, v) for k, v in stab.items() if k in arms):
             for lr in lrs:
                 if late():
                     break
                 ctx = ctxs[0]
-                best = [t for t in rep['throughput'] if t['arm'] == arm and t['ctx'] == ctx and t.get('status') == 'done']
-                mr = min(best, key=lambda t: t['per_update']['median_s'])['micro_rows'] if best else (16 if not smoke else 4)
-                c = base_config(smoke, arm=arm, ctx=ctx, vocab=vocab, micro_rows=mr, lr=lr, log_every=10, eval_fracs=(0.25, 0.5, 1.0))
+                best = [t for t in rep['throughput'] + rep['compile'] if t['arm'] == arm and t['ctx'] == ctx and t.get('status') == 'done']
+                fallback = 4 if smoke else {('baseline', 1024): 32, ('ngpt', 1024): 16}.get((arm, ctx), 8)   # calibration 2
+                mr = min(best, key=lambda t: t['per_update']['median_s'])['micro_rows'] if best else fallback
+                c = base_config(smoke, arm=arm, ctx=ctx, vocab=vocab, micro_rows=mr, lr=lr, log_every=10, eval_fracs=(0.25, 0.5, 1.0),
+                                compile=a.stab_compile)
                 c = dataclasses.replace(c, tokens=float(n_up * c.tokens_per_update))
                 rec = E.train(c, a.data_dir, out / 'tmp', device=dev, check_hashes=False, log=lambda s: None)
-                r = dict(arm=arm, lr=lr, ctx=ctx, micro_rows=mr, updates=c.updates, status=rec['status'], skipped=rec['skipped_steps'],
+                r = dict(arm=arm, lr=lr, ctx=ctx, micro_rows=mr, compile=c.compile, qk_norm=c.qk_norm, updates=c.updates, status=rec['status'], skipped=rec['skipped_steps'],
                          nonfinite=rec['nonfinite_losses'], curve=[(p['update'], p['loss'], p['grad_norm'], p['scale']) for p in rec['curve']],
                          tune_bits=[(p['update'], p['bits_per_token']) for p in rec['points']], train_time_s=rec['train_time_s'])
                 rep['stability'].append(r); save()
@@ -122,6 +130,8 @@ def main():
         grid = {1024: (('baseline', 32), ('ngpt', 16), ('ngpt', 32)), 4096: (('baseline', 8), ('ngpt', 4), ('ngpt', 8)), 128: (('baseline', 8), ('ngpt', 8))}
         for ctx in ctxs:
             for arm, mr in grid[ctx]:
+                if arm not in arms:
+                    continue
                 if late():
                     break
                 c = base_config(smoke, arm=arm, ctx=ctx, vocab=vocab, micro_rows=mr, lr=1e-3, compile=a.compile_backend)
