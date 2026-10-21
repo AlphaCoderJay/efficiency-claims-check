@@ -36,8 +36,11 @@ def per_update_times(rec, skip):
     return dict(n=len(t), median_s=sorted(t)[len(t) // 2], mean_s=sum(t) / len(t), min_s=min(t), max_s=max(t)) if t else None
 
 
+SHAPE = {}                                             # --shape d,layers,heads,hidden (another model size, e.g. the 89M scale point)
+
+
 def base_config(smoke, **kw):
-    c = dict(eval_split='tune', eval_tokens=2 ** 16, eval_fracs=(1.0,), log_every=1)
+    c = dict(eval_split='tune', eval_tokens=2 ** 16, eval_fracs=(1.0,), log_every=1, **SHAPE)
     if smoke:
         c.update(d=64, layers=2, heads=2, hidden=256, ctx=128, tokens_per_update=128 * 8, eval_tokens=128 * 16)
     c.update(kw)
@@ -52,6 +55,9 @@ def main():
     ap.add_argument('--arms', default='baseline,ngpt', help='arms for checks, compile and stability')
     ap.add_argument('--stab-lrs', default='', help='stability learning rates, e.g. baseline:2e-3,8e-3;ngpt:1.6e-2 (default: calibration 1)')
     ap.add_argument('--stab-compile', default='none', help='compile mode of the stability runs')
+    ap.add_argument('--shape', default='', help='d,layers,heads,hidden for another model size')
+    ap.add_argument('--micro-grid', default='', help='compile part micro-batch sizes at the first context, e.g. baseline:8,16;ngpt:8,16')
+    ap.add_argument('--contexts', default='1024,4096')
     a = ap.parse_args(); t0 = time.time(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     dev = torch.device('cuda' if torch.cuda.is_available() else 'cpu'); cuda = dev.type == 'cuda'
     parts = a.parts.split(','); smoke = a.smoke
@@ -61,7 +67,10 @@ def main():
     log = lambda s: print(f'[{time.time() - t0:6.0f} s] {s}', flush=True)
     save = lambda: E.save_json(out / 'calibration.json', rep)
     late = lambda: (time.time() - t0) / 60 > a.deadline_min
-    ctxs = (1024, 4096) if not smoke else (128,)
+    ctxs = tuple(int(c) for c in a.contexts.split(',')) if not smoke else (128,)
+    if a.shape:
+        SHAPE.update(zip(('d', 'layers', 'heads', 'hidden'), (int(v) for v in a.shape.split(','))))
+    rep['shape'] = dict(SHAPE)
     vocab = json.loads((Path(a.data_dir) / 'meta.json').read_text())['vocab']
     arms = a.arms.split(',')
     first = True
@@ -128,6 +137,8 @@ def main():
         # per arm and context: torch.compile (inductor) throughput; the first update holds the compilation time
         n_up = 30 if not smoke else 6
         grid = {1024: (('baseline', 32), ('ngpt', 16), ('ngpt', 32)), 4096: (('baseline', 8), ('ngpt', 4), ('ngpt', 8)), 128: (('baseline', 8), ('ngpt', 8))}
+        if a.micro_grid:
+            grid[ctxs[0]] = tuple((arm, int(m)) for arm, ms in (p.split(':') for p in a.micro_grid.split(';')) for m in ms.split(','))
         for ctx in ctxs:
             for arm, mr in grid[ctx]:
                 if arm not in arms:
