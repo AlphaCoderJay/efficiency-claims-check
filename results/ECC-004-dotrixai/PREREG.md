@@ -1,11 +1,36 @@
-# Pre-registration: C12 nGPT on GPU, context 1k and 4k (ECC-004)
+# Pre-registration: C12 nGPT on GPU at 25M parameters, context 1k and 4k, a small-scale screen (ECC-004)
 
 **DRAFT, not frozen.** Frozen at: (the commit time of this file on main, once review is done)
 Author: DotrixAI (code and runs by a DotrixAI agent session, owner Noven). Reviewer: to be named.
 
+**Scale, up front:** this is a proof of concept, a small-scale screen at about 25M parameters. It is not a verdict on nGPT at the paper's 0.5B to 1B. Every verdict below carries that label.
+
 ## Why this check
 
-ECC-001 tested the same claim on a laptop CPU with a 0.73M model, context 128 and 1,200 updates. It came out PARTIAL (1.47x fewer steps against the claimed 4x to 20x). People rightly said that scale is too small to say much about a method whose claimed gain grows with context. This check redoes it on free Kaggle GPUs, about 35x bigger, at context 1024 and 4096, with the baseline trained much closer to convergence.
+ECC-001 tested the same claim on a laptop CPU with a 0.73M model, context 128 and 1,200 updates. It came out PARTIAL (1.47x fewer steps against the claimed 4x to 20x). Two fair objections followed. A GPU method run on a CPU says little about how it behaves where it is meant to run. And 0.73M at context 128 is far from the setting where the paper reports its gains, which grow with context. This check redoes it on free Kaggle GPUs, about 35x bigger, at context 1024 and 4096, with the baseline trained much closer to convergence. It is still small; the next section says what that means.
+
+## Why this may or may not transfer
+
+| | paper | this check |
+|---|---|---|
+| model | 0.5B and 1B | about 25M |
+| data | OpenWebText | OpenWebText (12 of 80 files) |
+| tokens per run | up to about 400B | 504M (20 per parameter) |
+| context | 1k, 4k, 8k | 1k, 4k |
+| vocabulary | 32k (LLaMA-2) | 8k |
+| hardware, precision | 64 A100s, bf16 weights | 2 T4s, fp16 compute with fp32 weights |
+| baseline | GPT without QK-norm | GPT with QK-norm |
+
+Reasons a result here may hold at larger scale:
+- the mechanism the paper credits (unit-norm weights and hidden states, learned per-dimension step sizes) does not depend on width in an obvious way;
+- the claimed gain is tied to context length, and both claimed contexts are tested here.
+
+Reasons it may not:
+- efficiency gains often change with scale; Muon's gain over a tuned AdamW shrinks as models grow (C01, C02), and the nGPT authors themselves report about 2x at 30B against 4x to 20x at 1B;
+- a small model trained for 504M tokens sits in a different regime from a 1B model trained for hundreds of billions;
+- the vocabulary, the precision and the baseline all differ from the paper.
+
+What a 25M result cannot show: whether nGPT saves steps at 0.5B to 1B or beyond, whether a gain grows or shrinks with size, or anything at 8k. A 1B run at 20 tokens per parameter needs about 1.2e20 FLOPs (ESTIMATED), roughly 3,000 T4 hours, which free GPUs cannot reach. That is why this is a screen, and why a trend over two sizes, if the budget allows, is worth more than one point.
 
 ## Claim
 
@@ -155,6 +180,8 @@ Per context, using the median over seeds of R (primary estimator) and R_time:
 **INCONCLUSIVE** if a validity check fails, if the seeds fall in different R classes, or if a bound leaves the class open.
 
 A context with fewer than 3 finished seeds gets its verdict with the seed count, for example "PARTIAL (1 seed only)".
+
+Every verdict is stated with its scale and the screen label, for example "PARTIAL at 25M, context 1024 (small-scale screen)". It is a verdict on this setup, not on the claim at 0.5B to 1B.
 
 ## Validity checks
 

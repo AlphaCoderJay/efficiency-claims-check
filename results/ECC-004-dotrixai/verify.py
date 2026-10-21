@@ -35,6 +35,7 @@ RULES = {
         '4096': dict(claimed_R=0.10, holds_R_flop=0.10, holds_R_time=0.14, does_not_hold_R_flop=0.8),
     },
     'min_seeds_for_verdict': 3,
+    'scale_label': 'small-scale screen',
 }
 KEYS = {'R_FLOP': 'flops', 'R_time': 'train_time_s', 'R_steps': 'tokens'}
 
@@ -186,6 +187,9 @@ def build(logs):
                               tokens_per_update=any_run['head']['config']['tokens_per_update'],
                               flops_per_token_analytic=any_run['head']['flops_per_token']['analytic'])
         stage['hardware'] = sorted({g for r in runs if r['head']['ctx'] == ctx for g in gpus(r)})
+        v = stage['verdict']
+        if 'verdict' in v and stage['scale']['params_baseline']:
+            v['statement'] = f"{v['verdict']} at {round(stage['scale']['params_baseline'] / 1e6)}M, context {ctx} ({RULES['scale_label']})"
         stages.append(stage)
     return dict(schema='ecc-result/1', check='ECC-004', claim='C12', rules=RULES, stages=stages,
                 data_sha256_consistent=len(data_sha) == 1, data_sha256=json.loads(next(iter(data_sha))) if len(data_sha) == 1 else None,
@@ -205,7 +209,7 @@ def main():
     a = ap.parse_args()
     res = build(a.logs); text = dumps(res)
     for st in res['stages']:
-        print(f"context {st['context']}: seeds {st['seeds_run']}, verdict {st['verdict'].get('verdict')}, "
+        print(f"context {st['context']}: seeds {st['seeds_run']}, verdict {st['verdict'].get('statement', st['verdict'].get('verdict'))}, "
               f"median R_FLOP {st['verdict'].get('median_R_FLOP')}, median R_time {st['verdict'].get('median_R_time')}")
     if a.check:
         old = Path(a.out).read_text(encoding='utf-8')
